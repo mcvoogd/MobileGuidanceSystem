@@ -12,13 +12,15 @@ namespace MobileGuidingSystem.ViewModel
 {
     public class MainModel : Model
     {
-        private MapControl _map; 
+        private MapControl _map;
+        public string s1 = "HEEEEYYYOOOOO";
 
         public MainModel(MapControl mapcontrol)
         {
             _map = mapcontrol;
             InitializeMap();
             drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
+            drawWayPoint("home-pin.png", "HOME", new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }));
         }
 
         public override void NextPage(object user)
@@ -28,7 +30,7 @@ namespace MobileGuidingSystem.ViewModel
 
         public void InitializeMap()
         {
-            User user = new User();
+            user = new User();
             if (user.location == null)
             {
                 user.location = new Geopoint(new BasicGeoposition() { Longitude = 4.780172,  Latitude = 51.586267});
@@ -74,17 +76,20 @@ namespace MobileGuidingSystem.ViewModel
 
         public void drawWayPoint(string fileName, string title, Geopoint location)
         {
-            var anchorPoint = new Point(0, 5.1);
+            var anchorPoint = new Point(0.5, 1);
             var image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/" + fileName));
 
-            var Shape = new MapIcon
+            MapIcon Shape = new MapIcon
             {
                 Title = title,
                 Location = location,
                 NormalizedAnchorPoint = anchorPoint,
                 Image = image,
-                ZIndex = 15
+                ZIndex = 20
             };
+
+            _map.MapElements.Add(Shape);
+            _map.Center = location;
         }
     }
 }
