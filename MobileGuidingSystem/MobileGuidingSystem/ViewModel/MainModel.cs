@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml.Controls.Maps;
+﻿using Windows.Devices.Geolocation;
+using Windows.UI.Xaml.Controls.Maps;
 using MobileGuidingSystem.Data;
 
 namespace MobileGuidingSystem.ViewModel
@@ -10,6 +11,7 @@ namespace MobileGuidingSystem.ViewModel
         public MainModel(MapControl mapcontrol)
         {
             _map = mapcontrol;
+            User user = new User() {location = new Geopoint(new BasicGeoposition() {Latitude = 51.586267, Longitude = 4.780172 })};
             mapcontrol.Center = user.location;
         }
 

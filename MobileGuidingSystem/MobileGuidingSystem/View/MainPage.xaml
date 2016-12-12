@@ -9,6 +9,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Maps:MapControl Name ="MyMap" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Maps:MapControl x:Name ="MyMap" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" 
+                         MapServiceToken="Dsv8ktkVhwyMXi0Pmr2z~-e4m3LTv8HXZ1mzYCMmPDw~AmSO5Kwq8xR_ReUIW34ryPcl73B8nfoYBf4ckbHIceEKoC1K-r7LbuFzNbWbJJuL"/>
     </Grid>
 </Page>
