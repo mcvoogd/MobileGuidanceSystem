@@ -89,12 +89,19 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="Assets\JSON\data.json" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\Blindwalls\Author.cs" />
+    <Compile Include="Data\Blindwalls\BlindwallsDatabase.cs" />
+    <Compile Include="Data\Blindwalls\Category.cs" />
+    <Compile Include="Data\Blindwalls\CustomFields.cs" />
+    <Compile Include="Data\Blindwalls\Post.cs" />
+    <Compile Include="Data\Blindwalls\Query.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="ViewModel\MainModel.cs" />
     <Compile Include="ViewModel\Model.cs" />
