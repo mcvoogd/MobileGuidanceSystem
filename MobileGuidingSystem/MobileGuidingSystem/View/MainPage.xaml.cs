@@ -26,7 +26,7 @@ namespace MobileGuidingSystem
         public MainPage()
         {
             this.InitializeComponent();
-            //DataContext = new MainModel(MyMap);
+            DataContext = new MainModel(MyMap);
         }
     }
 }
