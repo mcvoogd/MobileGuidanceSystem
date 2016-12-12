@@ -25,6 +25,19 @@ namespace MobileGuidingSystem.Pages
         public SettingsPage()
         {
             this.InitializeComponent();
+            
+
+        }
+
+        private void HamburgerButton_OnClick(object sender, RoutedEventArgs e)
+        {
+           
+            HamburgerSplitview.IsPaneOpen = !HamburgerSplitview.IsPaneOpen;
+        }
+
+        private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           
         }
     }
 }

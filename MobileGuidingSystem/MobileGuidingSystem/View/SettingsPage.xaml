@@ -7,7 +7,73 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="NavajoWhite">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid Row="0">
+            <Button Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="24" VerticalAlignment="Top" Click="HamburgerButton_OnClick" Background="WhiteSmoke" ></Button>
+        </Grid>
+        
+        <Grid Row="1">
+            <SplitView Name="HamburgerSplitview" DisplayMode="CompactOverlay"  HorizontalAlignment="Left" CompactPaneLength="44" OpenPaneLength="175"  >
+                <SplitView.Pane >
+                    <ListBox  SelectionMode="Single" Margin="0,5,0,5" SelectionChanged="Selector_OnSelectionChanged" Background="Transparent">
+                        
+                        <ListBoxItem Name="Map" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE80F;" FontSize="24" ></TextBlock>
+                                <TextBlock  Margin="10,0,0,0" Text="Map" FontSize="24"></TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="RouteSelection" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE707;" FontSize="24" ></TextBlock>
+                                <TextBlock  Margin="10,0,0,0" Text="Route" FontSize="24"></TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="Sights">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE718;" FontSize="24" ></TextBlock>
+                                <TextBlock  Margin="10,0,0,0" Text="Sights" FontSize="24"></TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="Language" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE774;" FontSize="24" ></TextBlock>
+                                <TextBlock  Margin="10,0,0,0" Text="Language" FontSize="24"></TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="Settings" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE713;" FontSize="24" ></TextBlock>
+                                <TextBlock  Margin="10,0,0,0" Text="Settings" FontSize="24"></TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+                        
+                        <ListBoxItem Name="Help" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE897;" FontSize="24" ></TextBlock>
+                                <TextBlock  Margin="10,0,0,0" Text="Help" FontSize="24"></TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+                    </ListBox>
+
+                </SplitView.Pane>
+
+            </SplitView>
+        </Grid>
+        
 
     </Grid>
 </Page>
