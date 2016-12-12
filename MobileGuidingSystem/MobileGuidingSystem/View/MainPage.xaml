@@ -14,6 +14,7 @@
                          ZoomInteractionMode="GestureAndControl"
                          TiltInteractionMode="GestureAndControl"
                          RotateInteractionMode="GestureAndControl"
-                         />
-         </Grid>
+                         MapElementClick = "{x:Bind }"/>
+    </Grid>
 </Page>
+    
