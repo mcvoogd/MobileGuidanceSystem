@@ -93,7 +93,7 @@ namespace MobileGuidingSystem.ViewModel
                 ZIndex = 20
             };
 
-            shape
+            shape.AddData(new Sight());
 
             _map.MapElements.Add(shape);
             _map.Center = location;
