@@ -1,3 +1,4 @@
+// ReSharper disable InconsistentNaming
 using System.Collections.Generic;
 
 namespace MobileGuidingSystem.Data.Blindwalls

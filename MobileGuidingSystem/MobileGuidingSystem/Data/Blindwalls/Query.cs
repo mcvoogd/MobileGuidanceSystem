@@ -1,3 +1,4 @@
+// ReSharper disable InconsistentNaming
 namespace MobileGuidingSystem.Data.Blindwalls
 {
     public class Query
