@@ -89,7 +89,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="Assets\JSON\data.json" />
+    <None Include="Assets\JSON\BlindwallsDB.json" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
