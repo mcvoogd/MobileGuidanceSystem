@@ -10,6 +10,5 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Maps:MapControl Name ="MyMap" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-
     </Grid>
 </Page>
