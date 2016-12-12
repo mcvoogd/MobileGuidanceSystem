@@ -8,7 +8,7 @@ namespace MobileGuidingSystem.Data
 
         public static void AddData(this MapIcon kekIcon, object data)
         {
-           
+          
         }
     }
 }
