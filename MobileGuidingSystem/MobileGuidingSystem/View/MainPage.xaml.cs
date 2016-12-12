@@ -24,10 +24,12 @@ namespace MobileGuidingSystem
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public MainModel model;
         public MainPage()
         {
             this.InitializeComponent();
-            DataContext = new MainModel(MyMap);
+            model = new MainModel(MyMap);
         }
+
     }
 }

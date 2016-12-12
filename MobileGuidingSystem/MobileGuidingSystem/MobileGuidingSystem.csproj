@@ -102,6 +102,8 @@
     <Compile Include="Data\Blindwalls\CustomFields.cs" />
     <Compile Include="Data\Blindwalls\Post.cs" />
     <Compile Include="Data\Blindwalls\Query.cs" />
+    <Compile Include="Data\Extensions.cs" />
+    <Compile Include="Data\Sight.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="ViewModel\MainModel.cs" />
     <Compile Include="ViewModel\Model.cs" />
