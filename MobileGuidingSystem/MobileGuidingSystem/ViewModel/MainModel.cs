@@ -14,6 +14,7 @@ namespace MobileGuidingSystem.ViewModel
     {
         private MapControl _map;
         public string s1 = "HEEEEYYYOOOOO";
+        private readonly bool onCollisionShow;
 
         public MainModel(MapControl mapcontrol)
         {
@@ -79,17 +80,29 @@ namespace MobileGuidingSystem.ViewModel
             var anchorPoint = new Point(0.5, 1);
             var image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/" + fileName));
 
-            MapIcon Shape = new MapIcon
+            var shape = new MapIcon
             {
                 Title = title,
                 Location = location,
                 NormalizedAnchorPoint = anchorPoint,
                 Image = image,
+                CollisionBehaviorDesired =
+                onCollisionShow ? MapElementCollisionBehavior.RemainVisible
+                            : MapElementCollisionBehavior.Hide,
+
                 ZIndex = 20
             };
 
-            _map.MapElements.Add(Shape);
+            shape.AddData(new Sight());
+
+            _map.MapElements.Add(shape);
             _map.Center = location;
+        }
+
+
+        public void MyMap_OnMapElementClick(MapControl sender, MapElementClickEventArgs args)
+        {
+            //_map.ZoomLevel = 1;
         }
     }
 }

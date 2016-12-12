@@ -102,6 +102,8 @@
     <Compile Include="Data\Blindwalls\CustomFields.cs" />
     <Compile Include="Data\Blindwalls\Post.cs" />
     <Compile Include="Data\Blindwalls\Query.cs" />
+    <Compile Include="Data\Extensions.cs" />
+    <Compile Include="Data\Sight.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="ViewModel\MainModel.cs" />
     <Compile Include="ViewModel\Model.cs" />
@@ -135,7 +137,12 @@
     <None Include="MobileGuidingSystem_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\avans_logo.png" />
+    <Content Include="Assets\background.jpg" />
+    <Content Include="Assets\blindwalls_logo.png" />
+    <Content Include="Assets\breda_logo.png" />
     <Content Include="Assets\home-pin.png" />
+    <Content Include="Assets\vvv_logo.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

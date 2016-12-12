@@ -14,7 +14,9 @@
                          ZoomInteractionMode="GestureAndControl"
                          TiltInteractionMode="GestureAndControl"
                          RotateInteractionMode="GestureAndControl"
-                         MapElementClick = "{x:Bind }"/>
+                         DataContext= "model"
+                         MapElementClick="{x:Bind model.MyMap_OnMapElementClick}"/>
+                            
     </Grid>
 </Page>
     
