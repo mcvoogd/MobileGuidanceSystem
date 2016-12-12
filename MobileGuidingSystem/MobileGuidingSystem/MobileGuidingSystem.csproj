@@ -89,12 +89,21 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="Assets\JSON\BlindwallsDB.json" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\Blindwalls\Author.cs" />
+    <Compile Include="Data\Blindwalls\BlindwallsDatabase.cs" />
+    <Compile Include="Data\Blindwalls\Category.cs" />
+    <Compile Include="Data\Blindwalls\CustomFields.cs" />
+    <Compile Include="Data\Blindwalls\Post.cs" />
+    <Compile Include="Data\Blindwalls\Query.cs" />
+    <Compile Include="Data\Extensions.cs" />
+    <Compile Include="Data\Sight.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="ViewModel\MainModel.cs" />
     <Compile Include="ViewModel\Model.cs" />
@@ -128,6 +137,12 @@
     <None Include="MobileGuidingSystem_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\avans_logo.png" />
+    <Content Include="Assets\background.jpg" />
+    <Content Include="Assets\blindwalls_logo.png" />
+    <Content Include="Assets\breda_logo.png" />
+    <Content Include="Assets\home-pin.png" />
+    <Content Include="Assets\vvv_logo.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

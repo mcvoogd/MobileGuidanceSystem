@@ -7,6 +7,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -23,10 +24,12 @@ namespace MobileGuidingSystem
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public MainModel model;
         public MainPage()
         {
             this.InitializeComponent();
-            //DataContext = new MainModel();
+            model = new MainModel(MyMap);
         }
+
     }
 }
