@@ -9,6 +9,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Maps:MapControl Name ="MyMap" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-    </Grid>
+        <Maps:MapControl x:Name="MyMap"
+                         MapServiceToken="hXfoPb3UobMURPpymfd8~0KFlzLHFoGrO6NViSu2ltQ~AhzGBC78z3Ww6lQE6Df1AETSVLvCRCt7Q_WXIMPTYgiPpkVf6kNv0RYgId0cy5a0" 
+                         ZoomInteractionMode="GestureAndControl"
+                         TiltInteractionMode="GestureAndControl"
+                         RotateInteractionMode="GestureAndControl"
+                         />
+         </Grid>
 </Page>
