@@ -9,7 +9,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" AutomationProperties.IsRequiredForForm="True">
         <Image Source="ms-appx:///Assets/background.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Opacity="0.4"/>
-        <TextBlock x:Name="textBlock" Margin="0,50" HorizontalAlignment="Center" TextWrapping="Wrap" Text="GO!" VerticalAlignment="Top" FontSize="100" FontFamily="Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
+        <TextBlock x:Name="textBlock" Margin="0,50" HorizontalAlignment="Center" TextWrapping="Wrap" Text="GO!" VerticalAlignment="Top" FontSize="100" FontFamily="A Love of Thunder"/>
         <ProgressRing IsActive="True" x:Name="LoadingIndicator" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" MinWidth="60" MinHeight="60"/>
 
         <Grid VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="12">
