@@ -28,6 +28,7 @@ namespace MobileGuidingSystem.Pages
             this.InitializeComponent();
             MenuListBox.Background = new SolidColorBrush(Color.FromArgb(150,255,255,255));
             Frame.Navigate(typeof(HelpPage));
+            Map.IsSelected = true;
 
         }
 
@@ -41,21 +42,25 @@ namespace MobileGuidingSystem.Pages
         {
             
              if (Map.IsSelected)
-            {
-                
-            }
+             {
+                 Frame.Navigate(typeof(MainPage));
+             }
             else if (RouteSelection.IsSelected)
-            {
-            }
+             {
+                 Frame.Navigate(typeof(RouteSelectionPage));
+             }
             else if (Sights.IsSelected)
-            {
-            }
+             {
+                 Frame.Navigate(typeof(RouteSelectionPage));
+             }
             else if (Language.IsSelected)
-            {
-            }
+             {
+                 Frame.Navigate(typeof(LanguageSelectionPage));
+             }
             else if (Settings.IsSelected)
-            {
-            }
+             {
+                 Frame.Navigate(typeof(SettingsPage));
+             }
             else if (Help.IsSelected)
             {
                 Frame.Navigate(typeof(HelpPage));
