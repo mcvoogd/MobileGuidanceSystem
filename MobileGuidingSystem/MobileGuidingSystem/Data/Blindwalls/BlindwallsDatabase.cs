@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using Windows.Storage.Streams;
 using Newtonsoft.Json;
 
 namespace MobileGuidingSystem.Data.Blindwalls
@@ -13,14 +14,7 @@ namespace MobileGuidingSystem.Data.Blindwalls
 
         public static BlindwallsDatabase Load()
         {
-            Assembly assembly = typeof(BlindwallsDatabase).GetTypeInfo().Assembly;
-            using (Stream stream = assembly.GetManifestResourceStream("MobileGuidingSystem.Assets.JSON.BlindwallsDB.json"))
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                string text = reader.ReadToEnd();
-
-                return JsonConvert.DeserializeObject<BlindwallsDatabase>(text);
-            }
+            Utils.GetFileStream("JSON")
         }
 
         public string status { get; set; }
