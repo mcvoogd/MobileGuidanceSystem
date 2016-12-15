@@ -69,7 +69,7 @@ namespace MobileGuidingSystem
                     // configuring the new page by passing required information as a navigation
                     // parameter
                     //TODO change back to mainpage
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(SettingsPage), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
