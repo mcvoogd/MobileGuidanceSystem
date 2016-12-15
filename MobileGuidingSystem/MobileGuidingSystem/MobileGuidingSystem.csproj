@@ -89,6 +89,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="Assets\A_LOVE_OF_THUNDER.TTF" />
     <None Include="Assets\JSON\BlindwallsDB.json" />
     <None Include="project.json" />
   </ItemGroup>
@@ -142,6 +143,8 @@
     <Content Include="Assets\blindwalls_logo.png" />
     <Content Include="Assets\breda_logo.png" />
     <Content Include="Assets\home-pin.png" />
+    <Content Include="Assets\nl.png" />
+    <Content Include="Assets\uk.png" />
     <Content Include="Assets\vvv_logo.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

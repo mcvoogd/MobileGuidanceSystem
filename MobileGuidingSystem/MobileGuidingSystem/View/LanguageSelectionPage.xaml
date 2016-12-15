@@ -9,9 +9,16 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" AutomationProperties.IsRequiredForForm="True">
         <Image Source="ms-appx:///Assets/background.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Opacity="0.4"/>
-        <SymbolIcon Symbol="Globe"></SymbolIcon>
-        <TextBlock x:Name="textBlock" Margin="0,50" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Language" VerticalAlignment="Top" FontSize="50" FontFamily="A Love of Thunder"/>
-        
+
+        <TextBlock x:Name="textBlock" Margin="0,50" HorizontalAlignment="Center" TextWrapping="Wrap" Text="language" VerticalAlignment="Top" FontSize="50" FontFamily="Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image Source="ms-appx:///Assets/nl.png" Width="100" Grid.Column="0"/>
+            <Image Source="ms-appx:///Assets/uk.png" Width="100" Grid.Column="1"/>
+        </Grid>
         <Grid VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="12">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
