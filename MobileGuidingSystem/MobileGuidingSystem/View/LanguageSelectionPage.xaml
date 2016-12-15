@@ -21,15 +21,15 @@
         </Grid>
         <Grid VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="12">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Image Source="ms-appx:///Assets/vvv_logo.png" Width="60" Grid.Column="0"/>
-            <Image Source="ms-appx:///Assets/breda_logo.png" Width="70" Grid.Column="1"/>
-            <Image Source="ms-appx:///Assets/blindwalls_logo.png" Width="80" Grid.Column="2"/>
-            <Image Source="ms-appx:///Assets/avans_logo.png" Width="120" Grid.Column="3"/>
+            <Image Source="ms-appx:///Assets/vvv_logo.png" Width="44" Grid.Column="0"/>
+            <Image Source="ms-appx:///Assets/breda_logo.png" Width="68" Grid.Column="1"/>
+            <Image Source="ms-appx:///Assets/blindwalls_logo.png" Width="68" Grid.Column="2"/>
+            <Image Source="ms-appx:///Assets/avans_logo.png" Width="68" Grid.Column="3"/>
         </Grid>
     </Grid>
 </Page>

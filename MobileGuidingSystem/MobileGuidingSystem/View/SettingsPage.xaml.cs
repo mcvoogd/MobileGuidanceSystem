@@ -65,6 +65,7 @@ namespace MobileGuidingSystem.Pages
             {
                 Frame.Navigate(typeof(HelpPage));
             }
+            HamburgerSplitview.IsPaneOpen = false;
         }
     }
 }
