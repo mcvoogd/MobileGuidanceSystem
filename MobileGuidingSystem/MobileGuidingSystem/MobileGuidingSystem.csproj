@@ -143,6 +143,8 @@
     <Content Include="Assets\background.jpg" />
     <Content Include="Assets\blindwalls_logo.png" />
     <Content Include="Assets\breda_logo.png" />
+    <Content Include="Assets\GO_logo_black.png" />
+    <Content Include="Assets\GO_logo_white.png" />
     <Content Include="Assets\home-pin.png" />
     <Content Include="Assets\nl.png" />
     <Content Include="Assets\uk.png" />
