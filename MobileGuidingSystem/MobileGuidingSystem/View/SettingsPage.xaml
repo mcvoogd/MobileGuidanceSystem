@@ -9,8 +9,14 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         
-                <Frame Name="Frame"  HorizontalAlignment="Left" VerticalAlignment="Top"></Frame>
+        
+        
         <Image Source="ms-appx:///Assets/background.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Opacity="0.4"/>
+
+        <Frame Name="Frame"  HorizontalAlignment="Left" VerticalAlignment="Top"></Frame>
+        
+       
+        
         <SplitView Name="HamburgerSplitview" DisplayMode="CompactOverlay" RelativePanel.Below="HamburgerButton" HorizontalAlignment="Left" CompactPaneLength="44" OpenPaneLength="175" PaneBackground="Transparent"  >
                     <SplitView.Pane >
                         <ListBox x:Name="MenuListBox"  SelectionMode="Single"  SelectionChanged="Selector_OnSelectionChanged" Background="White">

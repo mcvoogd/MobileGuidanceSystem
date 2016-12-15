@@ -79,7 +79,7 @@ namespace MobileGuidingSystem.ViewModel
         public void drawWayPoint(string fileName, string title, Geopoint location)
         {
             var anchorPoint = new Point(0.5, 1);
-            var image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/" + fileName));
+            var image = Utils.GetFileStream(fileName);
 
             var shape = new MapIcon
             {

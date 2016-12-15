@@ -9,5 +9,6 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Image Source="ms-appx:///Assets/background.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Opacity="0.4"/>
+        <TextBlock x:Name="textBlock" Margin="0,50" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Help" VerticalAlignment="Top" FontSize="50" FontFamily="Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
     </Grid>
 </Page>

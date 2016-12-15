@@ -27,7 +27,7 @@ namespace MobileGuidingSystem.Pages
         {
             this.InitializeComponent();
             MenuListBox.Background = new SolidColorBrush(Color.FromArgb(150,255,255,255));
-            Frame.Navigate(typeof(HelpPage));
+            Frame.Navigate(typeof(MainPage));
             Map.IsSelected = true;
 
         }
@@ -51,7 +51,7 @@ namespace MobileGuidingSystem.Pages
              }
             else if (Sights.IsSelected)
              {
-                 Frame.Navigate(typeof(RouteSelectionPage));
+                 Frame.Navigate(typeof(SightPage));
              }
             else if (Language.IsSelected)
              {

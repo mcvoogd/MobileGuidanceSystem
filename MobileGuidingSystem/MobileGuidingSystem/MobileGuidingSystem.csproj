@@ -106,6 +106,7 @@
     <Compile Include="Data\Extensions.cs" />
     <Compile Include="Data\Sight.cs" />
     <Compile Include="Data\User.cs" />
+    <Compile Include="Utils.cs" />
     <Compile Include="ViewModel\MainModel.cs" />
     <Compile Include="ViewModel\Model.cs" />
     <Compile Include="View\MainPage.xaml.cs">
