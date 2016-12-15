@@ -7,11 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="NavajoWhite">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         
                 <Frame Name="Frame"  HorizontalAlignment="Left" VerticalAlignment="Top"></Frame>
-                
-                <SplitView Name="HamburgerSplitview" DisplayMode="CompactOverlay" RelativePanel.Below="HamburgerButton" HorizontalAlignment="Left" CompactPaneLength="44" OpenPaneLength="175" PaneBackground="Transparent"  >
+        <Image Source="ms-appx:///Assets/background.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Opacity="0.4"/>
+        <SplitView Name="HamburgerSplitview" DisplayMode="CompactOverlay" RelativePanel.Below="HamburgerButton" HorizontalAlignment="Left" CompactPaneLength="44" OpenPaneLength="175" PaneBackground="Transparent"  >
                     <SplitView.Pane >
                         <ListBox x:Name="MenuListBox"  SelectionMode="Single"  SelectionChanged="Selector_OnSelectionChanged" Background="White">
 
