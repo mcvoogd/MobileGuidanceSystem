@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Services.Maps;
@@ -86,12 +87,9 @@ namespace MobileGuidingSystem.ViewModel
                 Location = location,
                 NormalizedAnchorPoint = anchorPoint,
                 Image = image,
-                CollisionBehaviorDesired =
-                onCollisionShow ? MapElementCollisionBehavior.RemainVisible
-                            : MapElementCollisionBehavior.Hide,
-
                 ZIndex = 20
             };
+
 
             shape.AddData(new Sight());
 
@@ -102,7 +100,17 @@ namespace MobileGuidingSystem.ViewModel
 
         public void MyMap_OnMapElementClick(MapControl sender, MapElementClickEventArgs args)
         {
-            //_map.ZoomLevel = 1;
+            MapIcon myClickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
+            switch (myClickedIcon.CollisionBehaviorDesired)
+            {
+                    case MapElementCollisionBehavior.Hide:
+                    myClickedIcon.CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible;
+                    break;
+
+                    case MapElementCollisionBehavior.RemainVisible:
+                    myClickedIcon.CollisionBehaviorDesired = MapElementCollisionBehavior.Hide;
+                    break;
+            }
         }
     }
 }
