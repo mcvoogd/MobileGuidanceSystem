@@ -9,13 +9,13 @@ namespace MobileGuidingSystem.Data.Blindwalls
 {
     class BlindwallsDatabase
     {
-        public static BlindwallsDatabase Instance => _instance ?? (_instance = Load());
+        //public static BlindwallsDatabase Instance => _instance ?? (_instance = Load());
         private static BlindwallsDatabase _instance;
 
-        public static BlindwallsDatabase Load()
-        {
-            Utils.GetFileStream("JSON")
-        }
+        //public static BlindwallsDatabase Load()
+        //{
+        //    Utils.GetFileStream("JSON");
+        //}
 
         public string status { get; set; }
         public int count { get; set; }

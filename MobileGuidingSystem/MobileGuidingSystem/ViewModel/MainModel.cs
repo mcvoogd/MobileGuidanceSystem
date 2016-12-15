@@ -6,6 +6,7 @@ using Windows.Foundation;
 using Windows.Services.Maps;
 using Windows.Storage.Streams;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.Xaml.Controls.Maps;
 using MobileGuidingSystem.Data;
 
@@ -14,15 +15,28 @@ namespace MobileGuidingSystem.ViewModel
     public class MainModel : Model
     {
         private MapControl _map;
-        public string s1 = "HEEEEYYYOOOOO";
+        private Geopoint myLocation;
         private readonly bool onCollisionShow;
 
         public MainModel(MapControl mapcontrol)
         {
             _map = mapcontrol;
             InitializeMap();
-            drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
-            drawWayPoint("home-pin.png", "HOME", new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }));
+            User user = new User();
+            user.positionChangedNotifier += OnPositionChanged;
+            //drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
+            //drawWayPoint("home-pin.png", "HOME", new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }));
+
+        }
+
+        public async void OnPositionChanged(object sender, PositionChangedEventArgs e)
+        {
+           await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
+            {
+              _map.Center = e.Position.Coordinate.Point;
+            }
+            );
         }
 
         public override void NextPage(object user)
@@ -32,13 +46,6 @@ namespace MobileGuidingSystem.ViewModel
 
         public void InitializeMap()
         {
-            user = new User();
-            if (user.location == null)
-            {
-                user.location = new Geopoint(new BasicGeoposition() { Longitude = 4.780172,  Latitude = 51.586267});
-            }
-
-            _map.Center = user.location;
             _map.ZoomLevel = 25;
             _map.DesiredPitch = 45;
             _map.Style = MapStyle.Road;
