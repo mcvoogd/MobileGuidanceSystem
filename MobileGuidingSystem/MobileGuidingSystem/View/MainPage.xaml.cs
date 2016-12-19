@@ -80,7 +80,7 @@ namespace MobileGuidingSystem.View
         private void UIElement_OnTapped(object sender, TappedRoutedEventArgs e)
         {
             var b = (StackPanel)sender;
-            var selected = (Sight)b.DataContext;
+            var selected = (ISight)b.DataContext;
             MyMap.Center = selected.Position;
             MyMap.Center = selected.Position;
 
@@ -98,7 +98,7 @@ namespace MobileGuidingSystem.View
         private void StackpanelOnTapped(object sender, TappedRoutedEventArgs tappedRoutedEventArgs)
         {
             var b = (StackPanel)sender;
-            var selected = (Sight)b.DataContext;
+            var selected = (ISight)b.DataContext;
             Frame.Navigate(typeof(SightPage), selected);
         }
     }
