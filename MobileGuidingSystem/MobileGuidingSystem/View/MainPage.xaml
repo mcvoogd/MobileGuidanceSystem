@@ -21,14 +21,15 @@
             <maps:MapItemsControl ItemsSource="{x:Bind Model.Sights}">
                  <maps:MapItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="data:ISight">
-                        <StackPanel Tapped="UIElement_OnTapped">
+                        <!--<StackPanel Tapped="UIElement_OnTapped">
                             <Border>
-                            <TextBlock Text="{x:Bind Name}"  maps:MapControl.Location="{x:Bind Position}" Margin="5" FontSize="5"/>
-                            </Border>
-                            <Image Source="../Assets/home-pin.png"  maps:MapControl.Location="{x:Bind Position}" MaxHeight="40" MaxWidth="40"/>
-                        </StackPanel>
+                                <TextBlock Text="{x:Bind Name}" Margin="5" FontSize="5"  maps:MapControl.NormalizedAnchorPoint="0.5,1" maps:MapControl.Location="{x:Bind Position}"/>
+                            </Border>-->
+                            <Image Source="../Assets/home-pin.png" MaxHeight="40" MaxWidth="40" maps:MapControl.NormalizedAnchorPoint="{Binding ElementName=Model, Path=Anchor}" maps:MapControl.Location="{x:Bind Position}" Margin="-20,0,0,-40"/>
+                        <!--</StackPanel>-->
                     </DataTemplate>
                 </maps:MapItemsControl.ItemTemplate>
+                
             </maps:MapItemsControl>
         </maps:MapControl>
 
