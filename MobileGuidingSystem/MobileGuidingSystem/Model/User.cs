@@ -1,21 +1,15 @@
-﻿using System;
-using Windows.Devices.Geolocation;
+﻿using Windows.Devices.Geolocation;
 
 namespace MobileGuidingSystem.Model
 {
     public class User
     {
-        public Geopoint location { get; set; }
+        public delegate void PositionChangedDelegate(object sender, PositionChangedEventArgs e);
+
+        private Geolocator _geolocator;
         public string Language;
-        private Geolocator geolocator;
-        public delegate void positionChangedDelegate(object sender, PositionChangedEventArgs e);
-        public positionChangedDelegate positionChangedNotifier;
+        public PositionChangedDelegate PositionChangedNotifier;
 
-        public User()
-        {
-            // GetCurrentPosition();
-        }
-
-
-        }
+        public Geopoint Location { get; set; }
     }
+}

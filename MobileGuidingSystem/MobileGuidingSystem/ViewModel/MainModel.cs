@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Services.Maps;
 using Windows.Storage.Streams;
 using Windows.UI;
-using Windows.UI.Core;
 using Windows.UI.Xaml.Controls.Maps;
 using MobileGuidingSystem.Model;
 using MobileGuidingSystem.Model.Data;
@@ -17,40 +15,34 @@ namespace MobileGuidingSystem.ViewModel
     public class MainModel : Model
     {
         private readonly MapControl _map;
-        public Geopoint myLocation;
-        private readonly bool onCollisionShow;
-        public ObservableCollection<ISight> sights;
+        public Geopoint MyLocation;
+        //private readonly bool _onCollisionShow;
+        public ObservableCollection<ISight> Sights;
 
-        public int zoomlevel
-        {
-            get { return 17; }
-        }
+        public int Zoomlevel => 17;
 
-        public int DesiredPitch
-        {
-            get { return 45; }
-        }
+        public int DesiredPitch => 45;
 
         public MapStyle MapStyle = MapStyle.Road;
 
-        private readonly Color RouteColor = Colors.Blue;
-        private readonly Color OutlineColor = Colors.LightBlue;
+        private readonly Color _routeColor = Colors.Blue;
+        private readonly Color _outlineColor = Colors.LightBlue;
 
         public MainModel(MapControl mapcontrol)
         {
             _map = mapcontrol;
-            sights = new ObservableCollection<ISight>();
+            Sights = new ObservableCollection<ISight>();
             LoadData();
-            DrawRoutes(sights);
-            myLocation = new Geopoint(new BasicGeoposition() {Latitude = 51.5860591, Longitude = 4.793500600000016});
-            user = new User();
+            DrawRoutes(Sights);
+            MyLocation = new Geopoint(new BasicGeoposition() {Latitude = 51.5860591, Longitude = 4.793500600000016});
+            User = new User();
             //drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
-
+            _map.ZoomLevelChanged += _map_ZoomLevelChanged;
         }
 
         private void LoadData()
         {
-            BlindwallsDatabase.Sights.ForEach(s=>sights.Add(s));
+            BlindwallsDatabase.Sights.ForEach(s=>Sights.Add(s));
         }
 
         private void _map_ZoomLevelChanged(MapControl sender, object args)
@@ -68,8 +60,8 @@ namespace MobileGuidingSystem.ViewModel
             if (routeFinderResult.Status == MapRouteFinderStatus.Success)
             {
                 MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
-                routeView.RouteColor = RouteColor;
-                routeView.OutlineColor = OutlineColor;
+                routeView.RouteColor = _routeColor;
+                routeView.OutlineColor = _outlineColor;
                 _map.Routes.Add(routeView);
             }
         }
@@ -81,8 +73,8 @@ namespace MobileGuidingSystem.ViewModel
             if (routeFinderResult.Status == MapRouteFinderStatus.Success)
             {
                 MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
-                routeView.RouteColor = RouteColor;
-                routeView.OutlineColor = OutlineColor;
+                routeView.RouteColor = _routeColor;
+                routeView.OutlineColor = _outlineColor;
                 _map.Routes.Add(routeView);
             }
         }
@@ -109,7 +101,7 @@ namespace MobileGuidingSystem.ViewModel
 
             var ancherpoint = new Point(0.5, 0.5);
             var image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/PlayerPin.png"));
-            var Player = new MapIcon
+            var player = new MapIcon
             {
                 Title = "",
                 Location = position.Coordinate.Point,
@@ -117,11 +109,11 @@ namespace MobileGuidingSystem.ViewModel
                 Image = image,
                 ZIndex = 13
             };
-            updatePos();
-            _map.MapElements.Add(Player);
+            UpdatePos();
+            _map.MapElements.Add(player);
         }
 
-        public void updatePos()
+        public void UpdatePos()
         {
             if (_map.MapElements != null)
             {

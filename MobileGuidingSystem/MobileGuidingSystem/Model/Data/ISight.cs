@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Windows.Devices.Geolocation;
-using Windows.Foundation;
-using Windows.Storage.Streams;
 
 namespace MobileGuidingSystem.Model.Data
 {
