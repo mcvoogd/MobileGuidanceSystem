@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
     xmlns:local ="using:MobileGuidingSystem.Data"
-    x:Class="MobileGuidingSystem.MainPage"
+    x:Class="MobileGuidingSystem.View.MainPage"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
