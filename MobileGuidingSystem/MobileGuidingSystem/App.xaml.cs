@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using MobileGuidingSystem.Pages;
+using MobileGuidingSystem.View;
 
 namespace MobileGuidingSystem
 {
@@ -69,7 +69,7 @@ namespace MobileGuidingSystem
                     // configuring the new page by passing required information as a navigation
                     // parameter
                     //TODO change back to mainpage
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(View.MainPage), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

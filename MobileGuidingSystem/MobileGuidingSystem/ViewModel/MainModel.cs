@@ -11,7 +11,8 @@ using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
-using MobileGuidingSystem.Data;
+using MobileGuidingSystem.Model;
+using MobileGuidingSystem.Model.Data;
 
 namespace MobileGuidingSystem.ViewModel
 {
