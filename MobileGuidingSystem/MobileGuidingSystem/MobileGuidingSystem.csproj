@@ -147,6 +147,7 @@
     <Content Include="Assets\GO_logo_white.png" />
     <Content Include="Assets\home-pin.png" />
     <Content Include="Assets\nl.png" />
+    <Content Include="Assets\PlayerPin.png" />
     <Content Include="Assets\uk.png" />
     <Content Include="Assets\vvv_logo.png" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
