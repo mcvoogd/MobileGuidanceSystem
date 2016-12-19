@@ -56,7 +56,7 @@ namespace MobileGuidingSystem.Model.Data
                 }
             }
 
-            public RandomAccessStreamReference Icon => StreamReferences[0];
+            public RandomAccessStreamReference Icon => ImageStreamReferences[0];
         }
     }
 }
