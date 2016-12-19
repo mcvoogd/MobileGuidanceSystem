@@ -3,6 +3,8 @@ using Windows.Devices.Geolocation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media.Imaging;
 using MobileGuidingSystem.Model.Data;
 using MobileGuidingSystem.ViewModel;
 
@@ -72,6 +74,32 @@ namespace MobileGuidingSystem.View
             });
 
             _positionSet = true;
+        }
+            
+
+        private void UIElement_OnTapped(object sender, TappedRoutedEventArgs e)
+        {
+            var b = (StackPanel)sender;
+            var selected = (Sight)b.DataContext;
+            MyMap.Center = selected.Position;
+            MyMap.Center = selected.Position;
+
+            var FlyOut = new Flyout();
+            var grid = new Grid();
+            var stackpanel = new StackPanel() { DataContext = selected };
+            stackpanel.Tapped += StackpanelOnTapped;
+            grid.Children.Add(stackpanel);
+            stackpanel.Children.Add(new TextBlock() { Text = selected.Name });
+            stackpanel.Children.Add(new Image() { Source = new BitmapImage(new Uri("ms-appx:///Assets/avans_logo.png")), MaxHeight = 40.0, MaxWidth = 40.0 });
+            FlyOut.Content = grid;
+            FlyOut.ShowAt(sender as FrameworkElement);
+        }
+
+        private void StackpanelOnTapped(object sender, TappedRoutedEventArgs tappedRoutedEventArgs)
+        {
+            var b = (StackPanel)sender;
+            var selected = (Sight)b.DataContext;
+            Frame.Navigate(typeof(SightPage), selected);
         }
     }
 }
