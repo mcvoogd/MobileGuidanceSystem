@@ -4,7 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
-    xmlns:local ="using:MobileGuidingSystem.Data"
+    xmlns:data="using:MobileGuidingSystem.Model.Data"
     x:Class="MobileGuidingSystem.View.MainPage"
     mc:Ignorable="d">
 
@@ -22,7 +22,7 @@
 
             <maps:MapItemsControl ItemsSource="{x:Bind model.sights}">
                  <maps:MapItemsControl.ItemTemplate>
-                    <DataTemplate x:DataType="local:Sight">
+                    <DataTemplate x:DataType="data:Sight">
                         <StackPanel Tapped ="ButtonBase_OnClick">
                             <Border>
                             <TextBlock Text="{x:Bind Name}"  maps:MapControl.Location="{x:Bind Position}" Margin="5" FontSize="5"/>

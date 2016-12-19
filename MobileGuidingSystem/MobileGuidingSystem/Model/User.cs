@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
 using Windows.Devices.Geolocation;
 
-namespace MobileGuidingSystem.Data
+namespace MobileGuidingSystem.Model
 {
     public class User
     {

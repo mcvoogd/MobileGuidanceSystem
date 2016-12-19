@@ -3,7 +3,7 @@ using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Storage.Streams;
 
-namespace MobileGuidingSystem.Data
+namespace MobileGuidingSystem.Model.Data
 {
     public class Sight
     {
