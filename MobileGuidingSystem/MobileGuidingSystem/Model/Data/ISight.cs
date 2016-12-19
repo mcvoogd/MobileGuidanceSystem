@@ -13,7 +13,7 @@ namespace MobileGuidingSystem.Model.Data
         Geopoint Position { get; }
         string Address { get; }
 
-        List<RandomAccessStreamReference> StreamReferences { get; }
+        List<RandomAccessStreamReference> ImageStreamReferences { get; }
         RandomAccessStreamReference Icon { get; }
     }
 }
