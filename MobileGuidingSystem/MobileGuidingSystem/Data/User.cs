@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using Windows.Devices.Geolocation;
 
-namespace MobileGuidingSystem.Model
+namespace MobileGuidingSystem.Data
 {
     public class User
     {
@@ -13,9 +14,8 @@ namespace MobileGuidingSystem.Model
 
         public User()
         {
+            //geolocator = new Geolocator();
             // GetCurrentPosition();
         }
-
-
         }
     }

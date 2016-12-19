@@ -12,8 +12,6 @@
         <maps:MapControl x:Name="MyMap"
                          MapServiceToken="hXfoPb3UobMURPpymfd8~0KFlzLHFoGrO6NViSu2ltQ~AhzGBC78z3Ww6lQE6Df1AETSVLvCRCt7Q_WXIMPTYgiPpkVf6kNv0RYgId0cy5a0"
                          ZoomInteractionMode="GestureAndControl"
-                         TiltInteractionMode="GestureAndControl"
-                         RotateInteractionMode="GestureAndControl"
                          ZoomLevel="{x:Bind model.zoomlevel }"
                          DesiredPitch="{x:Bind model.DesiredPitch}"
                          Center="{x:Bind model.myLocation}"
