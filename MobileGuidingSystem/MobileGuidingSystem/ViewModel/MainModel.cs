@@ -7,7 +7,8 @@ using Windows.Services.Maps;
 using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.Xaml.Controls.Maps;
-using MobileGuidingSystem.Data;
+using MobileGuidingSystem.Model;
+using MobileGuidingSystem.Model.Data;
 
 namespace MobileGuidingSystem.ViewModel
 {
@@ -89,9 +90,6 @@ namespace MobileGuidingSystem.ViewModel
                 Image = image,
                 ZIndex = 20
             };
-
-
-            shape.AddData(new Sight());
 
             _map.MapElements.Add(shape);
             _map.Center = location;
