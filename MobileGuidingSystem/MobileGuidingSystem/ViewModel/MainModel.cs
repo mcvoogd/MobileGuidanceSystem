@@ -61,18 +61,6 @@ namespace MobileGuidingSystem.ViewModel
             }
         }
 
-        public void GenerateSights()
-        {
-            Sight s1 = new Sight("Avans", "avans_logo.png", new Geopoint(new BasicGeoposition() {Latitude = 51.5860591, Longitude = 4.793500600000016 }));
-            Sight s2 = new Sight("AMPHIA", "breda_logo.png", new Geopoint(new BasicGeoposition() {Latitude = 51.5819335, Longitude = 4.797045799999978 }));
-            Sight s3 = new Sight("JOSHUA", "vvv_logo.png", new Geopoint(new BasicGeoposition() { Latitude = 51.5777335, Longitude = 4.789550899999995 }));
-
-            sights.Add(s1);
-            sights.Add(s2);
-            sights.Add(s3);
-
-        }
-
         public async void DrawRoute(Geopoint p1, Geopoint p2)
         {
             MapRouteFinderResult routeFinderResult = await MapRouteFinder.GetWalkingRouteAsync(p1, p2);
