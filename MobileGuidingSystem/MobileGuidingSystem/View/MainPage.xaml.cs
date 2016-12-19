@@ -40,7 +40,7 @@ namespace MobileGuidingSystem.View
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             var b = (StackPanel) sender;
-            var selected = (Sight) b.DataContext;
+            var selected = (ISight) b.DataContext;
             MyMap.Center = selected.Position;
 
             Popup popup = new Popup();
