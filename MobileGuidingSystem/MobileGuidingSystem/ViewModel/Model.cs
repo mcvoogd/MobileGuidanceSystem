@@ -1,5 +1,4 @@
-﻿using System;
-using MobileGuidingSystem.Model;
+﻿using MobileGuidingSystem.Model;
 
 namespace MobileGuidingSystem.ViewModel
 {

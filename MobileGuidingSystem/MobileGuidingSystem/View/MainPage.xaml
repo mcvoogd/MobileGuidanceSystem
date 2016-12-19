@@ -22,12 +22,12 @@
 
             <maps:MapItemsControl ItemsSource="{x:Bind model.sights}">
                  <maps:MapItemsControl.ItemTemplate>
-                    <DataTemplate x:DataType="data:Sight">
+                    <DataTemplate x:DataType="data:ISight">
                         <StackPanel Tapped ="ButtonBase_OnClick">
                             <Border>
                             <TextBlock Text="{x:Bind Name}"  maps:MapControl.Location="{x:Bind Position}" Margin="5" FontSize="5"/>
                             </Border>
-                            <Image Source="../Assets/home-pin.png"  maps:MapControl.Location="{x:Bind Position}" maps:MapControl.NormalizedAnchorPoint="{x:Bind NormalizedAnchorPoint}" MaxHeight="40" MaxWidth="40"/>
+                            <Image Source="../Assets/home-pin.png"  maps:MapControl.Location="{x:Bind Position}" MaxHeight="40" MaxWidth="40"/>
                         </StackPanel>
                     </DataTemplate>
                 </maps:MapItemsControl.ItemTemplate>
