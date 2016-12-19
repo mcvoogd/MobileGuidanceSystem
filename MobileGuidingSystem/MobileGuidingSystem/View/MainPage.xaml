@@ -12,13 +12,13 @@
         <maps:MapControl x:Name="MyMap"
                          MapServiceToken="hXfoPb3UobMURPpymfd8~0KFlzLHFoGrO6NViSu2ltQ~AhzGBC78z3Ww6lQE6Df1AETSVLvCRCt7Q_WXIMPTYgiPpkVf6kNv0RYgId0cy5a0"
                          ZoomInteractionMode="GestureAndControl"
-                         ZoomLevel="{x:Bind model.zoomlevel }"
-                         DesiredPitch="{x:Bind model.DesiredPitch}"
-                         Center="{x:Bind model.myLocation}"
-                         Style="{x:Bind model.MapStyle}"
+                         ZoomLevel="{x:Bind Model.Zoomlevel }"
+                         DesiredPitch="{x:Bind Model.DesiredPitch}"
+                         Center="{x:Bind Model.MyLocation}"
+                         Style="{x:Bind Model.MapStyle}"
                          LandmarksVisible="True">
 
-            <maps:MapItemsControl ItemsSource="{x:Bind model.sights}">
+            <maps:MapItemsControl ItemsSource="{x:Bind Model.Sights}">
                  <maps:MapItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="data:ISight">
                         <StackPanel Tapped="UIElement_OnTapped">
