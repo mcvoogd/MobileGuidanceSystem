@@ -25,7 +25,7 @@ namespace MobileGuidingSystem.ViewModel
 
         public int zoomlevel
         {
-            get { return 18; }
+            get { return 17; }
         }
 
         public int DesiredPitch
@@ -47,9 +47,16 @@ namespace MobileGuidingSystem.ViewModel
             myLocation = new Geopoint(new BasicGeoposition() {Latitude = 51.5860591, Longitude = 4.793500600000016});
             user = new User();
             //drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
-
+            _map.ZoomLevelChanged += _map_ZoomLevelChanged;
         }
 
+        private void _map_ZoomLevelChanged(MapControl sender, object args)
+        {
+            if (_map.ZoomLevel < 17)
+            {
+                _map.ZoomLevel = 17;
+            }
+        }
 
         public void GenerateSights()
         {
@@ -151,9 +158,10 @@ namespace MobileGuidingSystem.ViewModel
                 }
             }
         }
-          
-            
-        }
+
+
+
+    }
            
 
     }

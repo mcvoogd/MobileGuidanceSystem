@@ -13,32 +13,7 @@ namespace MobileGuidingSystem.Model
 
         public User()
         {
-            geolocator = new Geolocator();
-            geolocator.PositionChanged += OnPositionChanged;
             // GetCurrentPosition();
-        }
-
-        public async void GetCurrentPosition()
-        {
-            var accessStatus = await Geolocator.RequestAccessAsync();
-            switch (accessStatus)
-            {
-                case GeolocationAccessStatus.Allowed:
-                    var p = geolocator.GetGeopositionAsync();
-                    location = p.GetResults().Coordinate.Point;
-            break;
-
-                case GeolocationAccessStatus.Denied:
-            break;
-
-                case GeolocationAccessStatus.Unspecified:
-            break;
-            }
-        }
-
-        public void OnPositionChanged(object sender, PositionChangedEventArgs e)
-        {
-            positionChangedNotifier.Invoke(sender,e);
         }
 
 

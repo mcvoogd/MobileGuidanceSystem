@@ -24,6 +24,7 @@ namespace MobileGuidingSystem.View
         public MainModel model;
         Geolocator geolocator;
         private bool positionSet = false;
+        const int maxzoom = 17;
 
 
         public MainPage()
@@ -57,7 +58,6 @@ namespace MobileGuidingSystem.View
                     Geoposition pos = await geolocator.GetGeopositionAsync();
                     await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
-                        model.centerMap(pos);
                         model.DrawPlayer(pos);
                     });
                     break;
@@ -73,7 +73,7 @@ namespace MobileGuidingSystem.View
         {
             await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-                model.centerMap(args.Position);
+               // model.centerMap(args.Position);
                 model.DrawPlayer(args.Position);
             });
 
