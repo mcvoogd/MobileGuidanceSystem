@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Windows.Devices.Geolocation;
+using Windows.Storage.Streams;
 using Newtonsoft.Json;
 
 namespace MobileGuidingSystem.Model.Data
@@ -34,11 +36,27 @@ namespace MobileGuidingSystem.Model.Data
             public string address;
             public double longitude;
             public double latitude;
+
+            private List<RandomAccessStreamReference> _randomAccessStreamReferences;
+
             public string Name => title;
             public string Description => description;
             public List<string> ImagePaths => new List<string>(images);
             public Geopoint Position => new Geopoint(new BasicGeoposition() {Latitude = latitude, Longitude = longitude});
             public string Address => address;
+
+            public List<RandomAccessStreamReference> StreamReferences
+            {
+                get
+                {
+                    if (_randomAccessStreamReferences != null) return _randomAccessStreamReferences;
+                    List<RandomAccessStreamReference> l = ImagePaths.Select(imagePath => RandomAccessStreamReference.CreateFromUri(Utils.MakeUri("Pictures/" + imagePath))).ToList();
+                    _randomAccessStreamReferences = l;
+                    return _randomAccessStreamReferences;
+                }
+            }
+
+            public RandomAccessStreamReference Icon => StreamReferences[0];
         }
     }
 }

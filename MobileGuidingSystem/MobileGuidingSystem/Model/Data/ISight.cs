@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Windows.Devices.Geolocation;
+using Windows.Storage.Streams;
 
 namespace MobileGuidingSystem.Model.Data
 {
@@ -11,5 +12,8 @@ namespace MobileGuidingSystem.Model.Data
         List<String> ImagePaths { get; }
         Geopoint Position { get; }
         string Address { get; }
+
+        List<RandomAccessStreamReference> StreamReferences { get; }
+        RandomAccessStreamReference Icon { get; }
     }
 }
