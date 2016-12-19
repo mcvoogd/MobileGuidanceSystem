@@ -90,22 +90,17 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <Content Include="Assets\A_LOVE_OF_THUNDER.TTF" />
-    <None Include="Assets\JSON\BlindwallsDB.json" />
+    <None Include="Assets\JSON\blindwalls.json" />
     <None Include="project.json" />
+    <PRIResource Include="Strings\nl-NL\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Data\Blindwalls\Author.cs" />
-    <Compile Include="Data\Blindwalls\BlindwallsDatabase.cs" />
-    <Compile Include="Data\Blindwalls\Category.cs" />
-    <Compile Include="Data\Blindwalls\CustomFields.cs" />
-    <Compile Include="Data\Blindwalls\Post.cs" />
-    <Compile Include="Data\Blindwalls\Query.cs" />
-    <Compile Include="Data\Extensions.cs" />
-    <Compile Include="Data\Sight.cs" />
-    <Compile Include="Data\User.cs" />
+    <Compile Include="Model\Data\Sight.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="ViewModel\MainModel.cs" />
     <Compile Include="ViewModel\Model.cs" />
@@ -143,12 +138,12 @@
     <Content Include="Assets\background.jpg" />
     <Content Include="Assets\blindwalls_logo.png" />
     <Content Include="Assets\breda_logo.png" />
-    <Content Include="Assets\GO_logo_black.png" />
-    <Content Include="Assets\GO_logo_white.png" />
     <Content Include="Assets\home-pin.png" />
     <Content Include="Assets\nl.png" />
+    <Content Include="Assets\PlayerPin.png" />
     <Content Include="Assets\uk.png" />
     <Content Include="Assets\vvv_logo.png" />
+    <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
@@ -191,6 +186,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
