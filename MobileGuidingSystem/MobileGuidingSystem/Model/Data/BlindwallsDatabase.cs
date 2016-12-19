@@ -45,7 +45,7 @@ namespace MobileGuidingSystem.Model.Data
             public Geopoint Position => new Geopoint(new BasicGeoposition() {Latitude = latitude, Longitude = longitude});
             public string Address => address;
 
-            public List<RandomAccessStreamReference> StreamReferences
+            public List<RandomAccessStreamReference> ImageStreamReferences
             {
                 get
                 {
