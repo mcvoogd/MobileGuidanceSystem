@@ -51,7 +51,7 @@ namespace MobileGuidingSystem.View
             }
             else if (Sights.IsSelected)
             {
-                Frame.Navigate(typeof(SightPage));
+                Frame.Navigate(typeof(SightsPage));
             }
             else if (Language.IsSelected)
             {
