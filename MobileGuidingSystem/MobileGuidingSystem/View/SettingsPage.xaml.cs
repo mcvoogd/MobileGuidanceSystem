@@ -15,46 +15,6 @@ namespace MobileGuidingSystem.View
         public SettingsPage()
         {
             this.InitializeComponent();
-            MenuListBox.Background = new SolidColorBrush(Color.FromArgb(150,255,255,255));
-            Frame.Navigate(typeof(MainPage));
-            Map.IsSelected = true;
-
-        }
-
-        private void HamburgerButton_OnClick(object sender, RoutedEventArgs e)
-        {          
-            HamburgerSplitview.IsPaneOpen = !HamburgerSplitview.IsPaneOpen;
-        }
-
-        //TODO add navigation to the pages
-        private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-             if (Map.IsSelected)
-             {
-                 Frame.Navigate(typeof(MainPage));
-             }
-            else if (RouteSelection.IsSelected)
-             {
-                 Frame.Navigate(typeof(RouteSelectionPage));
-             }
-            else if (Sights.IsSelected)
-             {
-                 Frame.Navigate(typeof(SightPage));
-             }
-            else if (Language.IsSelected)
-             {
-                 Frame.Navigate(typeof(LanguageSelectionPage));
-             }
-            else if (Settings.IsSelected)
-             {
-                 Frame.Navigate(typeof(SettingsPage));
-             }
-            else if (Help.IsSelected)
-            {
-                Frame.Navigate(typeof(HelpPage));
-            }
-            HamburgerSplitview.IsPaneOpen = false;
         }
     }
 }
