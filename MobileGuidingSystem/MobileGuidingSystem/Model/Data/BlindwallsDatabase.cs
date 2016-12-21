@@ -16,6 +16,7 @@ namespace MobileGuidingSystem.Model.Data
             {
                 if (_sights == null || _sights.Count == 0)
                     LoadSights();
+                
                 return _sights;
             }
         }
@@ -36,7 +37,7 @@ namespace MobileGuidingSystem.Model.Data
             public string address;
             public double longitude;
             public double latitude;
-
+            
             private List<RandomAccessStreamReference> _randomAccessStreamReferences;
 
             public string Name => title;

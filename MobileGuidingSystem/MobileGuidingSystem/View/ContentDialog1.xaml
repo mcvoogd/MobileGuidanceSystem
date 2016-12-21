@@ -14,7 +14,8 @@
 
     <Grid Margin="0,20,0,0">
         <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled" VerticalAlignment="Stretch" x:Name="Hoi">
-            <TextBlock Height="500" Text="{x:Bind sight.Description}" TextWrapping="Wrap"></TextBlock>
+            <Image Source="{x:Bind imagepath}"/>
+           
         </ScrollViewer>
 
         <!--<ListView>

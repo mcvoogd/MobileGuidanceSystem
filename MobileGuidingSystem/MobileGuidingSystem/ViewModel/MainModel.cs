@@ -187,15 +187,24 @@ namespace MobileGuidingSystem.ViewModel
             MapIcon myClickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
 
             ISight clickedSight = myClickedIcon.ReadData();
-            //ScrollViewer SV = new ScrollViewer();           
-            //TextBlock txtBlock = new TextBlock();
+            ScrollViewer SV = new ScrollViewer();
+            TextBlock txtBlock = new TextBlock();
 
-            
-            //txtBlock.Text = clickedSight.Address + "\r" + clickedSight.Description + "\r";
-            //txtBlock.TextWrapping = TextWrapping.Wrap;
-            //SV.Content = txtBlock;
-            //SV.VerticalAlignment = VerticalAlignment.Stretch;
-            //dialog.Content = SV;
+
+            txtBlock.Text = clickedSight.Address + "\r" + clickedSight.Description + "\r";
+            txtBlock.TextWrapping = TextWrapping.Wrap;
+            SV.Content = txtBlock;
+            SV.VerticalAlignment = VerticalAlignment.Stretch;
+
+            //var image =
+            //    RandomAccessStreamReference.CreateFromUri(
+            //        new Uri("ms-appx:///Assets/Pictures/" + clickedSight.ImagePaths[0]));
+
+            //Image image = new Image();
+
+            //image.Source = clickedSight.ImageStreamReferences;
+
+            //dialog.Content = image;
             //dialog.Title = clickedSight.Name;
             //dialog.PrimaryButtonText = "visit " + clickedSight.Name;
             //dialog.SecondaryButtonText = "Close";
