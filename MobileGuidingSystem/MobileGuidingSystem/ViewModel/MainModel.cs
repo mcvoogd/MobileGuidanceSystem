@@ -1,82 +1,75 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
+using System.Linq;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Services.Maps;
 using Windows.Storage.Streams;
 using Windows.UI;
-using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
+using Windows.UI.Xaml.Controls.Primitives;
 using MobileGuidingSystem.Model;
 using MobileGuidingSystem.Model.Data;
+using MobileGuidingSystem.View;
 
 namespace MobileGuidingSystem.ViewModel
 {
     public class MainModel : Model
     {
         private readonly MapControl _map;
-        public Geopoint myLocation;
-        private readonly bool onCollisionShow;
-        public ObservableCollection<Sight> sights;
+        public Geopoint MyLocation;
+        //private readonly bool _onCollisionShow;
+        public ObservableCollection<ISight> Sights;
 
-        public int zoomlevel
-        {
-            get { return 17; }
-        }
+        public int Zoomlevel => 17;
 
-        public int DesiredPitch
-        {
-            get { return 45; }
-        }
+        public int DesiredPitch => 45;
 
         public MapStyle MapStyle = MapStyle.Road;
 
-        private readonly Color RouteColor = Colors.Blue;
-        private readonly Color OutlineColor = Colors.LightBlue;
+        private readonly Color _routeColor = Colors.Blue;
+        private readonly Color _outlineColor = Colors.LightBlue;
+        public IRandomAccessStreamReference iconImage { get; set; }
+        public Point Anchor { get; set; }
+        public ContentDialog dialog;
+
 
         public MainModel(MapControl mapcontrol)
         {
             _map = mapcontrol;
-            sights = new ObservableCollection<Sight>();
-            GenerateSights();
-            DrawRoutes(sights);
-            myLocation = new Geopoint(new BasicGeoposition() {Latitude = 51.5860591, Longitude = 4.793500600000016});
-            user = new User();
+            Sights = new ObservableCollection<ISight>();
+            LoadData();
+            MyLocation = new Geopoint(new BasicGeoposition() { Latitude = 51.5860591, Longitude = 4.793500600000016 });
+            User = new User();
+            DrawRoutes(BlindwallsDatabase.Sights);
+            iconImage = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
+            Anchor = new Point(0.5, 1);
+            dialog = new ContentDialog();
+            dialog.PrimaryButtonClick += Dialog_PrimaryButtonClick;
+            dialog.SecondaryButtonClick += Dialog_SecondaryButtonClick;
+            dialog.Hide();
             //drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
-            _map.ZoomLevelChanged += _map_ZoomLevelChanged;
+            //  _map.ZoomLevelChanged += _map_ZoomLevelChanged;
         }
 
-        private void _map_ZoomLevelChanged(MapControl sender, object args)
+        private void LoadData()
         {
-            if (_map.ZoomLevel < 17)
-            {
-                _map.ZoomLevel = 17;
-            }
-        }
-
-        public void GenerateSights()
-        {
-            Sight s1 = new Sight("Avans", "avans_logo.png",
-                new Geopoint(new BasicGeoposition() {Latitude = 51.5860591, Longitude = 4.793500600000016}));
-            Sight s2 = new Sight("AMPHIA", "breda_logo.png",
-                new Geopoint(new BasicGeoposition() {Latitude = 51.5819335, Longitude = 4.797045799999978}));
-            Sight s3 = new Sight("JOSHUA", "vvv_logo.png",
-                new Geopoint(new BasicGeoposition() {Latitude = 51.5777335, Longitude = 4.789550899999995}));
-
-            sights.Add(s1);
-            sights.Add(s2);
-            sights.Add(s3);
+            //BlindwallsDatabase.Sights.ForEach(s=>Sights.Add(s));
+            drawSight(BlindwallsDatabase.Sights);
 
         }
 
-        public void centerMap(Geoposition position)
-        {
-            _map.Center = position.Coordinate.Point;
-        }
+        //private void _map_ZoomLevelChanged(MapControl sender, object args)
+        //{
+        //    if (_map.ZoomLevel < 17)
+        //    {
+        //        _map.ZoomLevel = 17;
+        //    }
+        //}
 
         public async void DrawRoute(Geopoint p1, Geopoint p2)
         {
@@ -85,8 +78,8 @@ namespace MobileGuidingSystem.ViewModel
             if (routeFinderResult.Status == MapRouteFinderStatus.Success)
             {
                 MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
-                routeView.RouteColor = RouteColor;
-                routeView.OutlineColor = OutlineColor;
+                routeView.RouteColor = _routeColor;
+                routeView.OutlineColor = _outlineColor;
                 _map.Routes.Add(routeView);
             }
         }
@@ -98,21 +91,28 @@ namespace MobileGuidingSystem.ViewModel
             if (routeFinderResult.Status == MapRouteFinderStatus.Success)
             {
                 MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
-                routeView.RouteColor = RouteColor;
-                routeView.OutlineColor = OutlineColor;
+                routeView.RouteColor = _routeColor;
+                routeView.OutlineColor = _outlineColor;
+                _map.Routes.Add(routeView);
+            }
+            else if (routeFinderResult.Status == MapRouteFinderStatus.NoRouteFoundWithGivenOptions)
+            {
+                MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
+                routeView.RouteColor = _routeColor;
+                routeView.OutlineColor = _outlineColor;
                 _map.Routes.Add(routeView);
             }
         }
 
-        public void DrawRoutes(ObservableCollection<Sight> sightlist)
+        public void DrawRoutes(List<ISight> sightlist)
         {
             List<Geopoint> positions = new List<Geopoint>();
 
-            foreach (Sight s in sightlist)
+
+            foreach (ISight s in sightlist)
             {
                 positions.Add(s.Position);
             }
-
             DrawRoutes(positions);
         }
 
@@ -121,12 +121,34 @@ namespace MobileGuidingSystem.ViewModel
             throw new NotImplementedException();
         }
 
+        //public void drawSight(Geopoint position, String title)
+        public void drawSight(List<ISight> list)
+        {
+            var ancherpoint = new Point(0.5, 1);
+            var image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
+            foreach (ISight sight in list)
+            {
+                var Sight = new MapIcon
+                {
+                    Title = sight.Name,
+                    Location = sight.Position,
+                    NormalizedAnchorPoint = ancherpoint,
+                    Image = image,
+                    ZIndex = 4,
+                    CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible
+
+                };
+                Sight.AddData(sight);
+                _map.MapElements.Add(Sight);
+            }
+        }
+
         public void DrawPlayer(Geoposition position)
         {
 
             var ancherpoint = new Point(0.5, 0.5);
             var image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/PlayerPin.png"));
-            var Player = new MapIcon
+            var player = new MapIcon
             {
                 Title = "",
                 Location = position.Coordinate.Point,
@@ -134,11 +156,12 @@ namespace MobileGuidingSystem.ViewModel
                 Image = image,
                 ZIndex = 13
             };
-            updatePos();
-            _map.MapElements.Add(Player);
+            User.Location = player.Location;
+            UpdatePos();
+            _map.MapElements.Add(player);
         }
 
-        public void updatePos()
+        public void UpdatePos()
         {
             if (_map.MapElements != null)
             {
@@ -146,7 +169,7 @@ namespace MobileGuidingSystem.ViewModel
                 {
                     if (element is MapIcon)
                     {
-                        MapIcon player = (MapIcon) element;
+                        MapIcon player = (MapIcon)element;
                         if (player.ZIndex == 13)
                         {
                             int index = _map.MapElements.IndexOf(player);
@@ -159,9 +182,43 @@ namespace MobileGuidingSystem.ViewModel
             }
         }
 
+        public async void myMap_OnMapElementClick(MapControl sender, MapElementClickEventArgs args)
+        {
+            MapIcon myClickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
 
+            ISight clickedSight = myClickedIcon.ReadData();
+            //ScrollViewer SV = new ScrollViewer();           
+            //TextBlock txtBlock = new TextBlock();
 
+            
+            //txtBlock.Text = clickedSight.Address + "\r" + clickedSight.Description + "\r";
+            //txtBlock.TextWrapping = TextWrapping.Wrap;
+            //SV.Content = txtBlock;
+            //SV.VerticalAlignment = VerticalAlignment.Stretch;
+            //dialog.Content = SV;
+            //dialog.Title = clickedSight.Name;
+            //dialog.PrimaryButtonText = "visit " + clickedSight.Name;
+            //dialog.SecondaryButtonText = "Close";
+
+            //await dialog.ShowAsync();
+
+            ContentDialog1 dialog1 = new ContentDialog1();
+            dialog1.sight = clickedSight;
+            await dialog1.ShowAsync();
+        }
+
+        private void Dialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+           // throw new NotImplementedException();
+           sender.Hide();
+        }
+
+        private void Dialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            // throw new NotImplementedException();
+            Window.Current.Content = new SightPage();
+        }
     }
-           
 
-    }
+
+}

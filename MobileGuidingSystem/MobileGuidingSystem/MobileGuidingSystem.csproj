@@ -92,7 +92,7 @@
     <Content Include="Assets\4.jpg" />
     <Content Include="Assets\audio_grote_klok.mp3" />
     <Content Include="Assets\A_LOVE_OF_THUNDER.TTF" />
-    <None Include="Assets\JSON\blindwalls.json" />
+    <Content Include="Assets\JSON\blindwalls.json" />
     <None Include="project.json" />
     <PRIResource Include="Strings\nl-NL\Resources.resw" />
     <PRIResource Include="Strings\en-US\Resources.resw" />
@@ -101,11 +101,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Data\Sight.cs" />
+    <Compile Include="Model\Data\BlindwallsDatabase.cs" />
+    <Compile Include="Model\Data\ISight.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="ViewModel\MainModel.cs" />
+    <Compile Include="ViewModel\MapElementData.cs" />
     <Compile Include="ViewModel\Model.cs" />
+    <Compile Include="View\ContentDialog1.xaml.cs">
+      <DependentUpon>ContentDialog1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -165,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\ContentDialog1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

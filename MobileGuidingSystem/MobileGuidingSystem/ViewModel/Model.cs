@@ -1,11 +1,10 @@
-﻿using System;
-using MobileGuidingSystem.Model;
+﻿using MobileGuidingSystem.Model;
 
 namespace MobileGuidingSystem.ViewModel
 {
     public abstract class Model
     {
-        protected User user;
+        protected User User;
 
         public abstract void NextPage(object user); 
     }

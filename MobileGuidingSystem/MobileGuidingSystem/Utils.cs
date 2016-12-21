@@ -1,17 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.Storage.Streams;
+using Windows.Storage;
 
 namespace MobileGuidingSystem
 {
     class Utils
     {
-        public static RandomAccessStreamReference GetFileStream(string fileName)
+        public static StorageFile GetStorageFile(string fileName)
         {
-            return RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/" + fileName));
+            Uri uri = MakeUri(fileName);
+            StorageFile anjFile = StorageFile.GetFileFromApplicationUriAsync(uri).AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
+            return anjFile;
+        }
+
+        public static string ReadJsonFile(string filename)
+        {
+            var file = GetStorageFile(filename);
+            return FileIO.ReadTextAsync(file).AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
+        }
+
+        public static Uri MakeUri(string filename)
+        {
+            return new Uri("ms-appx:///Assets/" + filename);
         }
     }
 }
