@@ -21,7 +21,7 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                                <Image Source="{Binding ImagePaths[0]}" Height="96" HorizontalAlignment="Center" Margin="0,0,6,0" Grid.Column="0"/>
+                                <Image Source="{Binding FullImagePaths[0]}" Height="96" HorizontalAlignment="Center" Margin="0,0,6,0" Grid.Column="0"/>
                             <TextBlock Text="{Binding Name}" VerticalAlignment="Center" TextWrapping="Wrap" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder" FontSize="14" Grid.Column="1"></TextBlock>
                         </Grid>
                         </DataTemplate>
