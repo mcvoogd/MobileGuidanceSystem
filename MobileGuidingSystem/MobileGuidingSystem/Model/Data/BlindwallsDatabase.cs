@@ -44,7 +44,7 @@ namespace MobileGuidingSystem.Model.Data
             public string Description => description;
 
             //TODO: Gooi ff naampie van t plaatie in da lege stringy
-            public List<string> ImagePaths => images == null || images.Length == 0 ? new List<string> {""} : new List<string>(images);
+            public List<string> ImagePaths => images == null || images.Length == 0 ? new List<string> { "NoImage.png"} : new List<string>(images);
 
             public Geopoint Position => new Geopoint(new BasicGeoposition() {Latitude = latitude, Longitude = longitude});
             public string Address => address;

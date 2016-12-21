@@ -9,6 +9,25 @@
 
     <Grid Background="Transparent">
         <Rectangle Stretch="UniformToFill" Width="10000"></Rectangle>
-        <TextBlock x:Name="textBlock" Margin="0,50" HorizontalAlignment="Center" TextWrapping="Wrap" Text="sights" VerticalAlignment="Top" FontSize="50" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
+        <ScrollViewer VerticalAlignment="Stretch">
+            <StackPanel Orientation="Vertical">
+                <TextBlock x:Name="textBlock" Margin="0,50,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="sights" VerticalAlignment="Top" FontSize="50" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
+
+                <ListView x:Name="SightList" Margin="12">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                                <Image Source="{Binding ImagePaths[0]}" Height="96" HorizontalAlignment="Center" Margin="0,0,6,0" Grid.Column="0"/>
+                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" TextWrapping="Wrap" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder" FontSize="14" Grid.Column="1"></TextBlock>
+                        </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+               </ListView>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
