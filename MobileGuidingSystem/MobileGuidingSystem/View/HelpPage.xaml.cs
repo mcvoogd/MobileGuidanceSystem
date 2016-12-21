@@ -14,4 +14,5 @@ namespace MobileGuidingSystem.View
             this.InitializeComponent();
         }
     }
+
 }
