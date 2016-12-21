@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using MobileGuidingSystem.Model.Data;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,9 +23,25 @@ namespace MobileGuidingSystem.View
     /// </summary>
     public sealed partial class SightsPage : Page
     {
+        public string ImagePathBind { get; set; }
+
         public SightsPage()
-        {
+
+        { 
+            ImagePathBind = "ms-appx:///Assets/background.jpg";
             this.InitializeComponent();
+            List<ISight> sights = BlindwallsDatabase.Sights;
+            foreach (ISight sight in sights)
+            {
+                int i = 0;
+                foreach (string path in sight.ImagePaths)
+                {
+                    sight.ImagePaths[i] = "ms-appx:///Assets/Pictures/" + path;
+                    i++;
+                }
+            }
+            SightList.ItemsSource = sights;
         }
     }
+
 }
