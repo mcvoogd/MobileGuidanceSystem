@@ -16,6 +16,7 @@ namespace MobileGuidingSystem.Model.Data
             {
                 if (_sights == null || _sights.Count == 0)
                     LoadSights();
+                
                 return _sights;
             }
         }
@@ -36,12 +37,15 @@ namespace MobileGuidingSystem.Model.Data
             public string address;
             public double longitude;
             public double latitude;
-
+            
             private List<RandomAccessStreamReference> _randomAccessStreamReferences;
 
             public string Name => title;
             public string Description => description;
-            public List<string> ImagePaths => new List<string>(images);
+
+            //TODO: Gooi ff naampie van t plaatie in da lege stringy
+            public List<string> ImagePaths => images == null || images.Length == 0 ? new List<string> {""} : new List<string>(images);
+
             public Geopoint Position => new Geopoint(new BasicGeoposition() {Latitude = latitude, Longitude = longitude});
             public string Address => address;
 
