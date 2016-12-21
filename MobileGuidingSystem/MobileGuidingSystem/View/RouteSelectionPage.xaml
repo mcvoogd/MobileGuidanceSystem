@@ -6,9 +6,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image Source="ms-appx:///Assets/background.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Opacity="0.4"/>
-        <TextBlock x:Name="textBlock" Margin="0,50" HorizontalAlignment="Center" TextWrapping="Wrap" Text="select route" VerticalAlignment="Top" FontSize="50" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
+    <Grid Background="Transparent">
+        <Rectangle Stretch="UniformToFill" Width="10000"></Rectangle>
+        <TextBlock x:Name="textBlock" Margin="0,50" HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="ROUTEPAGE_SELECTROUTE" VerticalAlignment="Top" FontSize="50" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
         <ComboBox VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="12,148" Background="White" Header="Route:"></ComboBox>
         <TextBlock VerticalAlignment="Stretch" Margin="12,250,12,100" Text="De Historische Kilometer...."></TextBlock>
         <Button VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="12" Content="GO!" FontFamily="Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder" FontSize="24"></Button>
