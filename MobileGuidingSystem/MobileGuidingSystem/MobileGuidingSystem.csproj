@@ -104,6 +104,7 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="ViewModel\MainModel.cs" />
+    <Compile Include="ViewModel\MapElementData.cs" />
     <Compile Include="ViewModel\Model.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

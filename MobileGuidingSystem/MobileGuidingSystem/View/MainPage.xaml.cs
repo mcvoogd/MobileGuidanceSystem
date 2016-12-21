@@ -2,6 +2,7 @@
 using Windows.Devices.Geolocation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Imaging;
@@ -100,6 +101,11 @@ namespace MobileGuidingSystem.View
             var b = (StackPanel)sender;
             var selected = (ISight)b.DataContext;
             Frame.Navigate(typeof(SightPage), selected);
+        }
+
+        private void MyMap_OnMapElementClick(MapControl sender, MapElementClickEventArgs args)
+        {
+            Model.myMap_OnMapElementClick(sender , args);
         }
     }
 }

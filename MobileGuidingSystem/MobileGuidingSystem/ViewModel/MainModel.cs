@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Services.Maps;
 using Windows.Storage.Streams;
 using Windows.UI;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
 using MobileGuidingSystem.Model;
 using MobileGuidingSystem.Model.Data;
+using MobileGuidingSystem.View;
 
 namespace MobileGuidingSystem.ViewModel
 {
@@ -27,9 +32,10 @@ namespace MobileGuidingSystem.ViewModel
 
         private readonly Color _routeColor = Colors.Blue;
         private readonly Color _outlineColor = Colors.LightBlue;
-        public IRandomAccessStreamReference iconImage { get; set;}
+        public IRandomAccessStreamReference iconImage { get; set; }
         public Point Anchor { get; set; }
-        
+        public ContentDialog dialog;
+
 
         public MainModel(MapControl mapcontrol)
         {
@@ -41,6 +47,8 @@ namespace MobileGuidingSystem.ViewModel
             DrawRoutes(BlindwallsDatabase.Sights);
             iconImage = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
             Anchor = new Point(0.5, 1);
+            dialog = new ContentDialog();
+            dialog.Hide();
             //drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
             //  _map.ZoomLevelChanged += _map_ZoomLevelChanged;
         }
@@ -48,10 +56,8 @@ namespace MobileGuidingSystem.ViewModel
         private void LoadData()
         {
             //BlindwallsDatabase.Sights.ForEach(s=>Sights.Add(s));
-            foreach (ISight sight in BlindwallsDatabase.Sights)
-            {
-                drawSight(sight.Position, sight.Name);
-            }
+            drawSight(BlindwallsDatabase.Sights);
+
         }
 
         //private void _map_ZoomLevelChanged(MapControl sender, object args)
@@ -112,21 +118,26 @@ namespace MobileGuidingSystem.ViewModel
             throw new NotImplementedException();
         }
 
-        public void drawSight(Geopoint position, String title)
+        //public void drawSight(Geopoint position, String title)
+        public void drawSight(List<ISight> list)
         {
-            var ancherpoint = new Point(0.5,1);
+            var ancherpoint = new Point(0.5, 1);
             var image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
-            var Sight = new MapIcon
+            foreach (ISight sight in list)
             {
-                Title = title,
-                Location = position,
-                NormalizedAnchorPoint = ancherpoint,
-                Image = image,
-                ZIndex = 4,
-                CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible
-            
-            };
-            _map.MapElements.Add(Sight);
+                var Sight = new MapIcon
+                {
+                    Title = sight.Name,
+                    Location = sight.Position,
+                    NormalizedAnchorPoint = ancherpoint,
+                    Image = image,
+                    ZIndex = 4,
+                    CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible
+
+                };
+                Sight.AddData(sight);
+                _map.MapElements.Add(Sight);
+            }
         }
 
         public void DrawPlayer(Geoposition position)
@@ -155,7 +166,7 @@ namespace MobileGuidingSystem.ViewModel
                 {
                     if (element is MapIcon)
                     {
-                        MapIcon player = (MapIcon) element;
+                        MapIcon player = (MapIcon)element;
                         if (player.ZIndex == 13)
                         {
                             int index = _map.MapElements.IndexOf(player);
@@ -168,9 +179,33 @@ namespace MobileGuidingSystem.ViewModel
             }
         }
 
+        public async void myMap_OnMapElementClick(MapControl sender, MapElementClickEventArgs args)
+        {
+            MapIcon myClickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
 
+             ISight clickedSight = myClickedIcon.ReadData();
 
+            dialog.Content = clickedSight.Address + "\r" + clickedSight.Description;
+            dialog.Title = clickedSight.Name;
+            dialog.PrimaryButtonText = "visit sight";
+            dialog.SecondaryButtonText = "Close";
+            dialog.PrimaryButtonClick += Dialog_PrimaryButtonClick;
+            dialog.SecondaryButtonClick += Dialog_SecondaryButtonClick;
+            await dialog.ShowAsync();
+        }
+
+        private void Dialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+           // throw new NotImplementedException();
+           sender.Hide();
+        }
+
+        private void Dialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            // throw new NotImplementedException();
+            Window.Current.Content = new SightPage();
+        }
     }
-           
 
-    }
+
+}

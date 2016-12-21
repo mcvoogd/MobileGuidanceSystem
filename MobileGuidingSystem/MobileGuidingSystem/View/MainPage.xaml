@@ -16,7 +16,8 @@
                          DesiredPitch="{x:Bind Model.DesiredPitch}"
                          Center="{x:Bind Model.MyLocation}"
                          Style="{x:Bind Model.MapStyle}"
-                         LandmarksVisible="True">
+                         LandmarksVisible="True"
+                         MapElementClick="MyMap_OnMapElementClick">
 
             <maps:MapItemsControl ItemsSource="{x:Bind Model.Sights}">
                  <maps:MapItemsControl.ItemTemplate>
