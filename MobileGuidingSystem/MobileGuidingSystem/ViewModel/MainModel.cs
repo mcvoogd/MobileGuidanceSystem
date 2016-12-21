@@ -211,8 +211,7 @@ namespace MobileGuidingSystem.ViewModel
 
             //await dialog.ShowAsync();
 
-            ContentDialog1 dialog1 = new ContentDialog1();
-            dialog1.sight = clickedSight;
+            ContentDialog1 dialog1 = new ContentDialog1(clickedSight);
             await dialog1.ShowAsync();
         }
 
@@ -225,7 +224,8 @@ namespace MobileGuidingSystem.ViewModel
         private void Dialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
             // throw new NotImplementedException();
-            Window.Current.Content = new SightPage();
+            ContentDialog1 dial = (ContentDialog1) sender;
+            Window.Current.Content = new SightPage(dial.sight);
         }
     }
 

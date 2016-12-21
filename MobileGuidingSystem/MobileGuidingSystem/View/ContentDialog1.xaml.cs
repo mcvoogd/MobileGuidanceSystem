@@ -10,7 +10,7 @@ namespace MobileGuidingSystem.View
 
     public sealed partial class ContentDialog1 : ContentDialog
     {
-        public ISight sight;
+        public ISight sight { get; set; }
         public double height;
         public string imagepath
         {
@@ -29,16 +29,17 @@ namespace MobileGuidingSystem.View
             return "ms-appx:///Assets/NoImage.png";
         }
 
-        public ContentDialog1()
+        public ContentDialog1(ISight sight)
         {
             this.InitializeComponent();
+            this.sight = sight;
             DataContext = sight;
             height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
         }
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            Window.Current.Content = new SightPage();
+            Window.Current.Content = new SightPage(sight);
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
