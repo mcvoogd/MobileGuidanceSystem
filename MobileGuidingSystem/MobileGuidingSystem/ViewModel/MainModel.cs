@@ -11,6 +11,7 @@ using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
+using Windows.UI.Xaml.Controls.Primitives;
 using MobileGuidingSystem.Model;
 using MobileGuidingSystem.Model.Data;
 using MobileGuidingSystem.View;
@@ -48,6 +49,8 @@ namespace MobileGuidingSystem.ViewModel
             iconImage = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
             Anchor = new Point(0.5, 1);
             dialog = new ContentDialog();
+            dialog.PrimaryButtonClick += Dialog_PrimaryButtonClick;
+            dialog.SecondaryButtonClick += Dialog_SecondaryButtonClick;
             dialog.Hide();
             //drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
             //  _map.ZoomLevelChanged += _map_ZoomLevelChanged;
@@ -183,15 +186,25 @@ namespace MobileGuidingSystem.ViewModel
         {
             MapIcon myClickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
 
-             ISight clickedSight = myClickedIcon.ReadData();
+            ISight clickedSight = myClickedIcon.ReadData();
+            //ScrollViewer SV = new ScrollViewer();           
+            //TextBlock txtBlock = new TextBlock();
 
-            dialog.Content = clickedSight.Address + "\r" + clickedSight.Description;
-            dialog.Title = clickedSight.Name;
-            dialog.PrimaryButtonText = "visit sight";
-            dialog.SecondaryButtonText = "Close";
-            dialog.PrimaryButtonClick += Dialog_PrimaryButtonClick;
-            dialog.SecondaryButtonClick += Dialog_SecondaryButtonClick;
-            await dialog.ShowAsync();
+            
+            //txtBlock.Text = clickedSight.Address + "\r" + clickedSight.Description + "\r";
+            //txtBlock.TextWrapping = TextWrapping.Wrap;
+            //SV.Content = txtBlock;
+            //SV.VerticalAlignment = VerticalAlignment.Stretch;
+            //dialog.Content = SV;
+            //dialog.Title = clickedSight.Name;
+            //dialog.PrimaryButtonText = "visit " + clickedSight.Name;
+            //dialog.SecondaryButtonText = "Close";
+
+            //await dialog.ShowAsync();
+
+            ContentDialog1 dialog1 = new ContentDialog1();
+            dialog1.sight = clickedSight;
+            await dialog1.ShowAsync();
         }
 
         private void Dialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
