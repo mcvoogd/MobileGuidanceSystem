@@ -39,6 +39,7 @@ namespace MobileGuidingSystem.Model.Data
             public double latitude;
             
             private List<RandomAccessStreamReference> _randomAccessStreamReferences;
+            private List<string> _fullImagePaths;
 
             public string Name => title;
             public string Description => description;
@@ -61,6 +62,20 @@ namespace MobileGuidingSystem.Model.Data
             }
 
             public RandomAccessStreamReference Icon => ImageStreamReferences[0];
+
+            public List<string> FullImagePaths
+            {
+                get
+                {
+                    if (_fullImagePaths == null)
+                    {
+                        var tmpList = new List<string>();
+                        ImagePaths.ForEach(i=>tmpList.Add($"ms-appx:///Assets/Pictures/{i}"));
+                        _fullImagePaths = tmpList;
+                    }
+                    return _fullImagePaths;
+                }
+            }
         }
     }
 }
