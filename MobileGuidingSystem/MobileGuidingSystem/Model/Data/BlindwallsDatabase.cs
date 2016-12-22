@@ -23,7 +23,7 @@ namespace MobileGuidingSystem.Model.Data
 
         private static void LoadSights()
         {
-            var bwSights = JsonConvert.DeserializeObject<List<BWSight>>(Utils.ReadJsonFile("JSON/blindwalls.json"));
+            var bwSights = JsonConvert.DeserializeObject<List<BWSight>>(Utils.ReadJsonFile("JSON/HistorischeKM.json"));
             _sights = new List<ISight>(bwSights);
         }
 
