@@ -9,6 +9,7 @@ namespace MobileGuidingSystem
         {
             Uri uri = MakeUri(fileName);
             StorageFile anjFile = StorageFile.GetFileFromApplicationUriAsync(uri).AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
+
             return anjFile;
         }
 
@@ -20,7 +21,7 @@ namespace MobileGuidingSystem
 
         public static Uri MakeUri(string filename)
         {
-            return new Uri("ms-appx:///Assets/" + filename);
+            return new Uri("ms-appx:///Assets/JSON/" + filename);
         }
     }
 }
