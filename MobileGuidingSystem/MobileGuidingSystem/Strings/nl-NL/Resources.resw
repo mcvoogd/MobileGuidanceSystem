@@ -117,13 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CONTENTDIALOG_BUTTONS.PrimaryButtonText" xml:space="preserve">
+    <value>bekijken</value>
+  </data>
+  <data name="CONTENTDIALOG_BUTTONS.SecondaryButtonText" xml:space="preserve">
+    <value>annuleren</value>
+  </data>
   <data name="HELPPAGE_HELP.Text" xml:space="preserve">
     <value>hulp</value>
   </data>
   <data name="LANGUAGEPAGE_LANGUAGE.Text" xml:space="preserve">
     <value>taal</value>
   </data>
+  <data name="NAVIGATION_MAP.Text" xml:space="preserve">
+    <value>kaart</value>
+  </data>
   <data name="ROUTEPAGE_SELECTROUTE.Text" xml:space="preserve">
     <value>selecteer route</value>
+  </data>
+  <data name="SETTINGSPAGE_SETTINGS.Text" xml:space="preserve">
+    <value>instellingen</value>
+  </data>
+  <data name="SIGHTSPAGE_SIGHTS.Text" xml:space="preserve">
+    <value>bezienswaardigheden</value>
   </data>
 </root>

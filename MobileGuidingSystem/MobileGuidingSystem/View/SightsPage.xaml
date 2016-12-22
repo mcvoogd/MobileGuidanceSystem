@@ -10,7 +10,7 @@
     <Grid Background="Transparent">
         <ScrollViewer VerticalAlignment="Stretch">
             <StackPanel Orientation="Vertical">
-                <TextBlock x:Name="textBlock" Margin="0,50,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="sights" VerticalAlignment="Top" FontSize="50" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
+                <TextBlock x:Name="textBlock" Margin="0,50,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="SIGHTSPAGE_SIGHTS" VerticalAlignment="Top" FontSize="50" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
 
                 <ListView x:Name="SightList" Margin="12" ScrollViewer.VerticalScrollMode="Auto">
                     <ListView.ItemTemplate>

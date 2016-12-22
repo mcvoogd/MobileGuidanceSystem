@@ -7,7 +7,7 @@
     mc:Ignorable="d">
 
     <Grid Background="Transparent">
-    <TextBlock x:Name="textBlock" Margin="0,50" HorizontalAlignment="Center" TextWrapping="Wrap" Text="settings" VerticalAlignment="Top" FontSize="50" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
+    <TextBlock x:Name="textBlock" Margin="0,50" HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="SETTINGSPAGE_SETTINGS" VerticalAlignment="Top" FontSize="50" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
         
   </Grid>
 </Page>
