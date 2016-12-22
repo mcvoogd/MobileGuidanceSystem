@@ -44,7 +44,7 @@ namespace MobileGuidingSystem.View
         //        imagePaths.Add("ms-appx:///Assets/Pictures/" + s);
         //    }
         //}
-
+                
         public async void AddToSplitView()
         { 
             foreach (string s in sight.ImagePaths)
