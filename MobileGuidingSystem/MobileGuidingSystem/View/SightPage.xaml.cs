@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
+using Windows.UI.Core;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
@@ -27,7 +29,7 @@ namespace MobileGuidingSystem.View
             //imagePaths = new List<string>();
             this.InitializeComponent();
             AddToSplitView();
-        }
+        }  
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -42,9 +44,9 @@ namespace MobileGuidingSystem.View
         //        imagePaths.Add("ms-appx:///Assets/Pictures/" + s);
         //    }
         //}
-
+                
         public async void AddToSplitView()
-        {
+        { 
             foreach (string s in sight.ImagePaths)
             {
                 ImageBrush brush = new ImageBrush();
