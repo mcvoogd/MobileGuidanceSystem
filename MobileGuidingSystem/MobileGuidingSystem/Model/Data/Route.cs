@@ -21,7 +21,7 @@ namespace MobileGuidingSystem.Model.Data
         {
             Routes.Add(new Route { Name = "Blindwalls", Filename = "blindwalls.json"});
             //TODO: Add historische kilometer filename
-            Routes.Add(new Route {Name= "Historische Kilometer", Filename = ""});
+            Routes.Add(new Route {Name= "Historische Kilometer", Filename = "HistorischeKM.json"});
         }
 
         public override string ToString()
