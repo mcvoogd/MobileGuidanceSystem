@@ -7,7 +7,6 @@
     mc:Ignorable="d">
 
     <Grid Background="Transparent">
-        <Rectangle Stretch="UniformToFill" Width="10000"></Rectangle>
         <Image Source="ms-appx:///Assets/GO_logo_black.png" Width="200" VerticalAlignment="Top" Margin="48"/>
         <ProgressRing IsActive="True" x:Name="LoadingIndicator" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" MinWidth="60" MinHeight="60"/>
 

@@ -15,5 +15,7 @@ namespace MobileGuidingSystem.Model.Data
 
         List<RandomAccessStreamReference> ImageStreamReferences { get; }
         RandomAccessStreamReference Icon { get; }
+
+        List<string> FullImagePaths { get; }
     }
 }

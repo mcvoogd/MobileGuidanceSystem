@@ -104,6 +104,7 @@
     </Compile>
     <Compile Include="Model\Data\BlindwallsDatabase.cs" />
     <Compile Include="Model\Data\ISight.cs" />
+    <Compile Include="Model\Data\ISightProvider.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="ViewModel\MainModel.cs" />
@@ -336,6 +337,7 @@
     <Content Include="Assets\Pictures\Luca_st.png" />
     <Content Include="Assets\Pictures\muur_csm_01.jpg" />
     <Content Include="Assets\Pictures\muur_csm_01groot.jpg" />
+    <Content Include="Assets\Pictures\NoImage.png" />
     <Content Include="Assets\Pictures\Nol_Pic1_web.jpg" />
     <Content Include="Assets\Pictures\Nol_Pic2_web.jpg" />
     <Content Include="Assets\Pictures\Nol_Pic3_web.jpg" />
