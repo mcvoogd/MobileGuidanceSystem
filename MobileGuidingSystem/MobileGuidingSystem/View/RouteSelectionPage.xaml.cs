@@ -12,12 +12,10 @@ namespace MobileGuidingSystem.View
     /// </summary>
     public sealed partial class RouteSelectionPage : Page
     {
-
-        ObservableCollection<ISightProvider> _routes = new ObservableCollection<ISightProvider>();
+        private ObservableCollection<Route> Routes = new ObservableCollection<Route>(Route.Routes);
         public RouteSelectionPage()
         {
             this.InitializeComponent();
-            _routes.Add(new BlindwallsDatabase());
         }
 
         

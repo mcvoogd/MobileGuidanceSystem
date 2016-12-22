@@ -35,7 +35,7 @@ namespace MobileGuidingSystem.View
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             var b = (StackPanel) sender;
-            var selected = (ISight) b.DataContext;
+            var selected = (Sight) b.DataContext;
             MyMap.Center = selected.Position;
 
             Popup popup = new Popup();
@@ -81,7 +81,7 @@ namespace MobileGuidingSystem.View
         private void UIElement_OnTapped(object sender, TappedRoutedEventArgs e)
         {
             var b = (StackPanel)sender;
-            var selected = (ISight)b.DataContext;
+            var selected = (Sight)b.DataContext;
             MyMap.Center = selected.Position;
             MyMap.Center = selected.Position;
 
@@ -99,7 +99,7 @@ namespace MobileGuidingSystem.View
         private void StackpanelOnTapped(object sender, TappedRoutedEventArgs tappedRoutedEventArgs)
         {
             var b = (StackPanel)sender;
-            var selected = (ISight)b.DataContext;
+            var selected = (Sight)b.DataContext;
             Frame.Navigate(typeof(SightPage), selected);
         }
 

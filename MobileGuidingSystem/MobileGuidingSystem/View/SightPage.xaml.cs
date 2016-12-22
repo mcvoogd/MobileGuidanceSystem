@@ -18,10 +18,10 @@ namespace MobileGuidingSystem.View
     /// </summary>
     public sealed partial class SightPage : Page
     {
-        public ISight sight;
+        public Sight sight;
         //public List<string> imagePaths;
 
-        public SightPage(ISight sight)
+        public SightPage(Sight sight)
         {
             this.sight = sight;
             //imagePaths = new List<string>();
@@ -31,7 +31,7 @@ namespace MobileGuidingSystem.View
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            ISight sight = (ISight) e.Parameter;
+            Sight sight = (Sight) e.Parameter;
             DataContext = sight;
         }
 
