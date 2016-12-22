@@ -54,7 +54,7 @@ namespace MobileGuidingSystem.View
                 Frame.Navigate(typeof(MainPage));
                 HamburgerSplitview.DisplayMode = SplitViewDisplayMode.CompactOverlay;
                 HamburgerButton.Visibility = Visibility.Collapsed;
-
+                Menu.Visibility = Visibility.Visible;
             }
             else if (RouteSelection.IsSelected)
             {
