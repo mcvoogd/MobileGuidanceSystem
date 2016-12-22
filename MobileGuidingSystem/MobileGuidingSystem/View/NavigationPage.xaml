@@ -11,51 +11,54 @@
 
         <Image Source="ms-appx:///Assets/background.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Opacity="0.4"/>
 
-        
-        <SplitView Name="HamburgerSplitview" DisplayMode="Overlay" RelativePanel.Below="HamburgerButton" CompactPaneLength="44" OpenPaneLength="175" PaneBackground="Transparent" PaneClosed="HamburgerSplitview_OnPaneClosed">
+       <SplitView Name="HamburgerSplitview" DisplayMode="CompactOverlay" RelativePanel.Below="HamburgerButton" CompactPaneLength="44" PaneBackground="Transparent" PaneClosed="HamburgerSplitview_OnPaneClosed">
             <SplitView.Pane >
-                <ListBox x:Name="MenuListBox"  SelectionMode="Single"  SelectionChanged="Selector_OnSelectionChanged" Background="White">
-
-
-                    <ListBoxItem Name="Map" HorizontalAlignment="Left">
+                <ListBox x:Name="MenuListBox" SelectionMode="Single"  SelectionChanged="Selector_OnSelectionChanged" Background="White">
+                    <ListBoxItem Name="Menu">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE80F;" FontSize="24" VerticalAlignment="Center"></TextBlock>
-                            <TextBlock  Margin="10,0,0,0" x:Uid="NAVIGATION_MAP" FontSize="24" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE700;" FontSize="24" VerticalAlignment="Center" Tapped="HamburgerButton_OnClick"></TextBlock>
                         </StackPanel>
                     </ListBoxItem>
 
-                    <ListBoxItem Name="RouteSelection" HorizontalAlignment="Left">
+                    <ListBoxItem Name="Map">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE80F;" FontSize="24" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock  Margin="10,0,0,0" x:Uid="NAVIGATION_MAP" FontSize="24" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+
+                    <ListBoxItem Name="RouteSelection">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock   FontFamily="Segoe MDL2 Assets" Text="&#xE707;" FontSize="24" VerticalAlignment="Center"></TextBlock>
-                            <TextBlock  Margin="10,0,0,0" Text="Route" FontSize="24" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock  Margin="10,0,0,0" Text="Route" FontSize="24" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"></TextBlock>
                         </StackPanel>
                     </ListBoxItem>
 
                     <ListBoxItem Name="Sights">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE718;" FontSize="24" VerticalAlignment="Center"></TextBlock>
-                            <TextBlock  Margin="10,0,0,0" x:Uid="SIGHTSPAGE_SIGHTS" FontSize="24" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock  Margin="10,0,0,0" x:Uid="NAVIGATIONPAGE_SIGHTS" FontSize="24" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"></TextBlock>
                         </StackPanel>
                     </ListBoxItem>
 
-                    <ListBoxItem Name="Language" HorizontalAlignment="Left">
+                    <ListBoxItem Name="Language">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE774;" FontSize="24" VerticalAlignment="Center"></TextBlock>
-                            <TextBlock  Margin="10,0,0,0" x:Uid="LANGUAGEPAGE_LANGUAGE" FontSize="24" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock  Margin="10,0,0,0" x:Uid="LANGUAGEPAGE_LANGUAGE" FontSize="24" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"></TextBlock>
                         </StackPanel>
                     </ListBoxItem>
 
-                    <ListBoxItem Name="Settings" HorizontalAlignment="Left">
+                    <ListBoxItem Name="Settings">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE713;" FontSize="24" VerticalAlignment="Center"></TextBlock>
-                            <TextBlock  Margin="10,0,0,0" x:Uid="SETTINGSPAGE_SETTINGS" FontSize="24" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock  Margin="10,0,0,0" x:Uid="NAVIGATIONPAGE_SETTINGS" FontSize="24" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"></TextBlock>
                         </StackPanel>
                     </ListBoxItem>
 
-                    <ListBoxItem Name="Help" HorizontalAlignment="Left">
+                    <ListBoxItem Name="Help">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE897;" FontSize="24" VerticalAlignment="Center"></TextBlock>
-                            <TextBlock  Margin="10,0,0,0" Text="Help" FontSize="24" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock  Margin="10,0,0,0" x:Uid="HELPPAGE_HELP" FontSize="24" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"></TextBlock>
                         </StackPanel>
                     </ListBoxItem>
                 </ListBox>

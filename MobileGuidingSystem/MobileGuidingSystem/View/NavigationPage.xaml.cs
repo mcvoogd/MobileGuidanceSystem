@@ -27,6 +27,7 @@ namespace MobileGuidingSystem.View
         {
             this.InitializeComponent();
             MenuListBox.Background = new SolidColorBrush(Color.FromArgb(200, 255, 255, 255));
+            HamburgerButton.Visibility = Visibility.Collapsed;
             Frame.Navigate(typeof(MainPage));
             Map.IsSelected = true;
         }
@@ -34,16 +35,26 @@ namespace MobileGuidingSystem.View
         private void HamburgerButton_OnClick(object sender, RoutedEventArgs e)
         {
             HamburgerSplitview.IsPaneOpen = !HamburgerSplitview.IsPaneOpen;
-            HamburgerButton.Visibility = Visibility.Collapsed;
         }
 
         //TODO add navigation to the pages
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            HamburgerSplitview.DisplayMode = SplitViewDisplayMode.Overlay;
             HamburgerButton.Visibility = Visibility.Visible;
+            Menu.Visibility = Visibility.Collapsed;
+            if (Menu.IsSelected)
+            {
+                HamburgerSplitview.DisplayMode = SplitViewDisplayMode.CompactOverlay;
+                HamburgerButton.Visibility = Visibility.Collapsed;
+                Menu.Visibility = Visibility.Visible;
+            }
             if (Map.IsSelected)
             {
                 Frame.Navigate(typeof(MainPage));
+                HamburgerSplitview.DisplayMode = SplitViewDisplayMode.CompactOverlay;
+                HamburgerButton.Visibility = Visibility.Collapsed;
+                Menu.Visibility = Visibility.Visible;
             }
             else if (RouteSelection.IsSelected)
             {
@@ -70,7 +81,11 @@ namespace MobileGuidingSystem.View
 
         private void HamburgerSplitview_OnPaneClosed(SplitView sender, object args)
         {
-            HamburgerButton.Visibility = Visibility.Visible;
+            if (!Menu.IsSelected)
+            {
+                if(!Map.IsSelected)
+                    HamburgerButton.Visibility = Visibility.Visible;
+            }
         }
 
     }
