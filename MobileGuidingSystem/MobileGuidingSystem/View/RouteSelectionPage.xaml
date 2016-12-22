@@ -7,7 +7,6 @@
     mc:Ignorable="d">
 
     <Grid Background="Transparent">
-        <Rectangle Stretch="UniformToFill" Width="10000"></Rectangle>
         <TextBlock x:Name="textBlock" Margin="0,50" HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="ROUTEPAGE_SELECTROUTE" VerticalAlignment="Top" FontSize="50" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
         <ComboBox VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="12,148" Background="White" Header="Route:"></ComboBox>
         <TextBlock VerticalAlignment="Stretch" Margin="12,250,12,100" Text="De Historische Kilometer...."></TextBlock>

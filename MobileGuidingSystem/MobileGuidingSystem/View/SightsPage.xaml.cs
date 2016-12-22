@@ -23,17 +23,10 @@ namespace MobileGuidingSystem.View
     /// </summary>
     public sealed partial class SightsPage : Page
     {
-        public string ImagePathBind { get; set; }
-
         public SightsPage()
-
         {
-            ImagePathBind = "ms-appx:///Assets/background.jpg";
             this.InitializeComponent();
-
-
             SightList.ItemsSource = BlindwallsDatabase.Sights;
         }
     }
-
 }
