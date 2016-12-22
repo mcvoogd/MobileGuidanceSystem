@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
+using Windows.UI.Core;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
@@ -18,20 +20,20 @@ namespace MobileGuidingSystem.View
     /// </summary>
     public sealed partial class SightPage : Page
     {
-        public ISight sight;
+        public Sight sight;
         //public List<string> imagePaths;
 
-        public SightPage(ISight sight)
+        public SightPage(Sight sight)
         {
             this.sight = sight;
             //imagePaths = new List<string>();
             this.InitializeComponent();
             AddToSplitView();
-        }
+        }  
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            ISight sight = (ISight) e.Parameter;
+            Sight sight = (Sight) e.Parameter;
             DataContext = sight;
         }
 
@@ -42,9 +44,9 @@ namespace MobileGuidingSystem.View
         //        imagePaths.Add("ms-appx:///Assets/Pictures/" + s);
         //    }
         //}
-
+                
         public async void AddToSplitView()
-        {
+        { 
             foreach (string s in sight.ImagePaths)
             {
                 ImageBrush brush = new ImageBrush();

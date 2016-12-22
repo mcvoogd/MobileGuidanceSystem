@@ -23,7 +23,9 @@ namespace MobileGuidingSystem.ViewModel
         private readonly MapControl _map;
         public Geopoint MyLocation;
         //private readonly bool _onCollisionShow;
-        public ObservableCollection<ISight> Sights;
+        public ObservableCollection<Sight> Sights;
+
+        public static Route CurrentRoute;
 
         public int Zoomlevel => 17;
 
@@ -38,14 +40,18 @@ namespace MobileGuidingSystem.ViewModel
         public ContentDialog dialog;
 
 
+        //TODO: Fix this ofzo
         public MainModel(MapControl mapcontrol)
         {
             _map = mapcontrol;
-            Sights = new ObservableCollection<ISight>();
+            Sights = new ObservableCollection<Sight>();
             LoadData();
             MyLocation = new Geopoint(new BasicGeoposition() { Latitude = 51.5860591, Longitude = 4.793500600000016 });
             User = new User();
-            DrawRoutes(BlindwallsDatabase.Sights);
+
+
+            //DrawRoutes(RouteLoader.Sights);
+
             iconImage = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
             Anchor = new Point(0.5, 1);
             dialog = new ContentDialog();
@@ -58,8 +64,8 @@ namespace MobileGuidingSystem.ViewModel
 
         private void LoadData()
         {
-            //BlindwallsDatabase.Sights.ForEach(s=>Sights.Add(s));
-            drawSight(BlindwallsDatabase.Sights);
+            //Sights.Add();
+            //drawSight(RouteLoader.Sights);
 
         }
 
@@ -104,12 +110,12 @@ namespace MobileGuidingSystem.ViewModel
             }
         }
 
-        public void DrawRoutes(List<ISight> sightlist)
+        public void DrawRoutes(List<Sight> sightlist)
         {
             List<Geopoint> positions = new List<Geopoint>();
 
 
-            foreach (ISight s in sightlist)
+            foreach (Sight s in sightlist)
             {
                 positions.Add(s.Position);
             }
@@ -122,11 +128,11 @@ namespace MobileGuidingSystem.ViewModel
         }
 
         //public void drawSight(Geopoint position, String title)
-        public void drawSight(List<ISight> list)
+        public void drawSight(List<Sight> list)
         {
             var ancherpoint = new Point(0.5, 1);
             var image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
-            foreach (ISight sight in list)
+            foreach (Sight sight in list)
             {
                 var Sight = new MapIcon
                 {
@@ -186,7 +192,7 @@ namespace MobileGuidingSystem.ViewModel
         {
             MapIcon myClickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
 
-            ISight clickedSight = myClickedIcon.ReadData();
+            Sight clickedSight = myClickedIcon.ReadData();
             ScrollViewer SV = new ScrollViewer();
             TextBlock txtBlock = new TextBlock();
 

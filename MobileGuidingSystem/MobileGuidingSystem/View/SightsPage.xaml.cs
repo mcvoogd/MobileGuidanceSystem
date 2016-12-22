@@ -26,7 +26,7 @@ namespace MobileGuidingSystem.View
         public SightsPage()
         {
             this.InitializeComponent();
-            SightList.ItemsSource = BlindwallsDatabase.Sights;
+            //SightList.ItemsSource = RouteLoader.Sights;
         }
     }
 }

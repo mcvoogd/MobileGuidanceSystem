@@ -7,8 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Title="{x:Bind sight.Name}"
-    PrimaryButtonText="See Sight"
-    SecondaryButtonText="Close"
+    
+    x:Uid="CONTENTDIALOG_BUTTONS"
+    
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
 
