@@ -103,6 +103,7 @@
     </Compile>
     <Compile Include="Model\Data\BlindwallsDatabase.cs" />
     <Compile Include="Model\Data\ISight.cs" />
+    <Compile Include="Model\Data\ISightProvider.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="ViewModel\MainModel.cs" />

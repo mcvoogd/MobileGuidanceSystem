@@ -25,6 +25,8 @@ namespace MobileGuidingSystem.ViewModel
         //private readonly bool _onCollisionShow;
         public ObservableCollection<ISight> Sights;
 
+        
+
         public int Zoomlevel => 17;
 
         public int DesiredPitch => 45;
@@ -36,6 +38,7 @@ namespace MobileGuidingSystem.ViewModel
         public IRandomAccessStreamReference iconImage { get; set; }
         public Point Anchor { get; set; }
         public ContentDialog dialog;
+
 
 
         public MainModel(MapControl mapcontrol)
