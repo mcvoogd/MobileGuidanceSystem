@@ -30,7 +30,7 @@
                     <ListBoxItem Name="RouteSelection">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock   FontFamily="Segoe MDL2 Assets" Text="&#xE707;" FontSize="24" VerticalAlignment="Center"></TextBlock>
-                            <TextBlock  Margin="10,0,0,0" Text="Route" FontSize="24" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"></TextBlock>
+                            <TextBlock  Margin="10,0,0,0" Text="route" FontSize="24" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"></TextBlock>
                         </StackPanel>
                     </ListBoxItem>
 
