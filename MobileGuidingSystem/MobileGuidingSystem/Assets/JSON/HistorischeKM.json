@@ -1,0 +1,338 @@
+[
+	{
+		"Title": "VVV",
+		"description": "Beginpunt" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.779414,
+		"latitude":	51.594112
+	},	
+	{
+		"Title": "Liefdeszuster",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.779388,
+		"latitude":	51.593278
+	},
+	{
+		"Title": "Nassau Baronie Monument",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.779695,
+		"latitude":	51.592500
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.779388 ,
+		"latitude":	51.592500
+	},
+	{
+		"Title": "The Light House",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.778472 ,
+		"latitude":	51.592833
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.777917 ,
+		"latitude":	51.592667
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.777000 ,
+		"latitude":	51.590612
+	},
+	{
+		"Title": "Kasteel van Breda",
+		"description": "Kasteelplein" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.776167,
+		"latitude":	51.590612
+	},
+	{
+		"Title": "Stadhouderspoort",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.776138,
+		"latitude":	51.589695
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.776000 ,
+		"latitude":	51.590333
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.775000,
+		"latitude":	51.590388
+	},
+	{
+		"Title": "Huis van Brecht",
+		"description": "rechter zijde" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.774362,
+		"latitude":	51.590028
+	},
+	{
+		"Title": "Spanjaardgat",
+		"description": "rechter zijde" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.773445,
+		"latitude":	51.590195
+	},
+	{
+		"Title": "Begin Vismarkt",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.77333,
+		"latitude":	51.589833
+	},
+	{
+		"Title": "Begin Havermarkt",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.774445,
+		"latitude":	51.589362
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.774888,
+		"latitude":	51.588778
+	},
+	{
+		"Title": "Grote Kerk",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.775278,
+		"latitude":	51.588833
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.774888,
+		"latitude":	51.588778
+	},
+	{
+		"Title": "Het Poortje",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.775138,
+		"latitude":	51.588195
+	},
+	{
+		"Title": "Ridderstraat",
+		"description": "" ,
+		"images":null ,
+		"adress": "",
+		"longitude": 4.775750,
+		"latitude":	51.587083
+	},
+	{
+		"Title": "Grote Markt",
+		"description": "Zuidpunt grote markt" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.776555,
+		"latitude":	51.587417
+	},
+	{
+		"Title": "Bevrijdingsmonument",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.776333,
+		"latitude":	51.588028
+	},
+	{
+		"Title": "Stadhuis",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.776112,
+		"latitude":	51.588750
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.776362,
+		"latitude":	51.587972
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.776555,
+		"latitude":	51.587500
+	},
+	{
+		"Title": "Antonius van Paduakerk",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.777250,
+		"latitude":	51.587638
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.778500,
+		"latitude":	51.588278
+	},
+	{
+		"Title": "Bibliotheek",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.778945,
+		"latitude":	51.588000
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.780222,
+		"latitude":	51.587362
+	},
+	{
+		"Title": "Binding van Isaac",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.780888,
+		"latitude":	51.588612
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.780445,
+		"latitude":	51.589500
+	},
+	{
+		"Title": "Beyerd",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.781000,
+		"latitude":	51.589667
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.780445,
+		"latitude":	51.589500
+	},
+	{
+		"Title": "Gasthuispoort",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.780000,
+		"latitude":	51.589555
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.779862,
+		"latitude":	51.589417
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.779695,
+		"latitude":	51.589028
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.778333,
+		"latitude":	51.588555
+	},
+	{
+		"Title": "Willem Merkxtuin",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.777945,
+		"latitude":	51.589112
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.777805,
+		"latitude":	51.589667
+	},
+	{
+		"Title": "Begijnenhof",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.778362,
+		"latitude":	51.589695
+	},
+	{
+		"Title": "",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.777805,
+		"latitude":	51.589667
+	},
+	{
+		"Title": "Einde stadswandeling",
+		"description": "" ,
+		"images": null,
+		"adress": "",
+		"longitude": 4.776250,
+		"latitude":	51.589500
+	}
+]

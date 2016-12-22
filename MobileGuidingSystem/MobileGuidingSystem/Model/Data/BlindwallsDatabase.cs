@@ -7,10 +7,10 @@ using Newtonsoft.Json;
 
 namespace MobileGuidingSystem.Model.Data
 {
-    class BlindwallsDatabase
+    class BlindwallsDatabase : ISightProvider
     {
-        private static List<ISight> _sights;
-        public static List<ISight> Sights
+        private List<ISight> _sights;
+        public List<ISight> Sights
         {
             get
             {
@@ -21,9 +21,9 @@ namespace MobileGuidingSystem.Model.Data
             }
         }
 
-        private static void LoadSights()
+        private void LoadSights()
         {
-            var bwSights = JsonConvert.DeserializeObject<List<BWSight>>(Utils.ReadJsonFile("JSON/blindwalls.json"));
+            var bwSights = JsonConvert.DeserializeObject<List<BWSight>>(Utils.ReadJsonFile("JSON/HistorischeKM.json"));
             _sights = new List<ISight>(bwSights);
         }
 
