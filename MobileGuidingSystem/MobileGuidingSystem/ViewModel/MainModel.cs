@@ -65,7 +65,8 @@ namespace MobileGuidingSystem.ViewModel
         private void LoadData()
         {
             //Sights.Add();
-            //drawSight(RouteLoader.Sights);
+            drawSight(Route.Routes[0].Sights);
+            DrawRoutes(Route.Routes[0].Sights);
 
         }
 
@@ -132,22 +133,43 @@ namespace MobileGuidingSystem.ViewModel
         {
             var ancherpoint = new Point(0.5, 1);
             var image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
+            var image2 = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/TransparentWayPoint.png"));
             foreach (Sight sight in list)
             {
-                var Sight = new MapIcon
-                {
-                    Title = sight.Name,
-                    Location = sight.Position,
-                    NormalizedAnchorPoint = ancherpoint,
-                    Image = image,
-                    ZIndex = 4,
-                    CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible
 
+                if (sight.Name != "")
+                {
+                    var Sight = new MapIcon
+                    {
+                        Title = sight.Name,
+                        Location = sight.Position,
+                        NormalizedAnchorPoint = ancherpoint,
+                        Image = image,
+                        ZIndex = 4,
+                        CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible
+                       
                 };
-                Sight.AddData(sight);
-                _map.MapElements.Add(Sight);
+                    Sight.AddData(sight);
+                    _map.MapElements.Add(Sight);
+                }
+                else
+                {
+                    var SightWIthoutPin = new MapIcon
+                    {
+                        Title = sight.Name,
+                        Location = sight.Position,
+                        NormalizedAnchorPoint = ancherpoint,
+                        Image = image2,
+                        ZIndex = 4,
+                        CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible
+
+                    };
+                    SightWIthoutPin.AddData(SightWIthoutPin);
+                    _map.MapElements.Add(SightWIthoutPin);
+                }
+                
+                }
             }
-        }
 
         public void DrawPlayer(Geoposition position)
         {
@@ -202,20 +224,6 @@ namespace MobileGuidingSystem.ViewModel
             SV.Content = txtBlock;
             SV.VerticalAlignment = VerticalAlignment.Stretch;
 
-            //var image =
-            //    RandomAccessStreamReference.CreateFromUri(
-            //        new Uri("ms-appx:///Assets/Pictures/" + clickedSight.ImagePaths[0]));
-
-            //Image image = new Image();
-
-            //image.Source = clickedSight.ImageStreamReferences;
-
-            //dialog.Content = image;
-            //dialog.Title = clickedSight.Name;
-            //dialog.PrimaryButtonText = "visit " + clickedSight.Name;
-            //dialog.SecondaryButtonText = "Close";
-
-            //await dialog.ShowAsync();
 
             ContentDialog1 dialog1 = new ContentDialog1(clickedSight);
             await dialog1.ShowAsync();
@@ -223,14 +231,14 @@ namespace MobileGuidingSystem.ViewModel
 
         private void Dialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-           // throw new NotImplementedException();
-           sender.Hide();
+            // throw new NotImplementedException();
+            sender.Hide();
         }
 
         private void Dialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
             // throw new NotImplementedException();
-            ContentDialog1 dial = (ContentDialog1) sender;
+            ContentDialog1 dial = (ContentDialog1)sender;
             Window.Current.Content = new SightPage(dial.sight);
         }
     }

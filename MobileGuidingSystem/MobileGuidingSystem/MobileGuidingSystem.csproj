@@ -362,6 +362,7 @@
     <Content Include="Assets\Pictures\ZenkOne_vlaszak-6-1024-kopie.jpg" />
     <Content Include="Assets\Pictures\ZenkOne_vlaszak-6-1024.jpg" />
     <Content Include="Assets\PlayerPin.png" />
+    <Content Include="Assets\TransparentWayPoint.png" />
     <Content Include="Assets\uk.png" />
     <Content Include="Assets\vvv_logo.png" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
