@@ -46,7 +46,7 @@ namespace MobileGuidingSystem.View
         //}
 
         public async void AddToSplitView()
-        {
+        { 
             foreach (string s in sight.ImagePaths)
             {
                 ImageBrush brush = new ImageBrush();
