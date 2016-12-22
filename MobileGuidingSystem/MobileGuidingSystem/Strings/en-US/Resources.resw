@@ -117,13 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CONTENTDIALOG_BUTTONS.PrimaryButtonText" xml:space="preserve">
+    <value>show sight</value>
+  </data>
+  <data name="CONTENTDIALOG_BUTTONS.SecondaryButtonText" xml:space="preserve">
+    <value>cancel</value>
+  </data>
   <data name="HELPPAGE_HELP.Text" xml:space="preserve">
     <value>help</value>
   </data>
   <data name="LANGUAGEPAGE_LANGUAGE.Text" xml:space="preserve">
     <value>language</value>
   </data>
+  <data name="NAVIGATION_MAP.Text" xml:space="preserve">
+    <value>map</value>
+  </data>
   <data name="ROUTEPAGE_SELECTROUTE.Text" xml:space="preserve">
     <value>select route</value>
+  </data>
+  <data name="SETTINGSPAGE_SETTINGS.Text" xml:space="preserve">
+    <value>settings</value>
+  </data>
+  <data name="SIGHTSPAGE_SIGHTS.Text" xml:space="preserve">
+    <value>sights</value>
   </data>
 </root>

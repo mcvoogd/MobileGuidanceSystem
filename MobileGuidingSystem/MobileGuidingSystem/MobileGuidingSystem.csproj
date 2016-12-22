@@ -93,6 +93,7 @@
     <Content Include="Assets\audio_grote_klok.mp3" />
     <Content Include="Assets\A_LOVE_OF_THUNDER.TTF" />
     <Content Include="Assets\JSON\blindwalls.json" />
+    <Content Include="Assets\JSON\HistorischeKM.json" />
     <None Include="project.json" />
     <PRIResource Include="Strings\nl-NL\Resources.resw" />
     <PRIResource Include="Strings\en-US\Resources.resw" />
