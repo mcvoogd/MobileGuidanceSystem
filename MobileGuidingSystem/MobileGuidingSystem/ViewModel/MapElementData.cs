@@ -9,7 +9,7 @@ namespace MobileGuidingSystem.ViewModel
         #region Attached Dependency Property ObjectData
         public static readonly DependencyProperty ObjectDataProperty =
              DependencyProperty.RegisterAttached("ObjectData",
-             typeof(ISight),
+             typeof(Sight),
              typeof(MapElementData),
              new PropertyMetadata(default(object), null));
 
@@ -31,9 +31,9 @@ namespace MobileGuidingSystem.ViewModel
             SetObjectData(element, data);
         }
 
-        public static ISight ReadData(this MapElement element)
+        public static Sight ReadData(this MapElement element)
         {
-            return (ISight)GetObjectData(element);
+            return (Sight)GetObjectData(element);
         }
     }
 }

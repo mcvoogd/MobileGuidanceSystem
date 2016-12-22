@@ -10,7 +10,7 @@ namespace MobileGuidingSystem.View
 
     public sealed partial class ContentDialog1 : ContentDialog
     {
-        public ISight sight { get; set; }
+        public Sight sight { get; set; }
         public double height;
         public string imagepath
         {
@@ -29,7 +29,7 @@ namespace MobileGuidingSystem.View
             return "ms-appx:///Assets/NoImage.png";
         }
 
-        public ContentDialog1(ISight sight)
+        public ContentDialog1(Sight sight)
         {
             this.InitializeComponent();
             this.sight = sight;

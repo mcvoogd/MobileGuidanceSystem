@@ -22,7 +22,7 @@
 
             <maps:MapItemsControl ItemsSource="{x:Bind Model.Sights}">
                  <maps:MapItemsControl.ItemTemplate>
-                    <DataTemplate x:DataType="data:ISight">
+                    <DataTemplate x:DataType="data:Sight">
                         <!--<StackPanel Tapped="UIElement_OnTapped">
                             <Border>
                                 <TextBlock Text="{x:Bind Name}" Margin="5" FontSize="5"  maps:MapControl.NormalizedAnchorPoint="0.5,1" maps:MapControl.Location="{x:Bind Position}"/>
