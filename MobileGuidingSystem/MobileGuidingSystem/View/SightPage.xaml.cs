@@ -59,5 +59,10 @@ namespace MobileGuidingSystem.View
              
 
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Window.Current.Content = new MainPage();
+        }
     }
 }

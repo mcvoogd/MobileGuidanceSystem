@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using Windows.ApplicationModel.Core;
 using Windows.Devices.Geolocation;
+using Windows.Devices.Geolocation.Geofencing;
 using Windows.Foundation;
 using Windows.Services.Maps;
 using Windows.Storage.Streams;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -35,6 +38,7 @@ namespace MobileGuidingSystem.ViewModel
         public IRandomAccessStreamReference iconImage { get; set; }
         public Point Anchor { get; set; }
         public ContentDialog dialog;
+        public IList<Geofence> geofences;
         private int selectedRoute;
         private bool _baseRoute = true;
         private List<Geopoint> KnownUserPos = new List<Geopoint>();
@@ -45,12 +49,11 @@ namespace MobileGuidingSystem.ViewModel
         {
             _map = mapcontrol;
             Sights = new ObservableCollection<Sight>();
-            User = new User();
             LoadData();
             MyLocation = new Geopoint(new BasicGeoposition() { Latitude = 51.5860591, Longitude = 4.793500600000016 });
-            
-
-
+            User = new User();
+            geofences = GeofenceMonitor.Current.Geofences;
+            GeofenceMonitor.Current.GeofenceStateChanged += CurrentOnGeofenceStateChanged;
             //DrawRoutes(RouteLoader.Sights);
 
             iconImage = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
@@ -61,6 +64,48 @@ namespace MobileGuidingSystem.ViewModel
             dialog.Hide();
             //drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
             //  _map.ZoomLevelChanged += _map_ZoomLevelChanged;
+        }
+
+
+        private async void CurrentOnGeofenceStateChanged(GeofenceMonitor sender, object args)
+        {
+            var reports = sender.ReadReports();
+
+            await CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, (() =>
+            {
+                foreach (GeofenceStateChangeReport report in reports)
+                {
+                switch (report.NewState)
+                {
+                    case GeofenceState.Removed:
+
+                        break;
+
+                    case GeofenceState.Entered:
+                        foreach (MapElement mapElement in _map.MapElements)
+                        {
+                            if (mapElement is MapIcon)
+                            {
+                                MapIcon icon = (MapIcon) mapElement;
+                                if (icon.Title == report.Geofence.Id)
+                                {
+                                    icon.Image =
+                                        RandomAccessStreamReference.CreateFromUri(
+                                            new Uri("ms-appx:///Assets/entered-pin.png"));
+                                    _map.MapElements.RemoveAt(_map.MapElements.IndexOf(icon));
+                                    _map.MapElements.Add(icon);
+                                }
+                            }
+                        }
+                        break;
+
+                    case GeofenceState.Exited:
+
+                        break;
+                }
+                }
+            }
+            ));
         }
 
         private void LoadData()
@@ -246,8 +291,6 @@ namespace MobileGuidingSystem.ViewModel
             _map.MapElements.Add(player);
         }
 
-
-
         public void UpdatePos()
         {
             if (_map.MapElements != null)
@@ -284,6 +327,20 @@ namespace MobileGuidingSystem.ViewModel
             SV.Content = txtBlock;
             SV.VerticalAlignment = VerticalAlignment.Stretch;
 
+            //var image =
+            //    RandomAccessStreamReference.CreateFromUri(
+            //        new Uri("ms-appx:///Assets/Pictures/" + clickedSight.ImagePaths[0]));
+
+            //Image image = new Image();
+
+            //image.Source = clickedSight.ImageStreamReferences;
+
+            //dialog.Content = image;
+            //dialog.Title = clickedSight.Name;
+            //dialog.PrimaryButtonText = "visit " + clickedSight.Name;
+            //dialog.SecondaryButtonText = "Close";
+
+            //await dialog.ShowAsync();
 
             ContentDialog1 dialog1 = new ContentDialog1(clickedSight);
             await dialog1.ShowAsync();
@@ -299,6 +356,54 @@ namespace MobileGuidingSystem.ViewModel
             ContentDialog1 dial = (ContentDialog1)sender;
             Window.Current.Content = new SightPage(dial.sight);
         }
+
+        private void AddGeofence(Geopoint location, string title, double radius)
+        {
+            string fenceKey = title;
+
+
+            // the geofence is a circular region:
+            Geocircle geocircle = new Geocircle(location.Position, radius);
+
+            bool singleUse = false;
+
+            MonitoredGeofenceStates mask = MonitoredGeofenceStates.Entered | MonitoredGeofenceStates.Exited;
+
+            TimeSpan dwellTime = new TimeSpan(0,1,0);
+            TimeSpan duration = new TimeSpan(0,1,0);
+
+            DateTimeOffset startDateTime = new DateTimeOffset(0,0,0,0,1,0,new TimeSpan(0,0,1,0));
+
+            geofences.Add(new Geofence(fenceKey, geocircle, mask, singleUse, dwellTime, startDateTime, duration));
+        }
+
+        public MapPolygon GetCircleMapPolygon(BasicGeoposition originalLocation, double radius)
+        {
+            MapPolygon retVal = new MapPolygon();
+
+            List<BasicGeoposition> locations = new List<BasicGeoposition>();
+            double latitude = originalLocation.Latitude * Math.PI / 180.0;
+            double longitude = originalLocation.Longitude * Math.PI / 180.0;
+            // double x = radius / 3956; // Miles
+            double x = radius / 6371000; // Meters 
+            for (int i = 0; i <= 360; i += 10) // <-- you can modify this incremental to adjust the polygon.
+            {
+                double aRads = i * Math.PI / 180.0;
+                double latRadians = Math.Asin(Math.Sin(latitude) * Math.Cos(x) + Math.Cos(latitude) * Math.Sin(x) * Math.Cos(aRads));
+                double lngRadians = longitude + Math.Atan2(Math.Sin(aRads) * Math.Sin(x) * Math.Cos(latitude), Math.Cos(x) - Math.Sin(latitude) * Math.Sin(latRadians));
+
+                BasicGeoposition loc = new BasicGeoposition() { Latitude = 180.0 * latRadians / Math.PI, Longitude = 180.0 * lngRadians / Math.PI };
+                locations.Add(loc);
+            }
+
+            retVal.Path = new Geopath(locations);
+            retVal.FillColor = Windows.UI.Color.FromArgb(0x40, 0x10, 0x10, 0x80);
+            retVal.StrokeColor = Windows.UI.Colors.Blue;
+            retVal.StrokeThickness = 2;
+
+            return retVal;
+        }
+
     }
 
 
