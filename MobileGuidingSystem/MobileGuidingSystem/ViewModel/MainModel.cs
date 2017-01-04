@@ -54,7 +54,6 @@ namespace MobileGuidingSystem.ViewModel
             geofences = GeofenceMonitor.Current.Geofences;
             GeofenceMonitor.Current.GeofenceStateChanged += CurrentOnGeofenceStateChanged;
             //DrawRoutes(RouteLoader.Sights);
-
             iconImage = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
             Anchor = new Point(0.5, 1);
             //drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
