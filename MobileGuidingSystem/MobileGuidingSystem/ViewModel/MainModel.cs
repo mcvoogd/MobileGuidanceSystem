@@ -55,7 +55,6 @@ namespace MobileGuidingSystem.ViewModel
             geofences = GeofenceMonitor.Current.Geofences;
             GeofenceMonitor.Current.GeofenceStateChanged += CurrentOnGeofenceStateChanged;
             //DrawRoutes(RouteLoader.Sights);
-
             iconImage = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
             Anchor = new Point(0.5, 1);
             dialog = new ContentDialog();
