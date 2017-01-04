@@ -92,6 +92,7 @@
     <Content Include="Assets\4.jpg" />
     <Content Include="Assets\audio_grote_klok.mp3" />
     <Content Include="Assets\A_LOVE_OF_THUNDER.TTF" />
+    <Content Include="Assets\entered-pin.png" />
     <Content Include="Assets\JSON\blindwalls.json" />
     <Content Include="Assets\JSON\HistorischeKM.json" />
     <None Include="project.json" />
@@ -362,7 +363,6 @@
     <Content Include="Assets\Pictures\ZenkOne_vlaszak-6-1024-kopie.jpg" />
     <Content Include="Assets\Pictures\ZenkOne_vlaszak-6-1024.jpg" />
     <Content Include="Assets\PlayerPin.png" />
-    <Content Include="Assets\TransparentWayPoint.png" />
     <Content Include="Assets\uk.png" />
     <Content Include="Assets\vvv_logo.png" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

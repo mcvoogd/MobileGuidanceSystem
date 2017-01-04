@@ -26,6 +26,7 @@
                 <TextBlock x:Name="SightNameTextblock" HorizontalAlignment="Center" Margin="12,0" TextWrapping="Wrap" Text="{x:Bind sight.Name}" VerticalAlignment="Top" FontSize="35" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
 
                 <TextBlock x:Name="SightDescriptionTextblock" TextWrapping="Wrap" Margin="12,0" FontSize="16" Text="{x:Bind sight.Description}"></TextBlock>
+                <Button Content="Ga Terug" Click="ButtonBase_OnClick"></Button>
             </StackPanel>
         </ScrollViewer>
     </Grid>
