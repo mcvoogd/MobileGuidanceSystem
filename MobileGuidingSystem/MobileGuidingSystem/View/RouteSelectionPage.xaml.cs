@@ -12,12 +12,16 @@ namespace MobileGuidingSystem.View
     /// </summary>
     public sealed partial class RouteSelectionPage : Page
     {
-        private ObservableCollection<Route> Routes = new ObservableCollection<Route>(Route.Routes);
+        private readonly ObservableCollection<Route> Routes = new ObservableCollection<Route>(Route.Routes);
         public RouteSelectionPage()
         {
             this.InitializeComponent();
         }
 
-        
+        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Route route = comboBox.SelectionBoxItem as Route;
+            Frame.Navigate(typeof(MainPage), route);
+        }
     }
 }

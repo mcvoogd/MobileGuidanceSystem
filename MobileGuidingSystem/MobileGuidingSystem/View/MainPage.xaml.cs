@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Windows.Devices.Geolocation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -78,34 +79,50 @@ namespace MobileGuidingSystem.View
         }
             
 
-        private void UIElement_OnTapped(object sender, TappedRoutedEventArgs e)
-        {
-            var b = (StackPanel)sender;
-            var selected = (Sight)b.DataContext;
-            MyMap.Center = selected.Position;
-            MyMap.Center = selected.Position;
+        //private void UIElement_OnTapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    var b = (StackPanel)sender;
+        //    var selected = (Sight)b.DataContext;
+        //    MyMap.Center = selected.Position;
+        //    MyMap.Center = selected.Position;
 
-            var FlyOut = new Flyout();
-            var grid = new Grid();
-            var stackpanel = new StackPanel() { DataContext = selected };
-            stackpanel.Tapped += StackpanelOnTapped;
-            grid.Children.Add(stackpanel);
-            stackpanel.Children.Add(new TextBlock() { Text = selected.Name });
-            stackpanel.Children.Add(new Image() { Source = new BitmapImage(new Uri("ms-appx:///Assets/avans_logo.png")), MaxHeight = 40.0, MaxWidth = 40.0 });
-            FlyOut.Content = grid;
-            FlyOut.ShowAt(sender as FrameworkElement);
+        //    var FlyOut = new Flyout();
+        //    var grid = new Grid();
+        //    var stackpanel = new StackPanel() { DataContext = selected };
+        //    stackpanel.Tapped += StackpanelOnTapped;
+        //    grid.Children.Add(stackpanel);
+        //    stackpanel.Children.Add(new TextBlock() { Text = selected.Name });
+        //    stackpanel.Children.Add(new Image() { Source = new BitmapImage(new Uri("ms-appx:///Assets/avans_logo.png")), MaxHeight = 40.0, MaxWidth = 40.0 });
+        //    FlyOut.Content = grid;
+        //    FlyOut.ShowAt(sender as FrameworkElement);
+        //}
+
+        //private void StackpanelOnTapped(object sender, TappedRoutedEventArgs tappedRoutedEventArgs)
+        //{
+        //    var b = (StackPanel)sender;
+        //    var selected = (Sight)b.DataContext;
+        //    Frame.Navigate(typeof(SightPage), selected);
+        //}
+
+        private void NavToSight(Sight sight)
+        {
+            Frame.Navigate(typeof(SightPage), sight);
         }
 
-        private void StackpanelOnTapped(object sender, TappedRoutedEventArgs tappedRoutedEventArgs)
+        private async void MyMap_OnMapElementClick(MapControl sender, MapElementClickEventArgs args)
         {
-            var b = (StackPanel)sender;
-            var selected = (Sight)b.DataContext;
-            Frame.Navigate(typeof(SightPage), selected);
-        }
+            //Model.myMap_OnMapElementClick(sender , args);
+            MapIcon myClickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
 
-        private void MyMap_OnMapElementClick(MapControl sender, MapElementClickEventArgs args)
-        {
-            Model.myMap_OnMapElementClick(sender , args);
+            Sight clickedSight = myClickedIcon.ReadData();
+            ContentDialog1 dialog = new ContentDialog1(clickedSight);
+            var result = await dialog.ShowAsync();
+
+            // primary button was clicked
+            if (result == ContentDialogResult.Primary)
+            {
+                NavToSight(clickedSight);
+            }
         }
     }
 }

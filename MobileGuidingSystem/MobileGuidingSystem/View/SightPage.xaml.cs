@@ -23,18 +23,19 @@ namespace MobileGuidingSystem.View
         public Sight sight;
         //public List<string> imagePaths;
 
-        public SightPage(Sight sight)
+        public SightPage()
         {
-            this.sight = sight;
             //imagePaths = new List<string>();
             this.InitializeComponent();
-            AddToSplitView();
+            
         }  
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Sight sight = (Sight) e.Parameter;
+            sight = (Sight) e.Parameter;
             DataContext = sight;
+
+            AddToSplitView();
         }
 
         //public void ConvertImagePaths()
@@ -45,12 +46,12 @@ namespace MobileGuidingSystem.View
         //    }
         //}
                 
-        public async void AddToSplitView()
+        public void AddToSplitView()
         { 
-            foreach (string s in sight.ImagePaths)
+            foreach (string s in sight.FullImagePaths)
             {
                 ImageBrush brush = new ImageBrush();
-                brush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/Pictures/" + s));
+                brush.ImageSource = new BitmapImage(new Uri(s));
                 brush.Stretch = Stretch.UniformToFill;
                 FlipViewItem item = new FlipViewItem();
                 item.Background = brush;
