@@ -333,7 +333,7 @@ namespace MobileGuidingSystem.ViewModel
 
             DateTimeOffset startTime = DateTime.Now;
 
-            geofences.Add(new Geofence(fenceKey, geocircle, mask, singleUse, dwellTime, startTime, duration));
+            //geofences.Add(new Geofence(fenceKey, geocircle, mask, singleUse, dwellTime, startTime, duration));
         }
 
         public MapPolygon GetCircleMapPolygon(BasicGeoposition originalLocation, double radius)
