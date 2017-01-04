@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using Windows.ApplicationModel.Core;
 using Windows.Devices.Geolocation;
@@ -27,13 +28,9 @@ namespace MobileGuidingSystem.ViewModel
         public Geopoint MyLocation;
         //private readonly bool _onCollisionShow;
         public ObservableCollection<Sight> Sights;
-
         public static Route CurrentRoute;
-
         public int Zoomlevel => 17;
-
         public int DesiredPitch => 45;
-
         public MapStyle MapStyle = MapStyle.Road;
 
         private readonly Color _routeColor = Colors.Blue;
@@ -42,6 +39,9 @@ namespace MobileGuidingSystem.ViewModel
         public Point Anchor { get; set; }
         public ContentDialog dialog;
         public IList<Geofence> geofences;
+        private int selectedRoute;
+        private bool _baseRoute = true;
+        private List<Geopoint> KnownUserPos = new List<Geopoint>();
 
         //TODO: Fix this ofzo
         public MainModel(MapControl mapcontrol)
@@ -106,17 +106,11 @@ namespace MobileGuidingSystem.ViewModel
         private void LoadData()
         {
             //Sights.Add();
-            //drawSight(RouteLoader.Sights);
+            drawSight(Route.Routes[0].Sights);
+            DrawRoutes(Route.Routes[0].Sights);
+            selectedRoute = 0;
 
         }
-
-        //private void _map_ZoomLevelChanged(MapControl sender, object args)
-        //{
-        //    if (_map.ZoomLevel < 17)
-        //    {
-        //        _map.ZoomLevel = 17;
-        //    }
-        //}
 
         public async void DrawRoute(Geopoint p1, Geopoint p2)
         {
@@ -124,10 +118,32 @@ namespace MobileGuidingSystem.ViewModel
 
             if (routeFinderResult.Status == MapRouteFinderStatus.Success)
             {
-                MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
-                routeView.RouteColor = _routeColor;
-                routeView.OutlineColor = _outlineColor;
-                _map.Routes.Add(routeView);
+                deleteRoutes();              
+                if (_baseRoute == false)
+                {
+                    MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
+                    routeView.RouteColor = _routeColor;
+                    routeView.OutlineColor = _outlineColor;
+                    _map.Routes.Add(routeView);
+                }
+            }
+        }
+
+        private void deleteRoutes()
+        {
+            for (int i = _map.Routes.Count - 2; i >= 0; i--)
+            {
+                if(_map.Routes[i].RouteColor == _routeColor)
+                _map.Routes.RemoveAt(i);      
+            }    
+        }
+
+        private void deleteRouteswalked()
+        {
+            for (int i = _map.Routes.Count - 2; i >= 0; i--)
+            {
+                if (_map.Routes[i].RouteColor == Colors.Red)
+                    _map.Routes.RemoveAt(i);
             }
         }
 
@@ -137,61 +153,117 @@ namespace MobileGuidingSystem.ViewModel
 
             if (routeFinderResult.Status == MapRouteFinderStatus.Success)
             {
-                MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
-                routeView.RouteColor = _routeColor;
-                routeView.OutlineColor = _outlineColor;
-                _map.Routes.Add(routeView);
+                deleteRoutes();
+                    MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
+                    routeView.RouteColor = _routeColor;
+                    routeView.OutlineColor = _outlineColor;
+                    _map.Routes.Add(routeView);         
             }
             else if (routeFinderResult.Status == MapRouteFinderStatus.NoRouteFoundWithGivenOptions)
             {
-                MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
-                routeView.RouteColor = _routeColor;
-                routeView.OutlineColor = _outlineColor;
-                _map.Routes.Add(routeView);
+                deleteRoutes();
+                    MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
+                    routeView.RouteColor = _routeColor;
+                    routeView.OutlineColor = _outlineColor;
+                    _map.Routes.Add(routeView);              
             }
+         
         }
+
+        public async void DrawWalkedRoute(List<Geopoint> list)
+        {
+            if (list.Count > 2)
+            {
+                list.RemoveAt(1);
+            }
+            if (list.Count == 2)
+                {
+                   MapRouteFinderResult routeFinder =
+                        await MapRouteFinder.GetWalkingRouteAsync(list[0], list[list.Count - 1]);
+                    if (routeFinder.Status == MapRouteFinderStatus.Success)
+                    {
+                        deleteRouteswalked();
+                        MapRouteView routeView = new MapRouteView(routeFinder.Route);
+                        routeView.RouteColor = Colors.Red;
+                        routeView.OutlineColor = _outlineColor;
+                        _map.Routes.Add(routeView);
+                    }
+                    else if (routeFinder.Status == MapRouteFinderStatus.NoRouteFoundWithGivenOptions)
+                    {
+                        deleteRouteswalked();
+                        MapRouteView routeView = new MapRouteView(routeFinder.Route);
+                        routeView.RouteColor = Colors.Red;
+                        routeView.OutlineColor = _outlineColor;
+
+                        _map.Routes.Add(routeView);
+                    }
+                }
+            }
 
         public void DrawRoutes(List<Sight> sightlist)
         {
             List<Geopoint> positions = new List<Geopoint>();
 
+            if (User.Location != null)
+            {
+                positions.Add( User.Location);
+            }
 
             foreach (Sight s in sightlist)
             {
                 positions.Add(s.Position);
             }
             DrawRoutes(positions);
+            
         }
 
         public override void NextPage(object user)
         {
             throw new NotImplementedException();
         }
-
-        //public void drawSight(Geopoint position, String title)
+        
+          
         public void drawSight(List<Sight> list)
         {
             var ancherpoint = new Point(0.5, 1);
             var image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
+            var image2 = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/TransparentWayPoint.png"));
             foreach (Sight sight in list)
             {
-                var Sight = new MapIcon
+
+                if (sight.Name != "")
                 {
-                    Title = sight.Name,
-                    Location = sight.Position,
-                    NormalizedAnchorPoint = ancherpoint,
-                    Image = image,
-                    ZIndex = 4,
-                    CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible
-
+                    var Sight = new MapIcon
+                    {
+                        Title = sight.Name,
+                        Location = sight.Position,
+                        NormalizedAnchorPoint = ancherpoint,
+                        Image = image,
+                        ZIndex = 4,
+                        CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible
+                       
                 };
+                    Sight.AddData(sight);
+                    _map.MapElements.Add(Sight);
+                }
+                else
+                {
+                    var SightWIthoutPin = new MapIcon
+                    {
+                        Title = sight.Name,
+                        Location = sight.Position,
+                        NormalizedAnchorPoint = ancherpoint,
+                        Image = image2,
+                        ZIndex = 4,
+                        CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible
 
-                Sight.AddData(sight);
-                AddGeofence(sight.Position, sight.Name, 1);
-                _map.MapElements.Add(GetCircleMapPolygon(sight.Position.Position,1));
-                _map.MapElements.Add(Sight);
+                    };
+                    SightWIthoutPin.AddData(SightWIthoutPin);
+                    _map.MapElements.Add(SightWIthoutPin);
+                }
+                
+                }
             }
-        }
 
         public void DrawPlayer(Geoposition position)
         {
@@ -208,6 +280,9 @@ namespace MobileGuidingSystem.ViewModel
             };
             User.Location = player.Location;
             UpdatePos();
+            KnownUserPos.Add(User.Location);
+            DrawWalkedRoute(KnownUserPos);
+            DrawRoutes(Route.Routes[selectedRoute].Sights);
             _map.MapElements.Add(player);
         }
 
@@ -224,6 +299,7 @@ namespace MobileGuidingSystem.ViewModel
                         {
                             int index = _map.MapElements.IndexOf(player);
                             _map.MapElements.RemoveAt(index);
+                            _map.Center = User.Location;
                             break;
                         }
                     }
