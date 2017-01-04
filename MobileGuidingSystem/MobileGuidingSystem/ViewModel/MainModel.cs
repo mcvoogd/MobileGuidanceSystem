@@ -49,9 +49,9 @@ namespace MobileGuidingSystem.ViewModel
         {
             _map = mapcontrol;
             Sights = new ObservableCollection<Sight>();
-            LoadData();
-            MyLocation = new Geopoint(new BasicGeoposition() { Latitude = 51.5860591, Longitude = 4.793500600000016 });
             User = new User();
+            LoadData();
+            MyLocation = new Geopoint(new BasicGeoposition() { Latitude = 51.5860591, Longitude = 4.793500600000016 });           
             geofences = GeofenceMonitor.Current.Geofences;
             GeofenceMonitor.Current.GeofenceStateChanged += CurrentOnGeofenceStateChanged;
             //DrawRoutes(RouteLoader.Sights);
@@ -136,7 +136,7 @@ namespace MobileGuidingSystem.ViewModel
 
         private void deleteRoutes()
         {
-            for (int i = _map.Routes.Count - 2; i >= 0; i--)
+            for (int i = _map.Routes.Count - 1; i >= 0; i--)
             {
                 if(_map.Routes[i].RouteColor == _routeColor)
                 _map.Routes.RemoveAt(i);      
@@ -145,7 +145,7 @@ namespace MobileGuidingSystem.ViewModel
 
         private void deleteRouteswalked()
         {
-            for (int i = _map.Routes.Count - 2; i >= 0; i--)
+            for (int i = _map.Routes.Count - 1; i >= 0; i--)
             {
                 if (_map.Routes[i].RouteColor == Colors.Red)
                     _map.Routes.RemoveAt(i);
@@ -304,7 +304,7 @@ namespace MobileGuidingSystem.ViewModel
                         {
                             int index = _map.MapElements.IndexOf(player);
                             _map.MapElements.RemoveAt(index);
-                            _map.Center = User.Location;
+                            //_map.Center = User.Location;
                             break;
                         }
                     }
