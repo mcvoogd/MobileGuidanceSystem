@@ -8,8 +8,8 @@
 
     <Grid Background="Transparent">
         <TextBlock x:Name="textBlock" Margin="0,50" HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="ROUTEPAGE_SELECTROUTE" VerticalAlignment="Top" FontSize="50" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
-        <ComboBox VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="12,148" Background="White" Header="Route:" ItemsSource="{x:Bind Routes}" Name="comboBox"></ComboBox>
+            <ComboBox VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="12,148" Background="White" Header="Route:" ItemsSource="{x:Bind Routes}" Name="comboBox"></ComboBox>
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="12,12,10,12" Content="GO!" Background="Gray" FontFamily="Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder" FontSize="24" Click="Button_Click" Height="53"/>
         <TextBlock VerticalAlignment="Stretch" Margin="12,250,12,100" Text="De Historische Kilometer...."></TextBlock>
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="12" Content="GO!" FontFamily="Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder" FontSize="24" Click="Button_Click"></Button>
     </Grid>
 </Page>

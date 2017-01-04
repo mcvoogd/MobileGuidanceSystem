@@ -42,18 +42,20 @@ namespace MobileGuidingSystem.ViewModel
         private int selectedRoute;
         private bool _playerInRoute = false;
         private List<Geopoint> KnownUserPos = new List<Geopoint>();
+        private MainPage page;
 
         //TODO: Fix this ofzo
-        public MainModel(MapControl mapcontrol)
+        public MainModel(MapControl mapcontrol, Route route, MainPage page)
         {
             _map = mapcontrol;
+            this.page = page;
             Sights = new ObservableCollection<Sight>();
+            CurrentRoute = route;
             User = new User();
-            LoadData();
-            MyLocation = new Geopoint(new BasicGeoposition() { Latitude = 51.5860591, Longitude = 4.793500600000016 });           
             geofences = GeofenceMonitor.Current.Geofences;
             GeofenceMonitor.Current.GeofenceStateChanged += CurrentOnGeofenceStateChanged;
-            //DrawRoutes(RouteLoader.Sights);
+            LoadData();
+            MyLocation = new Geopoint(new BasicGeoposition() { Latitude = 51.5860591, Longitude = 4.793500600000016 });
             iconImage = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
             Anchor = new Point(0.5, 1);
             //drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
@@ -64,7 +66,7 @@ namespace MobileGuidingSystem.ViewModel
         {
             var reports = sender.ReadReports();
 
-            await CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, (() =>
+            await CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, agileCallback: (async () =>
             {
                 foreach (GeofenceStateChangeReport report in reports)
                 {
@@ -82,11 +84,19 @@ namespace MobileGuidingSystem.ViewModel
                                 MapIcon icon = (MapIcon) mapElement;
                                 if (icon.Title == report.Geofence.Id)
                                 {
-                                    icon.Image =
-                                        RandomAccessStreamReference.CreateFromUri(
-                                            new Uri("ms-appx:///Assets/entered-pin.png"));
-                                    _map.MapElements.RemoveAt(_map.MapElements.IndexOf(icon));
-                                    _map.MapElements.Add(icon);
+                                    Sight s = icon.ReadData();
+                                    if (s.viewed = false)
+                                    {
+                                        s.viewed = true;
+                                            ContentDialog1 dialog = new ContentDialog1(s);
+                                            var result = await dialog.ShowAsync();
+
+                                            // primary button was clicked
+                                            if (result == ContentDialogResult.Primary)
+                                            {
+                                                page.Frame.Navigate(typeof(SightPage), s);
+                                            }
+                                        }
                                 }
                             }
                         }
@@ -103,10 +113,9 @@ namespace MobileGuidingSystem.ViewModel
 
         private void LoadData()
         {
-            //Sights.Add();
-            drawSight(Route.Routes[1].Sights);
-            DrawRoutes(Route.Routes[1].Sights);
-            selectedRoute = 1;
+            drawSight(CurrentRoute.Sights);
+            DrawRoutes(CurrentRoute.Sights);
+            selectedRoute = 0;
 
         }
 
@@ -257,6 +266,8 @@ namespace MobileGuidingSystem.ViewModel
                 };
                     Sight.AddData(sight);
                     _map.MapElements.Add(Sight);
+                     AddGeofence(sight.Position, sight.Name, 5);
+                    _map.MapElements.Add(GetCircleMapPolygon(sight.Position.Position, 5));
                 }
                 else
                 {
@@ -334,13 +345,13 @@ namespace MobileGuidingSystem.ViewModel
             bool singleUse = false;
 
             MonitoredGeofenceStates mask = MonitoredGeofenceStates.Entered | MonitoredGeofenceStates.Exited;
+            TimeSpan dwellTime = TimeSpan.FromMinutes(5);
 
-            TimeSpan dwellTime = new TimeSpan(0,1,0);
-            TimeSpan duration = new TimeSpan(0,1,0);
+            TimeSpan duration = TimeSpan.FromDays(1);
 
-            DateTimeOffset startDateTime = new DateTimeOffset(0,0,0,0,1,0,new TimeSpan(0,0,1,0));
+            DateTimeOffset startTime = DateTime.Now;
 
-            geofences.Add(new Geofence(fenceKey, geocircle, mask, singleUse, dwellTime, startDateTime, duration));
+            geofences.Add(new Geofence(fenceKey, geocircle, mask, singleUse, dwellTime, startTime, duration));
         }
 
         public MapPolygon GetCircleMapPolygon(BasicGeoposition originalLocation, double radius)

@@ -7,6 +7,7 @@ using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Navigation;
 using MobileGuidingSystem.Model.Data;
 using MobileGuidingSystem.ViewModel;
 
@@ -28,8 +29,12 @@ namespace MobileGuidingSystem.View
         public MainPage()
         {
             this.InitializeComponent();
-            Model = new MainModel(MyMap);
             this.Loaded += PageLoaded;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Model = new MainModel(MyMap, (Route)e.Parameter, this);
             DataContext = Model;
         }
 

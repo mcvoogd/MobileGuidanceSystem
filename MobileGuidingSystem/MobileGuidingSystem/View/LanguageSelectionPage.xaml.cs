@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Windows.Globalization;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using MobileGuidingSystem.ViewModel;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,7 +24,7 @@ namespace MobileGuidingSystem.View
             ApplicationLanguages.PrimaryLanguageOverride = "nl-NL";
             Windows.ApplicationModel.Resources.Core.ResourceContext.GetForViewIndependentUse().Reset();
             Windows.ApplicationModel.Resources.Core.ResourceManager.Current.DefaultContext.Reset();
-            Frame.Navigate(this.GetType());
+            Frame.Navigate(MainModel.CurrentRoute != null ? typeof(MainPage) : typeof(RouteSelectionPage));
         }
 
         private void English_OnTapped(object sender, TappedRoutedEventArgs e)
@@ -31,7 +32,7 @@ namespace MobileGuidingSystem.View
             ApplicationLanguages.PrimaryLanguageOverride = "en-US";
             Windows.ApplicationModel.Resources.Core.ResourceContext.GetForViewIndependentUse().Reset();
             Windows.ApplicationModel.Resources.Core.ResourceManager.Current.DefaultContext.Reset();
-            Frame.Navigate(this.GetType());
+            Frame.Navigate(MainModel.CurrentRoute != null ? typeof(MainPage) : typeof(RouteSelectionPage));
         }
     }
 }
