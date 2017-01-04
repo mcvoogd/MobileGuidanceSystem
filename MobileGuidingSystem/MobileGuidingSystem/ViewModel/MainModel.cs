@@ -43,7 +43,6 @@ namespace MobileGuidingSystem.ViewModel
         private bool _baseRoute = true;
         private List<Geopoint> KnownUserPos = new List<Geopoint>();
 
-
         //TODO: Fix this ofzo
         public MainModel(MapControl mapcontrol, Route route)
         {
@@ -57,15 +56,10 @@ namespace MobileGuidingSystem.ViewModel
             GeofenceMonitor.Current.GeofenceStateChanged += CurrentOnGeofenceStateChanged;
             iconImage = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
             Anchor = new Point(0.5, 1);
-            dialog = new ContentDialog();
-            dialog.PrimaryButtonClick += Dialog_PrimaryButtonClick;
-            dialog.SecondaryButtonClick += Dialog_SecondaryButtonClick;
-            dialog.Hide();
             //drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
             //  _map.ZoomLevelChanged += _map_ZoomLevelChanged;
         }
-
-
+        
         private async void CurrentOnGeofenceStateChanged(GeofenceMonitor sender, object args)
         {
             var reports = sender.ReadReports();
@@ -135,7 +129,7 @@ namespace MobileGuidingSystem.ViewModel
 
         private void deleteRoutes()
         {
-            for (int i = _map.Routes.Count - 2; i >= 0; i--)
+            for (int i = _map.Routes.Count - 1; i >= 0; i--)
             {
                 if(_map.Routes[i].RouteColor == _routeColor)
                 _map.Routes.RemoveAt(i);      
@@ -144,7 +138,7 @@ namespace MobileGuidingSystem.ViewModel
 
         private void deleteRouteswalked()
         {
-            for (int i = _map.Routes.Count - 2; i >= 0; i--)
+            for (int i = _map.Routes.Count - 1; i >= 0; i--)
             {
                 if (_map.Routes[i].RouteColor == Colors.Red)
                     _map.Routes.RemoveAt(i);
@@ -303,7 +297,7 @@ namespace MobileGuidingSystem.ViewModel
                         {
                             int index = _map.MapElements.IndexOf(player);
                             _map.MapElements.RemoveAt(index);
-                            _map.Center = User.Location;
+                            //_map.Center = User.Location;
                             break;
                         }
                     }
@@ -311,51 +305,6 @@ namespace MobileGuidingSystem.ViewModel
                 }
             }
         }
-
-        public async void myMap_OnMapElementClick(MapControl sender, MapElementClickEventArgs args)
-        {
-            MapIcon myClickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
-
-            Sight clickedSight = myClickedIcon.ReadData();
-            ScrollViewer SV = new ScrollViewer();
-            TextBlock txtBlock = new TextBlock();
-
-
-            txtBlock.Text = clickedSight.Address + "\r" + clickedSight.Description + "\r";
-            txtBlock.TextWrapping = TextWrapping.Wrap;
-            SV.Content = txtBlock;
-            SV.VerticalAlignment = VerticalAlignment.Stretch;
-
-            //var image =
-            //    RandomAccessStreamReference.CreateFromUri(
-            //        new Uri("ms-appx:///Assets/Pictures/" + clickedSight.ImagePaths[0]));
-
-            //Image image = new Image();
-
-            //image.Source = clickedSight.ImageStreamReferences;
-
-            //dialog.Content = image;
-            //dialog.Title = clickedSight.Name;
-            //dialog.PrimaryButtonText = "visit " + clickedSight.Name;
-            //dialog.SecondaryButtonText = "Close";
-
-            //await dialog.ShowAsync();
-
-            ContentDialog1 dialog1 = new ContentDialog1(clickedSight);
-            await dialog1.ShowAsync();
-        }
-
-        private void Dialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
-            sender.Hide();
-        }
-
-        private void Dialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
-            ContentDialog1 dial = (ContentDialog1)sender;
-            Window.Current.Content = new SightPage(dial.sight);
-        }
-
         private void AddGeofence(Geopoint location, string title, double radius)
         {
             string fenceKey = title;
