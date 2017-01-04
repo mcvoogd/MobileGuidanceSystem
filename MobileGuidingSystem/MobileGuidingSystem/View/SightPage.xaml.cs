@@ -51,6 +51,7 @@ namespace MobileGuidingSystem.View
             {
                 ImageBrush brush = new ImageBrush();
                 brush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/Pictures/" + s));
+                brush.Stretch = Stretch.UniformToFill;
                 FlipViewItem item = new FlipViewItem();
                 item.Background = brush;
                 FlipView.Items.Add(item);

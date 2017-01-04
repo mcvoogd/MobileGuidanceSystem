@@ -18,8 +18,8 @@
                     <Image Source="ms-appx:///Assets/background.jpg" Stretch="UniformToFill" HorizontalAlignment="Center"/>
                     <Image Source="ms-appx:///Assets/background.jpg" Stretch="UniformToFill" HorizontalAlignment="Center"/>
                 </FlipView>-->
-                
-                <FlipView x:Name="FlipView">
+
+                <FlipView x:Name="FlipView" VerticalAlignment="Top" Height="200">
                     <MediaElement x:Name="mediaSimple" Source="ms-appx:///Assets/audio_grote_klok.mp3" HorizontalAlignment="Stretch" VerticalAlignment="Top"  AreTransportControlsEnabled="True" AutoPlay="False"/>
                 </FlipView>
 
