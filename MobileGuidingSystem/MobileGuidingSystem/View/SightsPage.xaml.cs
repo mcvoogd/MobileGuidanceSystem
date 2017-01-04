@@ -23,10 +23,19 @@ namespace MobileGuidingSystem.View
     /// </summary>
     public sealed partial class SightsPage : Page
     {
+        private Route route;
         public SightsPage()
         {
             this.InitializeComponent();
-            //SightList.ItemsSource = RouteLoader.Sights;
+            route = Route.Routes[0];
+            SightList.ItemsSource = route.Sights;
+        }
+
+        private void SightList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListView lv = (ListView) sender;
+            Sight s = (Sight) lv.SelectedItem;
+            Frame.Navigate(typeof(SightPage), s);
         }
     }
 }

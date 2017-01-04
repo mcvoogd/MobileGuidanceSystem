@@ -30,7 +30,7 @@ namespace MobileGuidingSystem.View
             this.InitializeComponent();
             MenuListBox.Background = new SolidColorBrush(Color.FromArgb(200, 255, 255, 255));
             HamburgerButton.Visibility = Visibility.Collapsed;
-            Frame.Navigate(typeof(RouteSelectionPage));
+            Frame.Navigate(typeof(LanguageSelectionPage));
             Map.IsSelected = true;
 
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;

@@ -34,7 +34,7 @@ namespace MobileGuidingSystem.View
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Model = new MainModel(MyMap, (Route)e.Parameter);
+            Model = new MainModel(MyMap, (Route)e.Parameter, this);
             DataContext = Model;
         }
 
