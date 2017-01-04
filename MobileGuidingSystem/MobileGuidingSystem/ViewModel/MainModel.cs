@@ -88,6 +88,7 @@ namespace MobileGuidingSystem.ViewModel
                                     if (s.viewed = false)
                                     {
                                         s.viewed = true;
+                                            icon.AddData(s);
                                             ContentDialog1 dialog = new ContentDialog1(s);
                                             var result = await dialog.ShowAsync();
 
@@ -103,7 +104,6 @@ namespace MobileGuidingSystem.ViewModel
                         break;
 
                     case GeofenceState.Exited:
-
                         break;
                 }
                 }
