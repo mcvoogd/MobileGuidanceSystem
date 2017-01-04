@@ -28,7 +28,7 @@ namespace MobileGuidingSystem.View
             this.InitializeComponent();
             MenuListBox.Background = new SolidColorBrush(Color.FromArgb(200, 255, 255, 255));
             HamburgerButton.Visibility = Visibility.Collapsed;
-            Frame.Navigate(typeof(MainPage));
+            Frame.Navigate(typeof(RouteSelectionPage));
             Map.IsSelected = true;
         }
 

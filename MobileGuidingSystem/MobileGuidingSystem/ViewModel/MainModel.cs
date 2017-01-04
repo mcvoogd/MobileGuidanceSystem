@@ -45,16 +45,16 @@ namespace MobileGuidingSystem.ViewModel
 
 
         //TODO: Fix this ofzo
-        public MainModel(MapControl mapcontrol)
+        public MainModel(MapControl mapcontrol, Route route)
         {
             _map = mapcontrol;
             Sights = new ObservableCollection<Sight>();
+            CurrentRoute = route;
+            User = new User();
             LoadData();
             MyLocation = new Geopoint(new BasicGeoposition() { Latitude = 51.5860591, Longitude = 4.793500600000016 });
-            User = new User();
             geofences = GeofenceMonitor.Current.Geofences;
             GeofenceMonitor.Current.GeofenceStateChanged += CurrentOnGeofenceStateChanged;
-            //DrawRoutes(RouteLoader.Sights);
             iconImage = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
             Anchor = new Point(0.5, 1);
             dialog = new ContentDialog();
@@ -110,8 +110,8 @@ namespace MobileGuidingSystem.ViewModel
         private void LoadData()
         {
             //Sights.Add();
-            drawSight(Route.Routes[0].Sights);
-            DrawRoutes(Route.Routes[0].Sights);
+            drawSight(CurrentRoute.Sights);
+            DrawRoutes(CurrentRoute.Sights);
             selectedRoute = 0;
 
         }
