@@ -39,7 +39,6 @@ namespace MobileGuidingSystem.ViewModel
         public Point Anchor { get; set; }
         public ContentDialog dialog;
         public IList<Geofence> geofences;
-        private int selectedRoute;
         private bool _playerInRoute = false;
         private List<Geopoint> KnownUserPos = new List<Geopoint>();
         private MainPage page;
@@ -115,7 +114,6 @@ namespace MobileGuidingSystem.ViewModel
         {
             drawSight(CurrentRoute.Sights);
             DrawRoutes(CurrentRoute.Sights);
-            selectedRoute = 0;
 
         }
 
@@ -266,8 +264,8 @@ namespace MobileGuidingSystem.ViewModel
                 };
                     Sight.AddData(sight);
                     _map.MapElements.Add(Sight);
-                     AddGeofence(sight.Position, sight.Name, 5);
-                    _map.MapElements.Add(GetCircleMapPolygon(sight.Position.Position, 5));
+                     AddGeofence(sight.Position, sight.Name, 20);
+                    _map.MapElements.Add(GetCircleMapPolygon(sight.Position.Position, 20));
                 }
                 else
                 {
@@ -306,9 +304,10 @@ namespace MobileGuidingSystem.ViewModel
             KnownUserPos.Add(User.Location);
             DrawWalkedRoute(KnownUserPos);
             _map.MapElements.Add(player);
+
             if (_playerInRoute == false)
             {
-                DrawRoutes(Route.Routes[selectedRoute].Sights);
+                DrawRoutes(CurrentRoute.Sights);
                 _playerInRoute = true;
             }
         }
@@ -351,7 +350,7 @@ namespace MobileGuidingSystem.ViewModel
 
             DateTimeOffset startTime = DateTime.Now;
 
-            geofences.Add(new Geofence(fenceKey, geocircle, mask, singleUse, dwellTime, startTime, duration));
+            //geofences.Add(new Geofence(fenceKey, geocircle, mask, singleUse, dwellTime, startTime, duration));
         }
 
         public MapPolygon GetCircleMapPolygon(BasicGeoposition originalLocation, double radius)
