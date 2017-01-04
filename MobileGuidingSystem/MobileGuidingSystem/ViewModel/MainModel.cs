@@ -59,8 +59,7 @@ namespace MobileGuidingSystem.ViewModel
             //drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
             //  _map.ZoomLevelChanged += _map_ZoomLevelChanged;
         }
-
-
+        
         private async void CurrentOnGeofenceStateChanged(GeofenceMonitor sender, object args)
         {
             var reports = sender.ReadReports();
@@ -306,25 +305,6 @@ namespace MobileGuidingSystem.ViewModel
                 }
             }
         }
-
-        public async void myMap_OnMapElementClick(MapControl sender, MapElementClickEventArgs args)
-        {
-            MapIcon myClickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
-
-            Sight clickedSight = myClickedIcon.ReadData();
-            ScrollViewer SV = new ScrollViewer();
-            TextBlock txtBlock = new TextBlock();
-
-
-            //txtBlock.Text = clickedSight.Address + "\r" + clickedSight.Description + "\r";
-            //txtBlock.TextWrapping = TextWrapping.Wrap;
-            //SV.Content = txtBlock;
-            //SV.VerticalAlignment = VerticalAlignment.Stretch;
-
-
-            
-        }
-
         private void AddGeofence(Geopoint location, string title, double radius)
         {
             string fenceKey = title;

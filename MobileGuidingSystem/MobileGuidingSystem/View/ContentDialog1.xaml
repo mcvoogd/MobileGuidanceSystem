@@ -12,7 +12,6 @@
     x:Uid="CONTENTDIALOG_BUTTONS"
     
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
-
     <Grid Margin="0,20,0,0">
             <Image Source="{x:Bind imagepath}" Width="100"/>
 
