@@ -25,7 +25,7 @@ namespace MobileGuidingSystem.View
         public MainModel Model;
         Geolocator _geolocator;
         private bool _positionSet = false;
-        const int Maxzoom = 17;
+       // const int Maxzoom = 17;
         public static bool isLoaded = false;
 
         public static NavigationCacheMode mode;
@@ -66,15 +66,15 @@ namespace MobileGuidingSystem.View
             }
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            var b = (StackPanel) sender;
-            var selected = (Sight) b.DataContext;
-            MyMap.Center = selected.Position;
+        //private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        //{
+        //    var b = (StackPanel) sender;
+        //    var selected = (Sight) b.DataContext;
+        //    MyMap.Center = selected.Position;
 
-            Popup popup = new Popup();
-            popup.DataContext = selected;
-        }
+        //    Popup popup = new Popup();
+        //    popup.DataContext = selected;
+        //}
 
         private async void PageLoaded(Object sender, RoutedEventArgs e)
         {

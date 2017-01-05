@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
 using Windows.ApplicationModel.Core;
 using Windows.Devices.Geolocation;
 using Windows.Devices.Geolocation.Geofencing;
@@ -11,11 +10,8 @@ using Windows.Services.Maps;
 using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.Core;
-using Windows.UI.Popups;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
-using Windows.UI.Xaml.Controls.Primitives;
 using MobileGuidingSystem.Model;
 using MobileGuidingSystem.Model.Data;
 using MobileGuidingSystem.View;
@@ -196,39 +192,39 @@ namespace MobileGuidingSystem.ViewModel
             }
         }
 
-        private void deleteRouteswalked()
-        {
-            for (int i = _map.Routes.Count - 1; i >= 0; i--)
-            {
-                if (_map.Routes[i].RouteColor == Colors.Red)
-                {
-                    _map.Routes.RemoveAt(i);
-                }
-            }
-        }
+        //private void deleteRouteswalked()
+        //{
+        //    for (int i = _map.Routes.Count - 1; i >= 0; i--)
+        //    {
+        //        if (_map.Routes[i].RouteColor == Colors.Red)
+        //        {
+        //            _map.Routes.RemoveAt(i);
+        //        }
+        //    }
+        //}
 
-        private void updateRoute()
-        {
-            Debug.WriteLine(KnownUserPos.Count);
-            for (int i = 0; i < _map.Routes.Count; i++)
-            {
-                if (_map.Routes[i].RouteColor == Colors.Red)
-                {
-                    if (KnownUserPos.Count > 10)
-                    {
-                        for (int j = KnownUserPos.Count - 1; j >= 0; j--)
-                        {
-                            int jj = j % 2;
-                            if (jj == 1)
-                            {
-                                KnownUserPos.RemoveAt(j);
-                            }
-                        }
-                    }
+        //private void updateRoute()
+        //{
+        //    Debug.WriteLine(KnownUserPos.Count);
+        //    for (int i = 0; i < _map.Routes.Count; i++)
+        //    {
+        //        if (_map.Routes[i].RouteColor == Colors.Red)
+        //        {
+        //            if (KnownUserPos.Count > 10)
+        //            {
+        //                for (int j = KnownUserPos.Count - 1; j >= 0; j--)
+        //                {
+        //                    int jj = j % 2;
+        //                    if (jj == 1)
+        //                    {
+        //                        KnownUserPos.RemoveAt(j);
+        //                    }
+        //                }
+        //            }
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
         public async void DrawRoutes(List<Geopoint> positions)
         {
