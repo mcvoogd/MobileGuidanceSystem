@@ -20,7 +20,7 @@ namespace MobileGuidingSystem.View
 
         public string returnImagePath()
         {
-            if (sight.ImagePaths.Count > 0)
+            if (sight.ImagePaths.Count != 0)
             {
                return "ms-appx:///Assets/Pictures/" + sight.ImagePaths[0];
             }

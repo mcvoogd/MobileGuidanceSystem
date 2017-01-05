@@ -24,6 +24,7 @@ namespace MobileGuidingSystem.View
         Geolocator _geolocator;
         private bool _positionSet = false;
         const int Maxzoom = 17;
+        private static bool isGeladenCUCK = false;
 
 
         public MainPage()
@@ -34,8 +35,12 @@ namespace MobileGuidingSystem.View
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Model = new MainModel(MyMap, (Route)e.Parameter, this);
-            DataContext = Model;
+            if (!isGeladenCUCK)
+            {
+                Model = new MainModel(MyMap, (Route) e.Parameter, this);
+                DataContext = Model;
+                isGeladenCUCK = true;
+            }
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)

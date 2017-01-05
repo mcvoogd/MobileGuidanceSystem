@@ -54,67 +54,107 @@ namespace MobileGuidingSystem.ViewModel
             geofences = GeofenceMonitor.Current.Geofences;
             GeofenceMonitor.Current.GeofenceStateChanged += CurrentOnGeofenceStateChanged;
             LoadData();
-            MyLocation = new Geopoint(new BasicGeoposition() { Latitude = 51.5860591, Longitude = 4.793500600000016 });
+            MyLocation = new Geopoint(new BasicGeoposition() {Latitude = 51.5860591, Longitude = 4.793500600000016});
             iconImage = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
             Anchor = new Point(0.5, 1);
             //drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
-            //  _map.ZoomLevelChanged += _map_ZoomLevelChanged;
+            // _map.ZoomLevelChanged += _map_ZoomLevelChanged;
         }
-        
+
         private async void CurrentOnGeofenceStateChanged(GeofenceMonitor sender, object args)
         {
             var reports = sender.ReadReports();
 
-            await CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, agileCallback: (async () =>
-            {
-                foreach (GeofenceStateChangeReport report in reports)
-                {
-                switch (report.NewState)
-                {
-                    case GeofenceState.Removed:
-
-                        break;
-
-                    case GeofenceState.Entered:
-                        foreach (MapElement mapElement in _map.MapElements)
+            await
+                CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.High, agileCallback: (async () =>
+                    {
+                        foreach (GeofenceStateChangeReport report in reports)
                         {
-                            if (mapElement is MapIcon)
+                            switch (report.NewState)
                             {
-                                MapIcon icon = (MapIcon) mapElement;
-                                if (icon.Title == report.Geofence.Id)
-                                {
-                                    Sight s = icon.ReadData();
-                                    if (s.viewed = false)
-                                    {
-                                        s.viewed = true;
-                                            ContentDialog1 dialog = new ContentDialog1(s);
-                                            var result = await dialog.ShowAsync();
+                                case GeofenceState.Removed:
 
-                                            // primary button was clicked
-                                            if (result == ContentDialogResult.Primary)
-                                            {
-                                                page.Frame.Navigate(typeof(SightPage), s);
+                                    break;
+
+                                case GeofenceState.Entered:
+                                    Debug.WriteLine("entered");
+                                    foreach (MapElement mapElement in _map.MapElements)
+                                    {
+                                        if (mapElement is MapIcon)
+                                        {
+                                             MapIcon icon = (MapIcon) mapElement;
+                                           if (icon.Title == report.Geofence.Id)
+                                           {
+                                        Sight s = mapElement.ReadData();
+                                                    Debug.WriteLine("setting viewed to true");
+                                                    s.viewed = true;
+                                                    ContentDialog1 dialog = new ContentDialog1(s);
+                                                    var result = await dialog.ShowAsync();
+
+                                                    // primary button was clicked
+                                                    if (result == ContentDialogResult.Primary)
+                                                    {
+                                                        RedrawSight(icon);
+                                                        int geo = geofences.IndexOf(report.Geofence);
+                                                        geofences.RemoveAt(geo);
+                                                        page.Frame.Navigate(typeof(SightPage), s);
+                                                        break;
+
+                                                    }
+
+                                               if (result == ContentDialogResult.None)
+                                               {
+                                                   dialog.Hide();
+                                                   break;
+                                               }
                                             }
                                         }
-                                }
+                                    }
+                                    break;
+
+                                case GeofenceState.Exited:
+                                    Debug.WriteLine("u keked out");
+                                    break;
                             }
                         }
-                        break;
-
-                    case GeofenceState.Exited:
-
-                        break;
-                }
-                }
-            }
-            ));
+                    }
+                ));
         }
 
         private void LoadData()
         {
             drawSight(CurrentRoute.Sights);
             DrawRoutes(CurrentRoute.Sights);
+        }
 
+        private void RedrawSight(MapIcon icon)
+        {
+            foreach (MapElement mapElement in _map.MapElements)
+            {
+                if (mapElement.GetType() != typeof(MapIcon)) continue;
+                if (mapElement.Equals(icon))
+                {
+                    int index = _map.MapElements.IndexOf(mapElement);
+                    _map.MapElements.RemoveAt(index);
+
+                    Sight s = icon.ReadData();
+                    var image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/entered-pin.png"));
+                    var ancherpoint = new Point(0.5,1);
+                    var seenSight = new MapIcon
+                    {
+                        Title = s.Name,
+                        Location = s.Position,
+                        NormalizedAnchorPoint = ancherpoint,
+                        Image = image,
+                        ZIndex = 4,
+                        CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible
+
+                    };
+                    seenSight.AddData(s);
+                    _map.MapElements.Add(seenSight);
+                    break;
+                }
+            }
         }
 
         public async void DrawRoute(Geopoint p1, Geopoint p2)
@@ -123,12 +163,12 @@ namespace MobileGuidingSystem.ViewModel
 
             if (routeFinderResult.Status == MapRouteFinderStatus.Success)
             {
-                deleteRoutes();              
-                    MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
-                    routeView.RouteColor = _routeColor;
-                    routeView.OutlineColor = _outlineColor;
-                    _map.Routes.Add(routeView);
-                
+                deleteRoutes();
+                MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
+                routeView.RouteColor = _routeColor;
+                routeView.OutlineColor = _outlineColor;
+                _map.Routes.Add(routeView);
+
             }
         }
 
@@ -136,12 +176,12 @@ namespace MobileGuidingSystem.ViewModel
         {
             for (int i = _map.Routes.Count - 1; i >= 0; i--)
             {
-                if(_map.Routes[i].RouteColor == _routeColor)
-                _map.Routes.RemoveAt(i);      
-            }    
+                if (_map.Routes[i].RouteColor == _routeColor)
+                    _map.Routes.RemoveAt(i);
+            }
         }
 
-        private void deleteRouteswalked( )
+        private void deleteRouteswalked()
         {
             for (int i = _map.Routes.Count - 1; i >= 0; i--)
             {
@@ -161,7 +201,7 @@ namespace MobileGuidingSystem.ViewModel
                 {
                     if (KnownUserPos.Count > 10)
                     {
-                        for (int j = KnownUserPos.Count -1; j >= 0; j--)
+                        for (int j = KnownUserPos.Count - 1; j >= 0; j--)
                         {
                             int jj = j%2;
                             if (jj == 1)
@@ -170,7 +210,7 @@ namespace MobileGuidingSystem.ViewModel
                             }
                         }
                     }
-                
+
                 }
             }
         }
@@ -182,20 +222,20 @@ namespace MobileGuidingSystem.ViewModel
             if (routeFinderResult.Status == MapRouteFinderStatus.Success)
             {
                 deleteRoutes();
-                    MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
-                    routeView.RouteColor = _routeColor;
-                    routeView.OutlineColor = _outlineColor;
-                    _map.Routes.Add(routeView);         
+                MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
+                routeView.RouteColor = _routeColor;
+                routeView.OutlineColor = _outlineColor;
+                _map.Routes.Add(routeView);
             }
             else if (routeFinderResult.Status == MapRouteFinderStatus.NoRouteFoundWithGivenOptions)
             {
                 deleteRoutes();
-                    MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
-                    routeView.RouteColor = _routeColor;
-                    routeView.OutlineColor = _outlineColor;
-                    _map.Routes.Add(routeView);              
+                MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
+                routeView.RouteColor = _routeColor;
+                routeView.OutlineColor = _outlineColor;
+                _map.Routes.Add(routeView);
             }
-         
+
         }
 
         public async void DrawWalkedRoute(List<Geopoint> list)
@@ -203,21 +243,21 @@ namespace MobileGuidingSystem.ViewModel
             if (list.Count > 2)
             {
                 MapRouteFinderResult routeFinder =
-                     await MapRouteFinder.GetWalkingRouteAsync(list[list.Count -2], list[list.Count - 1]);
-                    if (routeFinder.Status == MapRouteFinderStatus.Success)
-                    {
-                        MapRouteView routeView = new MapRouteView(routeFinder.Route);
-                        routeView.RouteColor = Colors.Red;
-                        _map.Routes.Add(routeView);
-                    }
-                    else if (routeFinder.Status == MapRouteFinderStatus.NoRouteFoundWithGivenOptions)
-                    {
-                        MapRouteView routeView = new MapRouteView(routeFinder.Route);
-                        routeView.RouteColor = Colors.Red;    
-                        _map.Routes.Add(routeView);
-                    }
+                    await MapRouteFinder.GetWalkingRouteAsync(list[list.Count - 2], list[list.Count - 1]);
+                if (routeFinder.Status == MapRouteFinderStatus.Success)
+                {
+                    MapRouteView routeView = new MapRouteView(routeFinder.Route);
+                    routeView.RouteColor = Colors.Red;
+                    _map.Routes.Add(routeView);
+                }
+                else if (routeFinder.Status == MapRouteFinderStatus.NoRouteFoundWithGivenOptions)
+                {
+                    MapRouteView routeView = new MapRouteView(routeFinder.Route);
+                    routeView.RouteColor = Colors.Red;
+                    _map.Routes.Add(routeView);
                 }
             }
+        }
 
         public void DrawRoutes(List<Sight> sightlist)
         {
@@ -225,7 +265,7 @@ namespace MobileGuidingSystem.ViewModel
 
             if (User.Location != null)
             {
-                positions.Add( User.Location);
+                positions.Add(User.Location);
             }
 
             foreach (Sight s in sightlist)
@@ -233,15 +273,15 @@ namespace MobileGuidingSystem.ViewModel
                 positions.Add(s.Position);
             }
             DrawRoutes(positions);
-            
+
         }
 
         public override void NextPage(object user)
         {
             throw new NotImplementedException();
         }
-        
-          
+
+
         public void drawSight(List<Sight> list)
         {
             var ancherpoint = new Point(0.5, 1);
@@ -260,11 +300,11 @@ namespace MobileGuidingSystem.ViewModel
                         Image = image,
                         ZIndex = 4,
                         CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible
-                       
-                };
+
+                    };
                     Sight.AddData(sight);
                     _map.MapElements.Add(Sight);
-                     AddGeofence(sight.Position, sight.Name, 20);
+                    AddGeofence(sight.Position, sight.Name, 20);
                     _map.MapElements.Add(GetCircleMapPolygon(sight.Position.Position, 20));
                 }
                 else
@@ -282,9 +322,9 @@ namespace MobileGuidingSystem.ViewModel
                     SightWIthoutPin.AddData(SightWIthoutPin);
                     _map.MapElements.Add(SightWIthoutPin);
                 }
-                
-                }
+
             }
+        }
 
         public void DrawPlayer(Geoposition position)
         {
@@ -320,7 +360,7 @@ namespace MobileGuidingSystem.ViewModel
                 {
                     if (element is MapIcon)
                     {
-                        MapIcon player = (MapIcon)element;
+                        MapIcon player = (MapIcon) element;
                         if (player.ZIndex == 13)
                         {
                             int index = _map.MapElements.IndexOf(player);
@@ -333,24 +373,23 @@ namespace MobileGuidingSystem.ViewModel
                 }
             }
         }
+
         private void AddGeofence(Geopoint location, string title, double radius)
         {
             string fenceKey = title;
-
-
             // the geofence is a circular region:
             Geocircle geocircle = new Geocircle(location.Position, radius);
 
-            bool singleUse = false;
-
-            MonitoredGeofenceStates mask = MonitoredGeofenceStates.Entered | MonitoredGeofenceStates.Exited;
-            TimeSpan dwellTime = TimeSpan.FromMinutes(5);
-
-            TimeSpan duration = TimeSpan.FromDays(1);
-
-            DateTimeOffset startTime = DateTime.Now;
-
-            //geofences.Add(new Geofence(fenceKey, geocircle, mask, singleUse, dwellTime, startTime, duration));
+            try
+            {
+                geofences.Add(new Geofence(fenceKey, geocircle, MonitoredGeofenceStates.Entered, false, TimeSpan.Zero ));
+           
+            }
+            catch (Exception e)
+            {
+               Debug.WriteLine("you fuked up cancerjung" + e);
+            }
+           
         }
 
         public MapPolygon GetCircleMapPolygon(BasicGeoposition originalLocation, double radius)

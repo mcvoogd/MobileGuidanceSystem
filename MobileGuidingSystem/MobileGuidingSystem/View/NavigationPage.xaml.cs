@@ -38,6 +38,7 @@ namespace MobileGuidingSystem.View
                 {
                     Frame.GoBack();
                     a.Handled = true;
+                  
                 }
             };
         }
