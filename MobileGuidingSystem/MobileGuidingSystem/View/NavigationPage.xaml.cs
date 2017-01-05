@@ -29,10 +29,8 @@ namespace MobileGuidingSystem.View
         {
             this.InitializeComponent();
             MenuListBox.Background = new SolidColorBrush(Color.FromArgb(200, 255, 255, 255));
-            HamburgerButton.Visibility = Visibility.Collapsed;
             Frame.Navigate(typeof(LanguageSelectionPage));
             Map.IsSelected = true;
-
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += (s, a) =>
             {
@@ -52,21 +50,9 @@ namespace MobileGuidingSystem.View
         //TODO add navigation to the pages
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            HamburgerSplitview.DisplayMode = SplitViewDisplayMode.Overlay;
-            HamburgerButton.Visibility = Visibility.Visible;
-            Menu.Visibility = Visibility.Collapsed;
-            if (Menu.IsSelected)
-            {
-                HamburgerSplitview.DisplayMode = SplitViewDisplayMode.CompactOverlay;
-                HamburgerButton.Visibility = Visibility.Collapsed;
-                Menu.Visibility = Visibility.Visible;
-            }
             if (Map.IsSelected)
             {
                 Frame.Navigate(typeof(MainPage));
-                HamburgerSplitview.DisplayMode = SplitViewDisplayMode.CompactOverlay;
-                HamburgerButton.Visibility = Visibility.Collapsed;
-                Menu.Visibility = Visibility.Visible;
             }
             else if (RouteSelection.IsSelected)
             {
@@ -90,15 +76,5 @@ namespace MobileGuidingSystem.View
             }
             HamburgerSplitview.IsPaneOpen = false;
         }
-
-        private void HamburgerSplitview_OnPaneClosed(SplitView sender, object args)
-        {
-            if (!Menu.IsSelected)
-            {
-                if(!Map.IsSelected)
-                    HamburgerButton.Visibility = Visibility.Visible;
-            }
-        }
-
     }
 }

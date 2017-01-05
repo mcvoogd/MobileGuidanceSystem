@@ -39,8 +39,7 @@ namespace MobileGuidingSystem.ViewModel
         public Point Anchor { get; set; }
         public ContentDialog dialog;
         public IList<Geofence> geofences;
-        private int selectedRoute;
-        private bool _baseRoute = true;
+        private bool _playerInRoute = false;
         private List<Geopoint> KnownUserPos = new List<Geopoint>();
         private MainPage page;
 
@@ -115,7 +114,6 @@ namespace MobileGuidingSystem.ViewModel
         {
             drawSight(CurrentRoute.Sights);
             DrawRoutes(CurrentRoute.Sights);
-            selectedRoute = 0;
 
         }
 
@@ -126,13 +124,11 @@ namespace MobileGuidingSystem.ViewModel
             if (routeFinderResult.Status == MapRouteFinderStatus.Success)
             {
                 deleteRoutes();              
-                if (_baseRoute == false)
-                {
                     MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
                     routeView.RouteColor = _routeColor;
                     routeView.OutlineColor = _outlineColor;
                     _map.Routes.Add(routeView);
-                }
+                
             }
         }
 
@@ -145,12 +141,37 @@ namespace MobileGuidingSystem.ViewModel
             }    
         }
 
-        private void deleteRouteswalked()
+        private void deleteRouteswalked( )
         {
             for (int i = _map.Routes.Count - 1; i >= 0; i--)
             {
                 if (_map.Routes[i].RouteColor == Colors.Red)
+                {
                     _map.Routes.RemoveAt(i);
+                }
+            }
+        }
+
+        private void updateRoute()
+        {
+            Debug.WriteLine(KnownUserPos.Count);
+            for (int i = 0; i < _map.Routes.Count; i++)
+            {
+                if (_map.Routes[i].RouteColor == Colors.Red)
+                {
+                    if (KnownUserPos.Count > 10)
+                    {
+                        for (int j = KnownUserPos.Count -1; j >= 0; j--)
+                        {
+                            int jj = j%2;
+                            if (jj == 1)
+                            {
+                                KnownUserPos.RemoveAt(j);
+                            }
+                        }
+                    }
+                
+                }
             }
         }
 
@@ -181,27 +202,18 @@ namespace MobileGuidingSystem.ViewModel
         {
             if (list.Count > 2)
             {
-                list.RemoveAt(1);
-            }
-            if (list.Count == 2)
-                {
-                   MapRouteFinderResult routeFinder =
-                        await MapRouteFinder.GetWalkingRouteAsync(list[0], list[list.Count - 1]);
+                MapRouteFinderResult routeFinder =
+                     await MapRouteFinder.GetWalkingRouteAsync(list[list.Count -2], list[list.Count - 1]);
                     if (routeFinder.Status == MapRouteFinderStatus.Success)
                     {
-                        deleteRouteswalked();
                         MapRouteView routeView = new MapRouteView(routeFinder.Route);
                         routeView.RouteColor = Colors.Red;
-                        routeView.OutlineColor = _outlineColor;
                         _map.Routes.Add(routeView);
                     }
                     else if (routeFinder.Status == MapRouteFinderStatus.NoRouteFoundWithGivenOptions)
                     {
-                        deleteRouteswalked();
                         MapRouteView routeView = new MapRouteView(routeFinder.Route);
-                        routeView.RouteColor = Colors.Red;
-                        routeView.OutlineColor = _outlineColor;
-
+                        routeView.RouteColor = Colors.Red;    
                         _map.Routes.Add(routeView);
                     }
                 }
@@ -252,8 +264,8 @@ namespace MobileGuidingSystem.ViewModel
                 };
                     Sight.AddData(sight);
                     _map.MapElements.Add(Sight);
-                     AddGeofence(sight.Position, sight.Name, 5);
-                    _map.MapElements.Add(GetCircleMapPolygon(sight.Position.Position, 5));
+                     AddGeofence(sight.Position, sight.Name, 20);
+                    _map.MapElements.Add(GetCircleMapPolygon(sight.Position.Position, 20));
                 }
                 else
                 {
@@ -291,8 +303,13 @@ namespace MobileGuidingSystem.ViewModel
             UpdatePos();
             KnownUserPos.Add(User.Location);
             DrawWalkedRoute(KnownUserPos);
-            DrawRoutes(Route.Routes[selectedRoute].Sights);
             _map.MapElements.Add(player);
+
+            if (_playerInRoute == false)
+            {
+                DrawRoutes(CurrentRoute.Sights);
+                _playerInRoute = true;
+            }
         }
 
         public void UpdatePos()
@@ -308,7 +325,7 @@ namespace MobileGuidingSystem.ViewModel
                         {
                             int index = _map.MapElements.IndexOf(player);
                             _map.MapElements.RemoveAt(index);
-                            //_map.Center = User.Location;
+                            _map.Center = User.Location;
                             break;
                         }
                     }
@@ -333,7 +350,7 @@ namespace MobileGuidingSystem.ViewModel
 
             DateTimeOffset startTime = DateTime.Now;
 
-            geofences.Add(new Geofence(fenceKey, geocircle, mask, singleUse, dwellTime, startTime, duration));
+            //geofences.Add(new Geofence(fenceKey, geocircle, mask, singleUse, dwellTime, startTime, duration));
         }
 
         public MapPolygon GetCircleMapPolygon(BasicGeoposition originalLocation, double radius)

@@ -11,7 +11,7 @@
 
         <Image Source="ms-appx:///Assets/background.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Opacity="0.4"/>
 
-       <SplitView Name="HamburgerSplitview" DisplayMode="CompactOverlay" RelativePanel.Below="HamburgerButton" CompactPaneLength="44" PaneBackground="Transparent" PaneClosed="HamburgerSplitview_OnPaneClosed">
+       <SplitView Name="HamburgerSplitview" DisplayMode="Overlay" RelativePanel.Below="HamburgerButton" CompactPaneLength="44" PaneBackground="Transparent">
             <SplitView.Pane >
                 <ListBox x:Name="MenuListBox" SelectionMode="Single"  SelectionChanged="Selector_OnSelectionChanged" Background="White">
                     <ListBoxItem Name="Menu">
