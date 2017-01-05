@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using MobileGuidingSystem.Model.Data;
+using MobileGuidingSystem.ViewModel;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -63,7 +64,7 @@ namespace MobileGuidingSystem.View
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            Window.Current.Content = new MainPage();
+            Frame.Navigate(typeof(MainPage), MainModel.CurrentRoute);
         }
     }
 }

@@ -112,13 +112,12 @@ namespace MobileGuidingSystem.ViewModel
                                     }
                                     break;
 
-                                case GeofenceState.Exited:
-                                    Debug.WriteLine("u keked out");
-                                    break;
-                            }
-                        }
-                    }
-                ));
+                    case GeofenceState.Exited:
+                        break;
+                }
+                }
+            }
+            ));
         }
 
         private void LoadData()
