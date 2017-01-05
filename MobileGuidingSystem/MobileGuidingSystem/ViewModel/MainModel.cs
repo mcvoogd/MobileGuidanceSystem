@@ -54,7 +54,7 @@ namespace MobileGuidingSystem.ViewModel
             geofences = GeofenceMonitor.Current.Geofences;
             GeofenceMonitor.Current.GeofenceStateChanged += CurrentOnGeofenceStateChanged;
             LoadData();
-            MyLocation = new Geopoint(new BasicGeoposition() {Latitude = 51.5860591, Longitude = 4.793500600000016});
+            MyLocation = new Geopoint(new BasicGeoposition() { Latitude = 51.5860591, Longitude = 4.793500600000016 });
             iconImage = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
             Anchor = new Point(0.5, 1);
             //drawRoute(new Geopoint(new BasicGeoposition() { Latitude = 51.59000, Longitude = 4.781000 }), new Geopoint(new BasicGeoposition(){ Longitude = 4.780172, Latitude = 51.586267}) );
@@ -82,41 +82,43 @@ namespace MobileGuidingSystem.ViewModel
                                     {
                                         if (mapElement is MapIcon)
                                         {
-                                             MapIcon icon = (MapIcon) mapElement;
-                                           if (icon.Title == report.Geofence.Id)
-                                           {
-                                        Sight s = mapElement.ReadData();
-                                                    Debug.WriteLine("setting viewed to true");
-                                                    s.viewed = true;
-                                                    ContentDialog1 dialog = new ContentDialog1(s);
-                                                    var result = await dialog.ShowAsync();
+                                            MapIcon icon = (MapIcon)mapElement;
+                                            if (icon.Title == report.Geofence.Id)
+                                            {
+                                                Sight s = mapElement.ReadData();
+                                                Debug.WriteLine("setting viewed to true");
+                                                s.viewed = true;
+                                                ContentDialog1 dialog = new ContentDialog1(s);
+                                                var result = await dialog.ShowAsync();
 
-                                                    // primary button was clicked
-                                                    if (result == ContentDialogResult.Primary)
-                                                    {
-                                                        RedrawSight(icon);
-                                                        int geo = geofences.IndexOf(report.Geofence);
-                                                        geofences.RemoveAt(geo);
-                                                        page.Frame.Navigate(typeof(SightPage), s);
-                                                        break;
+                                                // primary button was clicked
+                                                if (result == ContentDialogResult.Primary)
+                                                {
+                                                    RedrawSight(icon);
+                                                    int geo = geofences.IndexOf(report.Geofence);
+                                                    geofences.RemoveAt(geo);
+                                                    page.Frame.Navigate(typeof(SightPage), s);
+                                                    break;
 
-                                                    }
+                                                }
 
-                                               if (result == ContentDialogResult.None)
-                                               {
-                                                   dialog.Hide();
-                                                   break;
-                                               }
+                                                if (result == ContentDialogResult.None)
+                                                {
+                                                    dialog.Hide();
+
+                                                }
+                                                break;
                                             }
                                         }
                                     }
                                     break;
 
-                    case GeofenceState.Exited:
-                        break;
-                }
-                }
-            }
+                                case GeofenceState.Exited:
+                                    Debug.WriteLine("kekekekekekekekekekkeke");
+                                    break;
+                            }
+                        }
+                    }
             ));
         }
 
@@ -138,7 +140,7 @@ namespace MobileGuidingSystem.ViewModel
 
                     Sight s = icon.ReadData();
                     var image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/entered-pin.png"));
-                    var ancherpoint = new Point(0.5,1);
+                    var ancherpoint = new Point(0.5, 1);
                     var seenSight = new MapIcon
                     {
                         Title = s.Name,
@@ -202,7 +204,7 @@ namespace MobileGuidingSystem.ViewModel
                     {
                         for (int j = KnownUserPos.Count - 1; j >= 0; j--)
                         {
-                            int jj = j%2;
+                            int jj = j % 2;
                             if (jj == 1)
                             {
                                 KnownUserPos.RemoveAt(j);
@@ -359,7 +361,7 @@ namespace MobileGuidingSystem.ViewModel
                 {
                     if (element is MapIcon)
                     {
-                        MapIcon player = (MapIcon) element;
+                        MapIcon player = (MapIcon)element;
                         if (player.ZIndex == 13)
                         {
                             int index = _map.MapElements.IndexOf(player);
@@ -381,14 +383,14 @@ namespace MobileGuidingSystem.ViewModel
 
             try
             {
-                geofences.Add(new Geofence(fenceKey, geocircle, MonitoredGeofenceStates.Entered, false, TimeSpan.Zero ));
-           
+                geofences.Add(new Geofence(fenceKey, geocircle, MonitoredGeofenceStates.Entered, false, TimeSpan.FromSeconds(0.1)));
+
             }
             catch (Exception e)
             {
-               Debug.WriteLine("you fuked up cancerjung" + e);
+                Debug.WriteLine("you fuked up cancerjung" + e);
             }
-           
+
         }
 
         public MapPolygon GetCircleMapPolygon(BasicGeoposition originalLocation, double radius)
