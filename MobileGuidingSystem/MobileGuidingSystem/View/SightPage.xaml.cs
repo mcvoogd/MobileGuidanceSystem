@@ -71,9 +71,9 @@ namespace MobileGuidingSystem.View
 
         }
 
-        //private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        //{
-        //    Frame.Navigate(typeof(MainPage), MainModel.CurrentRoute);
-        //}
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage), MainModel.CurrentRoute);
+        }
     }
 }
