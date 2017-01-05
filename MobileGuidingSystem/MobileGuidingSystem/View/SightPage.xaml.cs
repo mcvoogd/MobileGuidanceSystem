@@ -67,8 +67,6 @@ namespace MobileGuidingSystem.View
                 flipView.Items.Add(item);
                 
             }
-             
-
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
