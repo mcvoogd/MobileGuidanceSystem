@@ -124,6 +124,10 @@ namespace MobileGuidingSystem.ViewModel
 
         private void LoadData()
         {
+            if (_map.MapElements.Count > 15)
+            {
+                _map.MapElements.Clear();
+            }
             drawSight(CurrentRoute.Sights);
             DrawRoutes(CurrentRoute.Sights);
         }

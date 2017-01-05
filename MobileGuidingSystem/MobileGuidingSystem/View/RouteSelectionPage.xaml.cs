@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 using MobileGuidingSystem.Model.Data;
 using MobileGuidingSystem.ViewModel;
 
@@ -22,7 +23,7 @@ namespace MobileGuidingSystem.View
         }
 
         private void ComboBoxOnSelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
-        {
+        { 
             ComboBox cb = (ComboBox) sender;
             Route route = (Route) cb.SelectedItem;
 
@@ -39,6 +40,8 @@ namespace MobileGuidingSystem.View
 
         private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            MainPage.isLoaded = false;
+            MainPage.mode = NavigationCacheMode.Disabled;
             Route route = comboBox.SelectionBoxItem as Route;
             Frame.Navigate(typeof(MainPage), route);
         }

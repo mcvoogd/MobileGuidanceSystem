@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Windows.Devices.Geolocation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -24,22 +26,43 @@ namespace MobileGuidingSystem.View
         Geolocator _geolocator;
         private bool _positionSet = false;
         const int Maxzoom = 17;
-        private static bool isGeladenCUCK = false;
+        public static bool isLoaded = false;
+
+        public static NavigationCacheMode mode;
+        // Property.
+        public NavigationCacheMode Mode
+        {
+            get { return mode; }
+            set
+            {
+                if (value != mode)
+                {
+                    mode = value;
+                    // Notify of the change.
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
 
         public MainPage()
         {
             this.InitializeComponent();
+            if (mode != NavigationCacheMode.Required)
+            {
+                Mode = NavigationCacheMode.Required;
+
+            }
             this.Loaded += PageLoaded;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (!isGeladenCUCK)
+            if (!isLoaded)
             {
                 Model = new MainModel(MyMap, (Route) e.Parameter, this);
                 DataContext = Model;
-                isGeladenCUCK = true;
+                isLoaded = true;
             }
         }
 
@@ -134,5 +157,14 @@ namespace MobileGuidingSystem.View
                 NavToSight(clickedSight);
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // PropertyChanged event triggering method.
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }
