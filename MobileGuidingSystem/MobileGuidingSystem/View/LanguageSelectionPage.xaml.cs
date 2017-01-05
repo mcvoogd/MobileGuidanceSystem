@@ -19,11 +19,10 @@ namespace MobileGuidingSystem.View
             this.InitializeComponent();
         }
 
-        private void Dutch_OnTapped(object sender, TappedRoutedEventArgs e)
+        private async void Dutch_OnTapped(object sender, TappedRoutedEventArgs e)
         {
             ApplicationLanguages.PrimaryLanguageOverride = "nl-NL";
-            Windows.ApplicationModel.Resources.Core.ResourceContext.GetForViewIndependentUse().Reset();
-            Windows.ApplicationModel.Resources.Core.ResourceManager.Current.DefaultContext.Reset();
+            await Task.Delay(10);
             if (MainModel.CurrentRoute != null)
                 Frame.Navigate(typeof(MainPage), MainModel.CurrentRoute);
             else
@@ -33,11 +32,10 @@ namespace MobileGuidingSystem.View
             
         }
 
-        private void English_OnTapped(object sender, TappedRoutedEventArgs e)
+        private async void English_OnTapped(object sender, TappedRoutedEventArgs e)
         {
             ApplicationLanguages.PrimaryLanguageOverride = "en-US";
-            Windows.ApplicationModel.Resources.Core.ResourceContext.GetForViewIndependentUse().Reset();
-            Windows.ApplicationModel.Resources.Core.ResourceManager.Current.DefaultContext.Reset();
+            await Task.Delay(10);
             if (MainModel.CurrentRoute != null)
                 Frame.Navigate(typeof(MainPage), MainModel.CurrentRoute);
             else
