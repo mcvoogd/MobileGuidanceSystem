@@ -13,14 +13,10 @@
 
        <SplitView Name="HamburgerSplitview" DisplayMode="Overlay" RelativePanel.Below="HamburgerButton" CompactPaneLength="44" PaneBackground="Transparent">
             <SplitView.Pane >
-                <ListBox x:Name="MenuListBox" SelectionMode="Single"  SelectionChanged="Selector_OnSelectionChanged" Background="White">
-                    <ListBoxItem Name="Menu">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE700;" FontSize="24" VerticalAlignment="Center" Tapped="HamburgerButton_OnClick"></TextBlock>
-                        </StackPanel>
-                    </ListBoxItem>
+                <ListBox x:Name="MenuListBox" SelectionMode="Single"  SelectionChanged="Selector_OnSelectionChanged" Background="White" Margin="0,0,39,0">
+                    
 
-                    <ListBoxItem Name="Map">
+                    <ListBoxItem Name="Map" Margin="0,50,0,0">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE80F;" FontSize="24" VerticalAlignment="Center"></TextBlock>
                             <TextBlock  Margin="10,0,0,0" x:Uid="NAVIGATION_MAP" FontSize="24" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"></TextBlock>

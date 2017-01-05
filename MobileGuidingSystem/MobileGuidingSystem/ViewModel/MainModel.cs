@@ -141,9 +141,19 @@ namespace MobileGuidingSystem.ViewModel
                 {
                     int index = _map.MapElements.IndexOf(mapElement);
                     _map.MapElements.RemoveAt(index);
-
+                    RandomAccessStreamReference image;
                     Sight s = icon.ReadData();
-                    var image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/entered-pin.png"));
+                    if (s.Name != "VVV")
+                    {
+                         image =
+                            RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/entered-pin.png"));
+                    }
+                    else
+                    {
+                         image =
+                            RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-entered-pin.png"));
+                    }
+
                     var ancherpoint = new Point(0.5, 1);
                     var seenSight = new MapIcon
                     {
@@ -290,44 +300,30 @@ namespace MobileGuidingSystem.ViewModel
         public void drawSight(List<Sight> list)
         {
             var ancherpoint = new Point(0.5, 1);
-            var image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png"));
-            var image2 = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/TransparentWayPoint.png"));
+            RandomAccessStreamReference image;
+
+
             foreach (Sight sight in list)
             {
+                MapIcon sightIcon;
+                if (sight.Name == "VVV"){ image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/home-pin.png")); }
+                else if(sight.Name == ""){ image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/TransparentWayPoint.png")); }
+                else{ image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/pin.png")); }
 
-                if (sight.Name != "")
-                {
-                    var Sight = new MapIcon
-                    {
-                        Title = sight.Name,
-                        Location = sight.Position,
-                        NormalizedAnchorPoint = ancherpoint,
-                        Image = image,
-                        ZIndex = 4,
-                        CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible
-
-                    };
-                    Sight.AddData(sight);
-                    _map.MapElements.Add(Sight);
+                         sightIcon = new MapIcon
+                        {
+                            Title = sight.Name,
+                            Location = sight.Position,
+                            NormalizedAnchorPoint = ancherpoint,
+                            Image = image,
+                            ZIndex = 4,
+                            CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible
+                        };
+                        sightIcon.AddData(sight);
+                    
+                    _map.MapElements.Add(sightIcon);
                     AddGeofence(sight.Position, sight.Name, 20);
-                    _map.MapElements.Add(GetCircleMapPolygon(sight.Position.Position, 20));
-                }
-                else
-                {
-                    var SightWIthoutPin = new MapIcon
-                    {
-                        Title = sight.Name,
-                        Location = sight.Position,
-                        NormalizedAnchorPoint = ancherpoint,
-                        Image = image2,
-                        ZIndex = 4,
-                        CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible
-
-                    };
-                    SightWIthoutPin.AddData(SightWIthoutPin);
-                    _map.MapElements.Add(SightWIthoutPin);
-                }
-
+                    //_map.MapElements.Add(GetCircleMapPolygon(sight.Position.Position, 20));
             }
         }
 

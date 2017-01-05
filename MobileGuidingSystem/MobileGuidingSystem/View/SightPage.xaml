@@ -19,14 +19,13 @@
                     <Image Source="ms-appx:///Assets/background.jpg" Stretch="UniformToFill" HorizontalAlignment="Center"/>
                 </FlipView>-->
 
-                <FlipView x:Name="FlipView" VerticalAlignment="Top" Height="200">
-                    <MediaElement x:Name="mediaSimple" Source="ms-appx:///Assets/audio_grote_klok.mp3" HorizontalAlignment="Stretch" VerticalAlignment="Top"  AreTransportControlsEnabled="True" AutoPlay="False"/>
+                <FlipView x:Name="flipView" VerticalAlignment="Top" Height="200">
+                    <!--<MediaElement x:Name="mediaSimple" Source="ms-appx:///Assets/audio_grote_klok.mp3" HorizontalAlignment="Stretch" VerticalAlignment="Top"  AreTransportControlsEnabled="True" AutoPlay="False"/>-->
                 </FlipView>
 
                 <TextBlock x:Name="SightNameTextblock" HorizontalAlignment="Center" Margin="12,0" TextWrapping="Wrap" Text="{x:Bind sight.Name}" VerticalAlignment="Top" FontSize="35" FontFamily="ms-appx:///Assets/A_LOVE_OF_THUNDER.ttf#A Love of Thunder"/>
 
                 <TextBlock x:Name="SightDescriptionTextblock" TextWrapping="Wrap" Margin="12,0" FontSize="16" Text="{x:Bind sight.Description}"></TextBlock>
-                <Button Content="Ga Terug" Click="ButtonBase_OnClick"></Button>
             </StackPanel>
         </ScrollViewer>
     </Grid>
