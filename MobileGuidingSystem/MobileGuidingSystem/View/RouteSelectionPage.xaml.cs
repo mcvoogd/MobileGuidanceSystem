@@ -29,12 +29,16 @@ namespace MobileGuidingSystem.View
 
             if (route.Name == "Historische Kilometer")
             {
-                Description.Text = "In de Historische Kilometer stelt de VVV Breda het oudste en mooiste gedeelte van de stad Breda aan u voor.";
+                var resourceContext = Windows.ApplicationModel.Resources.Core.ResourceContext.GetForCurrentView();
+                string s = resourceContext.Languages[0];
+
+                Description.Text = s == "en-US" ? "In the historic kilometer VVV Breda represents the oldest and most beautiful parts of the city of Breda to you." : "In de Historische Kilometer stelt de VVV Breda het oudste en mooiste gedeelte van de stad Breda aan u voor.";
             }
             else
             {
-                Description.Text =
-                    "De Blind Walls Gallery werkt aan een nieuw stadsgezicht. Vanaf 2015 verschijnen zowel op tijdelijke als permanente locaties muurschilderingen gemaakt door internationale talenten op het gebied van grafisch ontwerp, street art, typografie en illustratie.";
+                var resourceContext = Windows.ApplicationModel.Resources.Core.ResourceContext.GetForCurrentView();
+                string s = resourceContext.Languages[0];
+                Description.Text = s == "en-US" ? "Blind Walls Gallery is working on a new cityscape. From 2015 appear on both temporary and permanent locations murals created by international talents in the field of graphic design, street art, typography and illustration." : "De Blind Walls Gallery werkt aan een nieuw stadsgezicht. Vanaf 2015 verschijnen zowel op tijdelijke als permanente locaties muurschilderingen gemaakt door internationale talenten op het gebied van grafisch ontwerp, street art, typografie en illustratie.";
             }
         }
 
