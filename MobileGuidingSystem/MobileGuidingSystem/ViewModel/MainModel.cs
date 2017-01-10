@@ -82,7 +82,21 @@ namespace MobileGuidingSystem.ViewModel
                                             if (icon.Title == report.Geofence.Id)
                                             {
                                                 Sight s = mapElement.ReadData();
-                                                redrawRoute(s, CurrentRoute.Sights[CurrentRoute.Sights.IndexOf(s)+1], true);
+                                                Sight nextSight = null;
+
+                                                for (int i = CurrentRoute.Sights.IndexOf(s)+1;
+                                                    i < CurrentRoute.Sights.Count;
+                                                    i++)
+                                                {
+                                                    Sight sight = CurrentRoute.Sights[i];
+                                                    if (sight.Name != "")
+                                                    {
+                                                        nextSight = sight;
+                                                        break;
+                                                    }
+                                                }
+
+                                                redrawRoute(s, nextSight, true);
                                                 Debug.WriteLine("setting viewed to true");
                                                 s.viewed = true;
                                                 ContentDialog1 dialog = new ContentDialog1(s);
