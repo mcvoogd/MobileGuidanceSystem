@@ -11,7 +11,6 @@ namespace MobileGuidingSystem.View
     public sealed partial class ContentDialog1 : ContentDialog
     {
         public Sight sight { get; set; }
-        public double height;
         public string imagepath
         {
             get { return returnImagePath(); }
@@ -21,7 +20,7 @@ namespace MobileGuidingSystem.View
 
         public string returnImagePath()
         {
-            if (sight.ImagePaths.Count > 0)
+            if (sight.ImagePaths.Count != 0)
             {
                return "ms-appx:///Assets/Pictures/" + sight.ImagePaths[0];
             }
@@ -33,13 +32,6 @@ namespace MobileGuidingSystem.View
         {
             this.InitializeComponent();
             this.sight = sight;
-            DataContext = sight;
-            height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
-        }
-
-        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
-            Window.Current.Content = new SightPage(sight);
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)

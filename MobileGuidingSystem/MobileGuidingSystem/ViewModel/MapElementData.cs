@@ -30,7 +30,7 @@ namespace MobileGuidingSystem.ViewModel
         {
             SetObjectData(element, data);
         }
-
+        
         public static Sight ReadData(this MapElement element)
         {
             return (Sight)GetObjectData(element);

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MobileGuidingSystem</RootNamespace>
     <AssemblyName>MobileGuidingSystem</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>nl-NL</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
@@ -92,6 +92,8 @@
     <Content Include="Assets\4.jpg" />
     <Content Include="Assets\audio_grote_klok.mp3" />
     <Content Include="Assets\A_LOVE_OF_THUNDER.TTF" />
+    <Content Include="Assets\entered-pin.png" />
+    <Content Include="Assets\home-entered-pin.png" />
     <Content Include="Assets\JSON\blindwalls.json" />
     <Content Include="Assets\JSON\HistorischeKM.json" />
     <None Include="project.json" />
@@ -161,6 +163,32 @@
     <Content Include="Assets\Pictures\FRM.jpg" />
     <Content Include="Assets\Pictures\Hedof.jpg" />
     <Content Include="Assets\Pictures\Hedof2.jpg" />
+    <Content Include="Assets\Pictures\historische_km_1.jpg" />
+    <Content Include="Assets\Pictures\historische_km_10.jpg" />
+    <Content Include="Assets\Pictures\historische_km_11.jpg" />
+    <Content Include="Assets\Pictures\historische_km_12.jpg" />
+    <Content Include="Assets\Pictures\historische_km_13.jpg" />
+    <Content Include="Assets\Pictures\historische_km_14.jpg" />
+    <Content Include="Assets\Pictures\historische_km_15.jpg" />
+    <Content Include="Assets\Pictures\historische_km_16.jpg" />
+    <Content Include="Assets\Pictures\historische_km_17.jpg" />
+    <Content Include="Assets\Pictures\historische_km_18.jpg" />
+    <Content Include="Assets\Pictures\historische_km_19.jpg" />
+    <Content Include="Assets\Pictures\historische_km_2.jpg" />
+    <Content Include="Assets\Pictures\historische_km_20.jpg" />
+    <Content Include="Assets\Pictures\historische_km_21.jpg" />
+    <Content Include="Assets\Pictures\historische_km_22.jpg" />
+    <Content Include="Assets\Pictures\historische_km_23.jpg" />
+    <Content Include="Assets\Pictures\historische_km_24.jpg" />
+    <Content Include="Assets\Pictures\historische_km_25.jpg" />
+    <Content Include="Assets\Pictures\historische_km_26.jpg" />
+    <Content Include="Assets\Pictures\historische_km_3.jpg" />
+    <Content Include="Assets\Pictures\historische_km_4.jpg" />
+    <Content Include="Assets\Pictures\historische_km_5.jpg" />
+    <Content Include="Assets\Pictures\historische_km_6.jpg" />
+    <Content Include="Assets\Pictures\historische_km_7.jpg" />
+    <Content Include="Assets\Pictures\historische_km_8.jpg" />
+    <Content Include="Assets\Pictures\historische_km_9.jpg" />
     <Content Include="Assets\Pictures\Ilseweisfelt.jpg" />
     <Content Include="Assets\Pictures\Jeff_canham.jpg" />
     <Content Include="Assets\Pictures\Joshua.jpg" />
@@ -361,8 +389,8 @@
     <Content Include="Assets\Pictures\ZenkOne_Pic8.jpg" />
     <Content Include="Assets\Pictures\ZenkOne_vlaszak-6-1024-kopie.jpg" />
     <Content Include="Assets\Pictures\ZenkOne_vlaszak-6-1024.jpg" />
+    <Content Include="Assets\pin.png" />
     <Content Include="Assets\PlayerPin.png" />
-    <Content Include="Assets\TransparentWayPoint.png" />
     <Content Include="Assets\uk.png" />
     <Content Include="Assets\vvv_logo.png" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -419,7 +447,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsMobile, Version=10.0.10586.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

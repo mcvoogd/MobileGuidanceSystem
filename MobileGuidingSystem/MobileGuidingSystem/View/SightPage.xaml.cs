@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using MobileGuidingSystem.Model.Data;
+using MobileGuidingSystem.ViewModel;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,18 +24,19 @@ namespace MobileGuidingSystem.View
         public Sight sight;
         //public List<string> imagePaths;
 
-        public SightPage(Sight sight)
+        public SightPage()
         {
-            this.sight = sight;
             //imagePaths = new List<string>();
             this.InitializeComponent();
-            AddToSplitView();
+            
         }  
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Sight sight = (Sight) e.Parameter;
+            sight = (Sight) e.Parameter;
             DataContext = sight;
+
+            AddToSplitView();
         }
 
         //public void ConvertImagePaths()
@@ -45,18 +47,31 @@ namespace MobileGuidingSystem.View
         //    }
         //}
                 
-        public async void AddToSplitView()
-        { 
-            foreach (string s in sight.ImagePaths)
+        public void AddToSplitView()
+        {
+            if (sight.Name == "Grote Kerk")
+            {
+                MediaElement media = new MediaElement();
+                media.Source = new Uri("ms-appx:///Assets/audio_grote_klok.mp3");
+                media.AutoPlay = false;
+                media.AreTransportControlsEnabled = true;
+                flipView.Items.Add(media);
+            }
+            foreach (string s in sight.FullImagePaths)
             {
                 ImageBrush brush = new ImageBrush();
-                brush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/Pictures/" + s));
+                brush.ImageSource = new BitmapImage(new Uri(s));
+                brush.Stretch = Stretch.UniformToFill;
                 FlipViewItem item = new FlipViewItem();
                 item.Background = brush;
-                FlipView.Items.Add(item);
+                flipView.Items.Add(item);
+                
             }
-             
+        }
 
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage), MainModel.CurrentRoute);
         }
     }
 }
