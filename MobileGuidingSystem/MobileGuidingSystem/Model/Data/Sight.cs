@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using Windows.Globalization;
 #pragma warning disable 649
 using System.Linq;
 using Windows.Devices.Geolocation;
@@ -14,6 +15,8 @@ namespace MobileGuidingSystem.Model.Data
     {
         public string title;
         public string description;
+        public string description_NL;
+        public string description_EN;
         public string[] images;
 
         public string address;
@@ -24,7 +27,18 @@ namespace MobileGuidingSystem.Model.Data
         private List<string> _fullImagePaths;
 
         public string Name => title;
-        public string Description => description;
+
+        public string Description
+        {
+            get
+            {
+                var locale = ApplicationLanguages.PrimaryLanguageOverride;
+
+                return locale == "en_US"
+                           ? (description_EN ?? "No translation available")
+                           : (description_NL ?? description);
+            }
+        }
 
         public List<string> ImagePaths => images == null || images.Length == 0 ? new List<string> { "NoImage.png" } : new List<string>(images);
 
