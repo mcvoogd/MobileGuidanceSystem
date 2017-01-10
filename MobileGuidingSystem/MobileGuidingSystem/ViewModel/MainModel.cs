@@ -38,11 +38,14 @@ namespace MobileGuidingSystem.ViewModel
         private bool _playerInRoute = false;
         private List<Geopoint> KnownUserPos = new List<Geopoint>();
         private MainPage page;
+        private Sight NextSight;
+        private bool routeDrawn;
 
         //TODO: Fix this ofzo
         public MainModel(MapControl mapcontrol, Route route, MainPage page)
         {
             _map = mapcontrol;
+            routeDrawn = false;
             this.page = page;
             Sights = new ObservableCollection<Sight>();
             CurrentRoute = route;
@@ -82,7 +85,6 @@ namespace MobileGuidingSystem.ViewModel
                                             if (icon.Title == report.Geofence.Id)
                                             {
                                                 Sight s = mapElement.ReadData();
-                                                Sight nextSight = null;
 
                                                 for (int i = CurrentRoute.Sights.IndexOf(s)+1;
                                                     i < CurrentRoute.Sights.Count;
@@ -91,14 +93,12 @@ namespace MobileGuidingSystem.ViewModel
                                                     Sight sight = CurrentRoute.Sights[i];
                                                     if (sight.Name != "")
                                                     {
-                                                        nextSight = sight;
+                                                        NextSight = sight;
                                                         break;
                                                     }
                                                 }
 
-                                                redrawRoute(s, nextSight, true);
-                                                Debug.WriteLine("setting viewed to true");
-                                                s.viewed = true;
+                                                redrawRoute(s.Position, NextSight.Position, true);
                                                 ContentDialog1 dialog = new ContentDialog1(s);
                                                 var result = await dialog.ShowAsync();
 
@@ -141,15 +141,15 @@ namespace MobileGuidingSystem.ViewModel
             }
             drawSight(CurrentRoute.Sights);
             DrawRoutes(CurrentRoute.Sights);
-            redrawRoute(CurrentRoute.Sights[0], CurrentRoute.Sights[1], false);
+            NextSight = CurrentRoute.Sights[0];
         }
 
-        private async void redrawRoute(Sight s1, Sight s2, bool deleteprevious)
+        private async void redrawRoute(Geopoint p1, Geopoint p2, bool deleteprevious)
         {
             if(deleteprevious)
             _map.Routes.RemoveAt(_map.Routes.Count - 1);
 
-            MapRouteFinderResult routeFinderResult = await MapRouteFinder.GetWalkingRouteAsync(s1.Position, s2.Position);
+            MapRouteFinderResult routeFinderResult = await MapRouteFinder.GetWalkingRouteAsync(p1, p2);
 
             if (routeFinderResult.Status == MapRouteFinderStatus.Success)
             {
@@ -218,11 +218,12 @@ namespace MobileGuidingSystem.ViewModel
 
         private void deleteRoutes()
         {
-            for (int i = _map.Routes.Count - 1; i >= 0; i--)
-            {
-                if (_map.Routes[i].RouteColor == _routeColor)
-                    _map.Routes.RemoveAt(i);
-            }
+            //for (int i = _map.Routes.Count - 1; i >= 0; i--)
+            //{
+            //    if (_map.Routes[i].RouteColor == _routeColor)
+            //        _map.Routes.RemoveAt(i);
+            _map.Routes.Clear();
+            //}
         }
 
         //private void deleteRouteswalked()
@@ -396,6 +397,11 @@ namespace MobileGuidingSystem.ViewModel
                             int index = _map.MapElements.IndexOf(player);
                             _map.MapElements.RemoveAt(index);
                             _map.Center = User.Location;
+                            if (!routeDrawn)
+                            {
+                                redrawRoute(User.Location, NextSight.Position, false);
+                                routeDrawn = false;
+                            }
                             break;
                         }
                     }
