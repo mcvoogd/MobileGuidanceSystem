@@ -1,7 +1,8 @@
 [
 	{
 		"Title": "VVV",
-		"description": "Beginpunt" ,
+		"description_NL": "Beginpunt" ,
+		"description_EN": "Starting point",
 		"images": [
       "historische_km_2.jpg",
       "historische_km_1.jpg"
@@ -12,7 +13,8 @@
 	},	
 	{
 		"Title": "Liefdeszuster",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN":"",
 		"images": [
       "historische_km_3.jpg"
     ],
@@ -22,7 +24,8 @@
 	},
 	{
 		"Title": "Nassau Baronie Monument",
-		"description": "Bij de ingang van het stadspark, het Valkenberg, staat een monument dat u iets vertelt over de wordings-geschiedenis van de stad Breda, maar vooral over de Heren van de stad uit het Huis van Nassau en de 500-jarige band tussen Breda en het Huis van Nassau. Op 3 juli 1905 werd het Nassau-Baronie-monument, zoals het officieel heet, met veel feestelijk vertoon door Koningin Wilhelmina onthuld. Het beeld herinnert aan het feit, dat in 1404 Graaf Engelbert, de eerste Bredase Nassau en zijn gemalin, Johanna van Polanen, werden ingehuldigd als Heer en Vrouwe van Breda. De ontwerper is de welbekende dr. P.J.H. Cuypers, die o.m. het Rijksmuseum en het Centraal Station in Amsterdam ontwierp. Op dit monument zijn niet alleen de wapenschilden van twintig gemeenten in en rond de Baronie aangebracht maar ook de Leeuw van Nassau die boven alles uittorent met koningskroon, zwaard en wapenschild. In de drie reliefs is de 'blijde incomste' van Graaf Engelbert en zijn gemalin afgebeeld. De poorters bieden de sleutel van de stad aan." ,
+		"description_NL": "Bij de ingang van het stadspark, het Valkenberg, staat een monument dat u iets vertelt over de wordings-geschiedenis van de stad Breda, maar vooral over de Heren van de stad uit het Huis van Nassau en de 500-jarige band tussen Breda en het Huis van Nassau. Op 3 juli 1905 werd het Nassau-Baronie-monument, zoals het officieel heet, met veel feestelijk vertoon door Koningin Wilhelmina onthuld. Het beeld herinnert aan het feit, dat in 1404 Graaf Engelbert, de eerste Bredase Nassau en zijn gemalin, Johanna van Polanen, werden ingehuldigd als Heer en Vrouwe van Breda. De ontwerper is de welbekende dr. P.J.H. Cuypers, die o.m. het Rijksmuseum en het Centraal Station in Amsterdam ontwierp. Op dit monument zijn niet alleen de wapenschilden van twintig gemeenten in en rond de Baronie aangebracht maar ook de Leeuw van Nassau die boven alles uittorent met koningskroon, zwaard en wapenschild. In de drie reliefs is de 'blijde incomste' van Graaf Engelbert en zijn gemalin afgebeeld. De poorters bieden de sleutel van de stad aan." ,
+		"description_EN": "At the entrance to the city park Valkenberg, a monument that tells you something about the wordings history of the city of Breda, but especially about the men of the city of the House of Nassau and the 500-year-old bond between Breda and the House of Nassau. on July 3, 1905 the Nassau-Baronie monument, as it is officially called, with lots of festive parade unveiled by Queen Wilhelmina. the image recalls the fact that in 1404 Count Engelbert, the first Breda Nassau and wife, Johanna van Polans were inaugurated as Lord and Lady of Breda. the designer is the famous Dr. PJH Cuypers, who designed for the Rijksmuseum and Amsterdam Central Station. on this monument is not only the arms of twenty municipalities and arranged around the Barony but also the Nassau Lion dominates everything with royal crown, sword and shield. the three reliefs is the joyful incomste 'Earl Engelbert and portrayed his wife. the Burgesses have the key to the city.",
 		"images": [
       "historische_km_4.jpg"
     ],
@@ -32,7 +35,9 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
+		
 		"images": null,
 		"adress": "",
 		"longitude": 4.779388 ,
@@ -40,7 +45,8 @@
 	},
 	{
 		"Title": "The Light House",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": [
       "historische_km_5.jpg"
     ],
@@ -50,7 +56,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.777917 ,
@@ -58,7 +65,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.777000 ,
@@ -66,7 +74,8 @@
 	},
 	{
 		"Title": "Kasteel van Breda",
-		"description": "Dit plein bevindt zich aan de zuiderzijde van het kasteel. U heeft zo een mooi uitzicht op de monumentale poort, de zgn. Stadhouderspoort met het wapen van stadhouder Willem de Vijfde, dat overigens pas later is aangebracht. Achter u ziet u het ruiterstandbeeld van stadhouder koning Willem III geplaatst. Voor dit standbeeld werd onder de burgerij van Breda een inzameling gehouden die f 47.000,-- opbracht. Voor de oude Nassaustad Breda is de stadhouderkoning van grote betekenis geweest. Hij voltooide na anderhalve eeuw de verbouwing van het Kasteel.\r\n\r\nHendrik de Derde van Nassau en zijn (drede) vrouw Mencia de Mendoza hebben veel in Breda vertoefd, maar verbleven dan toch bij voorkeur in de vertrekken boven de overigens al lang geleden gesloopte watermolen op het terrein van het Kasteel.\r\n\r\nRechts van de poort bevindt zich het zgn. Blokhuis, de ambtswoning van de gouveneur van de KMA. Willem van Oranje woonde daar in een aangrenzende ruimte, maar Prins Maurits prefereerde de watermolen als dagelijks verblijf. Prins Philips Willem (1554-1618), de oudste en roomskatholieke zoon van Willem van Oranje, die vele jaren in Spaanse ballingschap verbleef en in Diest werd begraven, is de eerste Oranje geweest, die met zijn vrouw ook in het Kasteel ging wonen.\r\n\r\nHij liet het park Valkenberg verfraaien en het Kasteel echt als een paleis inrichten. Bij zijn dood in 1618 werden in Breda tweeenveertig dagen achtereen de kerkklokken geluid. Op de plaats van de vensters, links en rechts van de poort, bevonden zich in de zestiende en zeventiende eeuw sierlijke open galerijen. Het muisgrijze gebouw links van de kasteelpoort werd gebouwd in 1867. Het maakt thans ook deel uit van het KMA gebouwen complex. Meer geschiedenis schuilt er achter de witte pui van het gebouw." ,
+		"description_NL": "Dit plein bevindt zich aan de zuiderzijde van het kasteel. U heeft zo een mooi uitzicht op de monumentale poort, de zgn. Stadhouderspoort met het wapen van stadhouder Willem de Vijfde, dat overigens pas later is aangebracht. Achter u ziet u het ruiterstandbeeld van stadhouder koning Willem III geplaatst. Voor dit standbeeld werd onder de burgerij van Breda een inzameling gehouden die f 47.000,-- opbracht. Voor de oude Nassaustad Breda is de stadhouderkoning van grote betekenis geweest. Hij voltooide na anderhalve eeuw de verbouwing van het Kasteel.\r\n\r\nHendrik de Derde van Nassau en zijn (drede) vrouw Mencia de Mendoza hebben veel in Breda vertoefd, maar verbleven dan toch bij voorkeur in de vertrekken boven de overigens al lang geleden gesloopte watermolen op het terrein van het Kasteel.\r\n\r\nRechts van de poort bevindt zich het zgn. Blokhuis, de ambtswoning van de gouveneur van de KMA. Willem van Oranje woonde daar in een aangrenzende ruimte, maar Prins Maurits prefereerde de watermolen als dagelijks verblijf. Prins Philips Willem (1554-1618), de oudste en roomskatholieke zoon van Willem van Oranje, die vele jaren in Spaanse ballingschap verbleef en in Diest werd begraven, is de eerste Oranje geweest, die met zijn vrouw ook in het Kasteel ging wonen.\r\n\r\nHij liet het park Valkenberg verfraaien en het Kasteel echt als een paleis inrichten. Bij zijn dood in 1618 werden in Breda tweeenveertig dagen achtereen de kerkklokken geluid. Op de plaats van de vensters, links en rechts van de poort, bevonden zich in de zestiende en zeventiende eeuw sierlijke open galerijen. Het muisgrijze gebouw links van de kasteelpoort werd gebouwd in 1867. Het maakt thans ook deel uit van het KMA gebouwen complex. Meer geschiedenis schuilt er achter de witte pui van het gebouw." ,
+		"description_EN": "This square is located on the south side of the castle. You have such a nice view of the monumental gate, the so-called. Governor Gate with the arms of Count William V, which, moreover, is provided later. Behind you can see the equestrian statue of governor king William III did for this statue was kept a collection among the citizenry of Breda f 47.000, -.. yielded was the governor king of great significance for the old Nassau City Breda He completed after a half century the rebuilding of the castle.. \r \n \r \nHendrik Third Nassau and (Drede) wife Mencia de Mendoza have spent a lot in Breda, but stayed still preferably in the rooms above the otherwise long ago demolished mill in the grounds of the Castle . \r \n \r \nRechts of the gate is the so-called. Log Cabin, the residence of the governor of the KMA. William of Orange lived there in an adjoining room, but Prince Maurice preferred the mill as a daily stay. Prince Philip William (1554-1618), the oldest and Roman Catholic son of William of Orange, who was in Spanish exile for many years and was buried in Diest, was the first Orange, which went live in the castle with his wife. \r \n \r \nHij let beautify the park Valkenberg and the Castle really decorate a palace. At his death in 1618 were in Breda forty-two consecutive days the church bells sound. In the place of the windows left and right of the gate, were in the sixteenth and seventeenth centuries ornate open galleries. The mouse-gray building on the left of the castle gate was built in 1867. It is now also part of the KMA building complex. More history is behind the white facade of the building. ",
 		"images": [
       "historische_km_9.jpg"
     ],
@@ -76,7 +85,8 @@
 	},
 	{
 		"Title": "Stadhouderspoort",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": [
       "historische_km_11.jpg"
     ],
@@ -86,7 +96,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": [
       "historische_km_12.jpg"
     ],
@@ -96,7 +107,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": [
       "historische_km_8.jpg"
     ],
@@ -106,7 +118,8 @@
 	},
 	{
 		"Title": "Huis van Brecht",
-		"description": "rechter zijde" ,
+		"description_NL": "rechter zijde" ,
+		"description_EN": "Rightside",
 		"images": [
       "historische_km_7.jpg"
     ],
@@ -116,7 +129,8 @@
 	},
 	{
 		"Title": "Spanjaardgat",
-		"description": "rechter zijde" ,
+		"description_NL": "rechter zijde" ,
+		"description_EN": "Rightside",
 		"images": [
       "historische_km_6.jpg",
       "historische_km_14.jpg",
@@ -129,7 +143,8 @@
 	},
 	{
 		"Title": "Begin Vismarkt",
-		"description": "Van de plaats waar de vishal (1725) nog aangeeft dat hier vroeger een levendige handel in zeevis werd bedreven, wandelen we door de Vismarktstraat naar de Havermarkt. Deze markt is vanaf de jaren zestig tot op de dag van vandaag het uitgaanscentrum van Breda. De naam Havermarkt ten spijt moet worden vastgesteld, dat de granen niet hier. maar op de Grote Markt werden verhandeld. Wel werden hier door de boeren uit de omtrek groenten, eieren en boter aangevoerd en verkocht. In de zeventiende eeuw werd hier ook een leermarkt gehouden. De oude benamingen van dit pleintje luidden Groenmarkt, Botermarkt en Korenmarkt hetgeen de vroegere functies iets beter aanduidt.\r\n\r\nRond 1490 werd dit aangelegd, als een verbreding van de Visserstraat. Wie op dit verrukkelijke pleintje in de zomer op een terrasje een pilsje pakt, ontdekt (overigens ook zonder dat pilsje) al heel gauw, dat dit plein het mooiste uitzicht biedt op de grote toren van de Grote Kerk. Vanaf deze plek kunt u ook de mooie brede onderbouw van die toren bewonderen. Er is veel te zien op dit pleintje. Links op de hoek van de Havermarkt en Reigerstraat ziet u het huis 'De Arent', gebouwd rond ca. 1490. Het heeft nu een zeventiende eeuwse trapgevel en is in 1966 geheel gerestaureerd en verbouwd tot restaurant. Tegenover u op de Havermarkt bevinden zich nog twee panden die uw aandacht verdienen. Havermarkt nummer 5 dateert uit de zestiende en zeventiend eeuw. 'De Vogelstruys' op Havermarkt 21 is een opmerkelijk zeventiende eeuws monument met een hoge, niet symmetrische trapgevel. Ook dit huis heeft in de loop de eeuwen allerlei functies en bestemmingen gehad. Het was onder meer refugiehuis voor de zusters van Catharinadal in de zeventiende eeuw. Voor het beeldje 'De Troubadour', dat aan het eind van de Havermarkt prijkt, zijn vier exemplaren vervaardigd. De andere drie werden onthuld in Diest, Orange en Dillenburg, de zustersteden van Breda in de in 1963 tot stand gekomen Unie van Oranjesteden. Een stukje verder in de Visserstraat (nr. 31), aan de rechterkant, staat een fraai bakstenen huis uit de 17e eeuw met overblijfselen van een zestiende eeuwse gothische woning, de Drie Moren geheten." ,
+		"description_NL": "Van de plaats waar de vishal (1725) nog aangeeft dat hier vroeger een levendige handel in zeevis werd bedreven, wandelen we door de Vismarktstraat naar de Havermarkt. Deze markt is vanaf de jaren zestig tot op de dag van vandaag het uitgaanscentrum van Breda. De naam Havermarkt ten spijt moet worden vastgesteld, dat de granen niet hier. maar op de Grote Markt werden verhandeld. Wel werden hier door de boeren uit de omtrek groenten, eieren en boter aangevoerd en verkocht. In de zeventiende eeuw werd hier ook een leermarkt gehouden. De oude benamingen van dit pleintje luidden Groenmarkt, Botermarkt en Korenmarkt hetgeen de vroegere functies iets beter aanduidt.\r\n\r\nRond 1490 werd dit aangelegd, als een verbreding van de Visserstraat. Wie op dit verrukkelijke pleintje in de zomer op een terrasje een pilsje pakt, ontdekt (overigens ook zonder dat pilsje) al heel gauw, dat dit plein het mooiste uitzicht biedt op de grote toren van de Grote Kerk. Vanaf deze plek kunt u ook de mooie brede onderbouw van die toren bewonderen. Er is veel te zien op dit pleintje. Links op de hoek van de Havermarkt en Reigerstraat ziet u het huis 'De Arent', gebouwd rond ca. 1490. Het heeft nu een zeventiende eeuwse trapgevel en is in 1966 geheel gerestaureerd en verbouwd tot restaurant. Tegenover u op de Havermarkt bevinden zich nog twee panden die uw aandacht verdienen. Havermarkt nummer 5 dateert uit de zestiende en zeventiend eeuw. 'De Vogelstruys' op Havermarkt 21 is een opmerkelijk zeventiende eeuws monument met een hoge, niet symmetrische trapgevel. Ook dit huis heeft in de loop de eeuwen allerlei functies en bestemmingen gehad. Het was onder meer refugiehuis voor de zusters van Catharinadal in de zeventiende eeuw. Voor het beeldje 'De Troubadour', dat aan het eind van de Havermarkt prijkt, zijn vier exemplaren vervaardigd. De andere drie werden onthuld in Diest, Orange en Dillenburg, de zustersteden van Breda in de in 1963 tot stand gekomen Unie van Oranjesteden. Een stukje verder in de Visserstraat (nr. 31), aan de rechterkant, staat een fraai bakstenen huis uit de 17e eeuw met overblijfselen van een zestiende eeuwse gothische woning, de Drie Moren geheten." ,
+		"description_EN": "From the place where the fish market (1725) still indicates that there used to be a lively trade in marine fish, we walk through the Vismarktstraat to Havermarkt. This market is from the sixties until today, the entertainment center of Breda. the name Havermarkt despite that the grain must be determined here. but were traded on the Main market. but here were raised by the farmers from the perimeter vegetables, eggs and butter and sold. In the seventeenth century was also a leather market held. the old names of the square rang Groenmarkt, Botermarkt and Korenmarkt which the former functions indicating slightly better. \r \n \r \nRond 1490 was constructed, as an extension of the Visserstraat. Who in this delightful square in the summer on a terrace grabs a beer, discovered (also without beer) very soon that this square has the best view of the main tower of the Grote Kerk. from here you can also admire the beautiful broad base of that tower. There is much to see in this square. On the left corner of the Havermarkt and Reigerstraat you see the home 'Arent', built around 1490. It now has around a seventeenth century stepped gable and was completely restored in 1966 and converted into a restaurant. In front of you on the Havermarkt there are two buildings that deserve your attention. Havermarkt number 5 dates from the sixteenth century and zeventiend. The Vogelstruys' on Havermarkt 21 is a remarkable seventeenth-century building with high, asymmetrical gable. Also this house has had over the centuries many functions and destinations. It was among other Refuge for the Sisters of Catharinadal in the seventeenth century. The sculpture 'The Troubadour', which shines at the end of the Havermarkt, four copies are made. The other three were unveiled in Diest, Orange and Dillenburg, the twin cities of Breda in the established in 1963 Union of Orange Cities. A little further into the Visserstraat (no. 31), on the right, is a beautiful brick building from the 17th century remains of a sixteenth-century Gothic house, the Three Moors called. ",
 		"images": [
       "historische_km_20.jpg"
     ],
@@ -139,7 +154,8 @@
 	},
 	{
 		"Title": "Begin Havermarkt",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": [
       "historische_km_19.jpg"
     ],
@@ -149,7 +165,8 @@
 	},
 	{
 		"Title": "",
-    "description": "",
+    "description_NL": "",
+	"description_EN": "",
     "images": null,
 		"adress": "",
 		"longitude": 4.774888,
@@ -157,7 +174,8 @@
 	},
 	{
 		"Title": "Grote Kerk",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": [
       "historische_km_10.jpg"
     ],
@@ -167,7 +185,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.774888,
@@ -175,7 +194,8 @@
 	},
 	{
 		"Title": "Het Poortje",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.775138,
@@ -183,7 +203,8 @@
 	},
 	{
 		"Title": "Ridderstraat",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images":null ,
 		"adress": "",
 		"longitude": 4.775750,
@@ -201,7 +222,8 @@
 	},
 	{
 		"Title": "Bevrijdingsmonument",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": [
       "historische_km_24.jpg",
       "historische_km_25.jpg"
@@ -212,7 +234,8 @@
 	},
 	{
 		"Title": "Stadhuis",
-		"description": "De hoofdingang van het standhuis bevindt zich boven het bordes, dat bewaakt wordt door twee zandstenen leeuwen. Het stadhuis, zoals dat er nu uitziet, kwam pas in 1767 tot stand. Het zijn eigenlijk vier huizen, die toen door de bouwmeester van Oranje, Philips Willem Schonck, achter een gevel werden verborgen. Het oudste deel is de grote hal. Al in de vijftiende eeuw werd daarnaast ook een zgn. 'Cleyn raedthuys' in gebruik genomen. In 1898 kwam het meest rechtse huis, het 'Liggend Hert' erbij, dat nog steeds een aparte gevel. heeft.\r\n\r\nOndanks het feit dat het stadhuis slechts beperkt geopend is voor het publiek, willen we u de volgende informatie over de binnen zijde ervan toch niet onthouden. Vrouwe Justitia boven de hoofdingang en het houten beeld achter in de hal geven aan dat in het stadhuis vroeger ook recht gesproken werd. De balie van de vroegere rechtbank, eens staande tegen de achtermuur van de hal, wordt nu in het Breda's Museum bewaard. Links hangt een grote kopie van het beroemde schilderij van Velasques 'Las Lanzas', dat de overgave van Breda aan de Spaanse bevelhebber Spinola (1625) in beeld brengt. Het oorspronkelijke schilderij hangt in het Prado te Madrid. Het stadhuis wordt nog gebruikt voor openbare raadsvergaderingen en voor het sluiten van huwelijken. De burgemeester, wethouders en gemeete-ambtenaren huizen sinds februari 1992 in het nieuwe Stadskantoor aan de Claudius Prinsenlaan in Breda. Door het poortgebouw rechts van het stadhuis lopen we het Stadserf op. Midden op dit pleintje herinnert het beeldje De Turfschipper van Gerarda Rueb, aan de legendarische overval in 1590 van Adriaan van Bergen met zijn Turfschip. (De VVV Breda verkoopt hiervan een replica)." ,
+		"description_NL": "De hoofdingang van het standhuis bevindt zich boven het bordes, dat bewaakt wordt door twee zandstenen leeuwen. Het stadhuis, zoals dat er nu uitziet, kwam pas in 1767 tot stand. Het zijn eigenlijk vier huizen, die toen door de bouwmeester van Oranje, Philips Willem Schonck, achter een gevel werden verborgen. Het oudste deel is de grote hal. Al in de vijftiende eeuw werd daarnaast ook een zgn. 'Cleyn raedthuys' in gebruik genomen. In 1898 kwam het meest rechtse huis, het 'Liggend Hert' erbij, dat nog steeds een aparte gevel. heeft.\r\n\r\nOndanks het feit dat het stadhuis slechts beperkt geopend is voor het publiek, willen we u de volgende informatie over de binnen zijde ervan toch niet onthouden. Vrouwe Justitia boven de hoofdingang en het houten beeld achter in de hal geven aan dat in het stadhuis vroeger ook recht gesproken werd. De balie van de vroegere rechtbank, eens staande tegen de achtermuur van de hal, wordt nu in het Breda's Museum bewaard. Links hangt een grote kopie van het beroemde schilderij van Velasques 'Las Lanzas', dat de overgave van Breda aan de Spaanse bevelhebber Spinola (1625) in beeld brengt. Het oorspronkelijke schilderij hangt in het Prado te Madrid. Het stadhuis wordt nog gebruikt voor openbare raadsvergaderingen en voor het sluiten van huwelijken. De burgemeester, wethouders en gemeete-ambtenaren huizen sinds februari 1992 in het nieuwe Stadskantoor aan de Claudius Prinsenlaan in Breda. Door het poortgebouw rechts van het stadhuis lopen we het Stadserf op. Midden op dit pleintje herinnert het beeldje De Turfschipper van Gerarda Rueb, aan de legendarische overval in 1590 van Adriaan van Bergen met zijn Turfschip. (De VVV Breda verkoopt hiervan een replica)." ,
+		"description_EN": "The main entrance to the state house is the town hall, as it now appears above the platform, which is guarded by two sandstone lions., Only came in 1767 into being. They are actually four houses, when the Orange builder, Philips Willem Schonck were hidden behind a wall. the oldest part is the great hall. As early as the fifteenth century also became a so-called. Cleyn raedthuys 'inaugurated. in 1898 came the most right house, Lying Hert' there, it is still a separate facade. has. \r \n \r \nOndanks the fact that the Town Hall is open only limited to the public, we wish you the following information about the not yet refrain inner side. Lady Justice over the main entrance and give the wooden statue in the back of the hall that was spoken in the town hall used to be right. the desk of the former court, once standing against the back wall of the hall, is now kept in the Breda Museum. Left hangs a large copy of the famous painting by Velasques 'Las Lanzas' the surrender of Breda to the Spanish commander Spinola (1625) portrays. The original painting hangs in the Prado in Madrid. The town hall is still used for public councils and for the conclusion of marriages. The mayor, aldermen and officials gemeete homes since February 1992 in the new City Hall in Claudius Prinsenlaan in Breda. By the gatehouse to the right of the town hall we walk on the Stadserf. In the middle of this square recalls the statue's Turfschipper of Gerarda Rueb, the legendary robbery in 1590 Adriaan van Bergen with his Turfschip. (VVV Breda sells a replica thereof). ",
 		"images": null,
 		"adress": "",
 		"longitude": 4.776112,
@@ -220,7 +243,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN":"",
 		"images": null,
 		"adress": "",
 		"longitude": 4.776362,
@@ -228,7 +252,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.776555,
@@ -236,7 +261,8 @@
 	},
 	{
 		"Title": "Antonius van Paduakerk",
-		"description": "Op de hoek van de Halstraat / St. Janstraat staan we voor het gebouw met de pilaren: het garnizoenscommando. Vroeger werd het gebouwtje 'hoofdwacht' genoemd. Voordat die hoofdwacht daar introk, stond op deze plaats de St. Janskapel met daar weer achter de gebouwen van de Ridderorde van St. Jan. De leden van deze orde verzorgden hier zieken en armen. De straatnaam herinnert aan deze ridders van St. Jan. in de kapel begon de grote stadsbrand van 1534.\r\n\r\nDe St. Janstraat heeft ooit ook de Veterstraat geheten, waarschijnlijk naar de huydvetters of leerlooiers, die in de St. Janstraat hun beroep uitoefenden.\r\n\r\nAan uw rechterhand in de St. Janstraat staat de Antonius van Paduakerk, een opvallend rijk uitgevoerde waterstaatskerk. Deze kerk is in 1836 gebouwd als eerste katholieke kerk na de schuilkerkenperiode, die officieel gebouwd mocht worden. In 1853 werd het de eerste bisschopskerk (kathedraal) van het nieuwe bisdom in Breda. De zetel van de bisschop van Breda keerde na een afwezigheid van 32 jaar aan het begin van 2001 terug naar de Antoniuskerk die daarmee de status van kathedraal opnieuw verwierf. Aan de voorgevel zijn duidelijk de drie soorten antieke zuilen te zien. Van onder naar boven: Dorische, Ionische en Corinthische zuilen. Het beeld boven de ingang stelt 'de Godsdienst' voor. Binnen valt direct de schitterende houten preekstoel op. Hierin is in verschillende panelen het leven van H. Antonius uitgebeeld. Even verder bevinden zich restanten of alleen maar herinneringen aan twee zeer voorname hofhuizen, het Huis Ocrum, waarin tot 1994 de Kunstacademie St. Joost was gevestigd en het Huis Hersbeeck, thans pastorie. In 1667 verbleven in beide huizen de Engelse gezanten, die deelnamen aan de Vredesonderhandelingen van Breda. De afgevaardigden van de Raad van State gebruikten het pand (nr. 16) wanneer zij in de stad op dienstreis waren, maar ook koning Lodewijk Napoleon heeft er gelogeerd. De erker van dit pand had een controlerende functie: de pastoor kon goed in de gaten houden wie er naar de kerk ging.\r\n\r\nHet Huis Ocrum (nr. 18) was van 1848 tot 1952 rooms burgerweeshuis. Dat kunt u nog zien aan de kinderkopjes die aan de 19e eeuwse voorgevel van het academiegebouw zijn aangebracht. De rode kleur van dit huis (na de restauratie aangebracht) zal door de loop der jaren een mooie grijs rode kleur van dit huis (na de restauratie aangebracht) zal door de loop der jaren een mooie grijs rode kleur krijgen." ,
+		"description_NL": "Op de hoek van de Halstraat / St. Janstraat staan we voor het gebouw met de pilaren: het garnizoenscommando. Vroeger werd het gebouwtje 'hoofdwacht' genoemd. Voordat die hoofdwacht daar introk, stond op deze plaats de St. Janskapel met daar weer achter de gebouwen van de Ridderorde van St. Jan. De leden van deze orde verzorgden hier zieken en armen. De straatnaam herinnert aan deze ridders van St. Jan. in de kapel begon de grote stadsbrand van 1534.\r\n\r\nDe St. Janstraat heeft ooit ook de Veterstraat geheten, waarschijnlijk naar de huydvetters of leerlooiers, die in de St. Janstraat hun beroep uitoefenden.\r\n\r\nAan uw rechterhand in de St. Janstraat staat de Antonius van Paduakerk, een opvallend rijk uitgevoerde waterstaatskerk. Deze kerk is in 1836 gebouwd als eerste katholieke kerk na de schuilkerkenperiode, die officieel gebouwd mocht worden. In 1853 werd het de eerste bisschopskerk (kathedraal) van het nieuwe bisdom in Breda. De zetel van de bisschop van Breda keerde na een afwezigheid van 32 jaar aan het begin van 2001 terug naar de Antoniuskerk die daarmee de status van kathedraal opnieuw verwierf. Aan de voorgevel zijn duidelijk de drie soorten antieke zuilen te zien. Van onder naar boven: Dorische, Ionische en Corinthische zuilen. Het beeld boven de ingang stelt 'de Godsdienst' voor. Binnen valt direct de schitterende houten preekstoel op. Hierin is in verschillende panelen het leven van H. Antonius uitgebeeld. Even verder bevinden zich restanten of alleen maar herinneringen aan twee zeer voorname hofhuizen, het Huis Ocrum, waarin tot 1994 de Kunstacademie St. Joost was gevestigd en het Huis Hersbeeck, thans pastorie. In 1667 verbleven in beide huizen de Engelse gezanten, die deelnamen aan de Vredesonderhandelingen van Breda. De afgevaardigden van de Raad van State gebruikten het pand (nr. 16) wanneer zij in de stad op dienstreis waren, maar ook koning Lodewijk Napoleon heeft er gelogeerd. De erker van dit pand had een controlerende functie: de pastoor kon goed in de gaten houden wie er naar de kerk ging.\r\n\r\nHet Huis Ocrum (nr. 18) was van 1848 tot 1952 rooms burgerweeshuis. Dat kunt u nog zien aan de kinderkopjes die aan de 19e eeuwse voorgevel van het academiegebouw zijn aangebracht. De rode kleur van dit huis (na de restauratie aangebracht) zal door de loop der jaren een mooie grijs rode kleur van dit huis (na de restauratie aangebracht) zal door de loop der jaren een mooie grijs rode kleur krijgen." ,
+		"description_EN": "At the corner of Halstraat / St Janstraat we face the building with the pillars:. The garrison command Previously called the building guardroom Before the guard-it was withdrawing, stood on this spot, the St. John's Chapel, behind again. the buildings of the knights of St John the members of this order here looked after the sick and poor. the street name recalls the knights of St John in the chapel started the great fire of 1534. \r \n \r \nThe St. Janstraat once also known as the Lace Street, probably the huydvetters tanners, exercising their profession in the St. Janstraat. \r \n \r \naan your right at St. Janstraat state Anthony of Padua Church, a striking empire carried by water church. This church was built in 1836 as the first Catholic church after the hidden church period, which could be officially built. in 1853, it became the new diocese of Breda, the first bishop church (cathedral). the seat of the bishop of Breda returned after an absence of 32 years at the beginning of 2001 back to Antonius Church thereby gained back the status of cathedral. On the facade are clearly seen three types of antique columns. From bottom to top: Doric, Ionic and Corinthian columns. The picture above the entrance represents 'Religion' for. Within immediately notice the beautiful wooden pulpit. Herein is depicted in different panels of Antonius H. life. A little further there are remnants or just memories of two very prominent primary mansions, the House Ocrum, where until 1994 the Art Academy St. Joost was located and the House Hersbeeck, now parsonage. In 1667 stayed the British envoys in both houses, who participated in the peace negotiations of Breda. The deputies of the State Council used the property (no. 16) when they were on mission in the city, but also King Louis Napoleon has stayed. The bay window of this building had a controlling function: the priest could keep an eye on who went to church \r \n \r \nThe House Ocrum was from 1848 to 1952 Roman orphanage. (No. 18). That you can still see the cobbles that were made to the 19th century facade of the academy building. The red color of this house (made after the restoration) will (introduced after the restoration) through the years a beautiful gray red color of this house will get a nice gray color red through the years. ",
 		"images": null,
 		"adress": "",
 		"longitude": 4.777250,
@@ -244,7 +270,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.778500,
@@ -252,7 +279,8 @@
 	},
 	{
 		"Title": "Bibliotheek",
-		"description": "In de Molenstraat ziet u recht de Bibliotheek, ontworpen door architect Herman Hertzberger. Omdat de Molenstraat vrij smal is, heeft de architect ruimte gecreeerd door de bibliotheek schuin oplopende wanden te geven. Op de plaats van de bibliotheek (op de hoek met de Oude Vest) bevond zich vroeger een poort. Boven deze poort bevond zich 's Heeren Gevangenhuys, waar de zwaarst gestraften werden ondergebracht. De plaats is nog met keitjes in het asfalt aangegeven; de asfaltweg is de plaats van de oude stadsgracht." ,
+		"description_NL": "In de Molenstraat ziet u recht de Bibliotheek, ontworpen door architect Herman Hertzberger. Omdat de Molenstraat vrij smal is, heeft de architect ruimte gecreeerd door de bibliotheek schuin oplopende wanden te geven. Op de plaats van de bibliotheek (op de hoek met de Oude Vest) bevond zich vroeger een poort. Boven deze poort bevond zich 's Heeren Gevangenhuys, waar de zwaarst gestraften werden ondergebracht. De plaats is nog met keitjes in het asfalt aangegeven; de asfaltweg is de plaats van de oude stadsgracht." ,
+		"description_EN": "In the Molenstraat you can see right to the Library, designed by architect Herman Hertzberger. Because Molenstraat is quite narrow, the architect space has created by giving the library sloping walls. In the place of the library (on the corner with the Old vest) was formerly a gate above the gate stood the Lord Caught Huys, where most prisoners were housed the place is cobbled indicated in the asphalt,.. the asphalt road is the site of the ancient city moat. " ,
 		"images": null,
 		"adress": "",
 		"longitude": 4.778945,
@@ -260,7 +288,8 @@
 	},
   {
     "Title": "",
-    "description": "",
+    "description_NL": "",
+	"description_EN": "",
     "images": null,
     "adress": "",
     "longitude": 4.780222,
@@ -268,15 +297,17 @@
   },
   {
     "Title": "Kloosterkazerne",
-    "description": "Op deze hoek ziet u aan de overkant een voornaam monument uit de geschiedenis van Breda: de kloosterkazerne. Het is een deel van het vroegere zusterklooster St. Catharinadal, dat hier sinds 1295 gevestigd was. Het huidige gebouw dateert uit 1504. In 1645 werden de zusters Norbertinessen vanuit Breda naar Oosterhout verdreven.",
-    "images": null,
+    "description_NL": "Op deze hoek ziet u aan de overkant een voornaam monument uit de geschiedenis van Breda: de kloosterkazerne. Het is een deel van het vroegere zusterklooster St. Catharinadal, dat hier sinds 1295 gevestigd was. Het huidige gebouw dateert uit 1504. In 1645 werden de zusters Norbertinessen vanuit Breda naar Oosterhout verdreven.",
+    "description_EN": "In this corner you can see across a grand monument in the history of Breda. The monastery barracks is part of the former convent of St. Catharinadal, which was established here since 1295, the current building dates back to 1504. In 1645 became. sisters Norbetine expelled from Breda to Oosterhout. ",
+	"images": null,
     "adress": "",
     "longitude": 4.781028,
     "latitude": 51.587722
   },
   {
     "Title": "Chasse theater",
-    "description": "",
+    "description_NL": "",
+	"description_EN": "",
     "images": null,
     "adress": "",
     "longitude": 4.782000,
@@ -284,7 +315,8 @@
   },
   {
     "Title": "",
-    "description": "",
+    "description_NL": "",
+	"description_EN": "",
     "images": null,
     "adress": "",
     "longitude": 4.781250,
@@ -292,7 +324,8 @@
   },
 	{
 		"Title": "Binding van Isaac",
-		"description": "" ,
+		"description_NL": "",
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.780888,
@@ -300,7 +333,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "",
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.780445,
@@ -308,7 +342,8 @@
 	},
 	{
 		"Title": "Beyerd",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.781000,
@@ -316,7 +351,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.780445,
@@ -324,7 +360,8 @@
 	},
 	{
 		"Title": "Gasthuispoort",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",		
 		"images": null,
 		"adress": "",
 		"longitude": 4.780000,
@@ -332,7 +369,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.779862,
@@ -340,7 +378,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.779695,
@@ -348,7 +387,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.778333,
@@ -356,7 +396,8 @@
 	},
 	{
 		"Title": "Willem Merkxtuin",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.777945,
@@ -364,7 +405,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "" ,
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.777805,
@@ -372,7 +414,8 @@
 	},
 	{
 		"Title": "Begijnenhof",
-		"description": "" ,
+		"description_NL": "",
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.778362,
@@ -380,7 +423,8 @@
 	},
 	{
 		"Title": "",
-		"description": "" ,
+		"description_NL": "",
+		"description_EN": "",
 		"images": null,
 		"adress": "",
 		"longitude": 4.777805,
@@ -388,7 +432,8 @@
 	},
 	{
 		"Title": "Einde stadswandeling",
-		"description": "" ,
+		"description_NL": "U bent aan het einde van de Historische kilometer. Keer terug naar de VVV." ,
+		"description_EN": "You're at the end of the Historic kilometers. Return to the Tourist Office." ,
 		"images": null,
 		"adress": "",
 		"longitude": 4.776250,

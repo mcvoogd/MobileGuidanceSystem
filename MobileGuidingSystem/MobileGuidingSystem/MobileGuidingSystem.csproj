@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MobileGuidingSystem</RootNamespace>
     <AssemblyName>MobileGuidingSystem</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>nl-NL</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
@@ -93,6 +93,7 @@
     <Content Include="Assets\audio_grote_klok.mp3" />
     <Content Include="Assets\A_LOVE_OF_THUNDER.TTF" />
     <Content Include="Assets\entered-pin.png" />
+    <Content Include="Assets\home-entered-pin.png" />
     <Content Include="Assets\JSON\blindwalls.json" />
     <Content Include="Assets\JSON\HistorischeKM.json" />
     <None Include="project.json" />
@@ -388,6 +389,7 @@
     <Content Include="Assets\Pictures\ZenkOne_Pic8.jpg" />
     <Content Include="Assets\Pictures\ZenkOne_vlaszak-6-1024-kopie.jpg" />
     <Content Include="Assets\Pictures\ZenkOne_vlaszak-6-1024.jpg" />
+    <Content Include="Assets\pin.png" />
     <Content Include="Assets\PlayerPin.png" />
     <Content Include="Assets\uk.png" />
     <Content Include="Assets\vvv_logo.png" />
@@ -445,7 +447,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsMobile, Version=10.0.10586.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

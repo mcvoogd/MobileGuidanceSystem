@@ -48,7 +48,15 @@ namespace MobileGuidingSystem.View
         //}
                 
         public void AddToSplitView()
-        { 
+        {
+            if (sight.Name == "Grote Kerk")
+            {
+                MediaElement media = new MediaElement();
+                media.Source = new Uri("ms-appx:///Assets/audio_grote_klok.mp3");
+                media.AutoPlay = false;
+                media.AreTransportControlsEnabled = true;
+                flipView.Items.Add(media);
+            }
             foreach (string s in sight.FullImagePaths)
             {
                 ImageBrush brush = new ImageBrush();
@@ -56,10 +64,9 @@ namespace MobileGuidingSystem.View
                 brush.Stretch = Stretch.UniformToFill;
                 FlipViewItem item = new FlipViewItem();
                 item.Background = brush;
-                FlipView.Items.Add(item);
+                flipView.Items.Add(item);
+                
             }
-             
-
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
