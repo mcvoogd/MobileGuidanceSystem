@@ -86,7 +86,7 @@ namespace MobileGuidingSystem.View
             switch (accessStatus)
             {
                 case GeolocationAccessStatus.Allowed:
-                    _geolocator = new Geolocator { DesiredAccuracy = PositionAccuracy.Default, MovementThreshold = 7 };
+                    _geolocator = new Geolocator { DesiredAccuracy = PositionAccuracy.Default, MovementThreshold = 2 };
                     // geolocator = new Geolocator {ReportInterval = 1000};
                     _geolocator.PositionChanged += Geolocator_PositionChanged;
 

@@ -40,6 +40,7 @@ namespace MobileGuidingSystem.ViewModel
         private MainPage page;
         private Sight NextSight;
         private bool routeDrawn;
+        private List<MapRouteView> WalkedRoutes = new List<MapRouteView>();
 
         //TODO: Fix this ofzo
         public MainModel(MapControl mapcontrol, Route route, MainPage page)
@@ -98,6 +99,7 @@ namespace MobileGuidingSystem.ViewModel
                                                     }
                                                 }
 
+                                                deleteRoutes();
                                                 redrawRoute(s.Position, NextSight.Position, true);
                                                 ContentDialog1 dialog = new ContentDialog1(s);
                                                 var result = await dialog.ShowAsync();
@@ -143,15 +145,22 @@ namespace MobileGuidingSystem.ViewModel
             {
                 drawSight(CurrentRoute.Sights);
                 DrawRoutes(CurrentRoute.Sights);
-                redrawRoute(CurrentRoute.Sights[0], CurrentRoute.Sights[1], false);
+               // redrawRoute(CurrentRoute.Sights[0], CurrentRoute.Sights[1], false);
             }
-            catch  {  }
+            catch { }
         }
 
         private async void redrawRoute(Geopoint p1, Geopoint p2, bool deleteprevious)
         {
-            if(deleteprevious)
-            _map.Routes.RemoveAt(_map.Routes.Count - 1);
+            if (deleteprevious)
+            {
+                try
+                {
+                    _map.Routes.RemoveAt(_map.Routes.Count - 1);
+
+                }
+                catch { }
+            }
 
             MapRouteFinderResult routeFinderResult = await MapRouteFinder.GetWalkingRouteAsync(p1, p2);
 
@@ -222,12 +231,12 @@ namespace MobileGuidingSystem.ViewModel
 
         private void deleteRoutes()
         {
-            //for (int i = _map.Routes.Count - 1; i >= 0; i--)
-            //{
-            //    if (_map.Routes[i].RouteColor == _routeColor)
-            //        _map.Routes.RemoveAt(i);
-            _map.Routes.Clear();
-            //}
+            for (int i = _map.Routes.Count - 1; i >= 0; i--)
+            {
+                if (_map.Routes[i].RouteColor == Colors.Green)
+                    _map.Routes.RemoveAt(i);
+
+            }
         }
 
         //private void deleteRouteswalked()
@@ -289,6 +298,7 @@ namespace MobileGuidingSystem.ViewModel
 
         public async void DrawWalkedRoute(List<Geopoint> list)
         {
+            deleteWalkedroute();
             if (list.Count > 2)
             {
                 MapRouteFinderResult routeFinder =
@@ -297,13 +307,33 @@ namespace MobileGuidingSystem.ViewModel
                 {
                     MapRouteView routeView = new MapRouteView(routeFinder.Route);
                     routeView.RouteColor = Colors.Red;
-                    _map.Routes.Add(routeView);
+                    WalkedRoutes.Add(routeView);
+                   _map.Routes.Add(routeView);
                 }
                 else if (routeFinder.Status == MapRouteFinderStatus.NoRouteFoundWithGivenOptions)
                 {
                     MapRouteView routeView = new MapRouteView(routeFinder.Route);
                     routeView.RouteColor = Colors.Red;
+                    WalkedRoutes.Add(routeView);
                     _map.Routes.Add(routeView);
+                }
+            }
+        }
+
+        private void deleteWalkedroute()
+        {
+            if(WalkedRoutes.Count > 40)
+            {
+                for(int i = 0; i < 3; i++)
+                {
+                    try
+                    {
+                    if (_map.Routes[i].RouteColor.Equals(Colors.Red))
+                        {
+                            _map.Routes.RemoveAt(i);
+                        }
+                    }
+                    catch { }
                 }
             }
         }
@@ -401,11 +431,6 @@ namespace MobileGuidingSystem.ViewModel
                             int index = _map.MapElements.IndexOf(player);
                             _map.MapElements.RemoveAt(index);
                             _map.Center = User.Location;
-                            if (!routeDrawn)
-                            {
-                                redrawRoute(User.Location, NextSight.Position, false);
-                                routeDrawn = false;
-                            }
                             break;
                         }
                     }
@@ -427,7 +452,7 @@ namespace MobileGuidingSystem.ViewModel
             }
             catch (Exception e)
             {
-                Debug.WriteLine("you fuked up cancerjung" + e);
+                Debug.WriteLine("catched" + e);
             }
 
         }
