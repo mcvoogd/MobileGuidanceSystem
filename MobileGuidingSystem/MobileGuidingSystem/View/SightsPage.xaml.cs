@@ -30,12 +30,17 @@ namespace MobileGuidingSystem.View
         {
             this.InitializeComponent();
             route = MainModel.CurrentRoute;
-            foreach (Sight sight in MainModel.CurrentRoute.Sights)
-            {
-                if (sight.Name != "")
+            try { 
+                foreach (Sight sight in MainModel.CurrentRoute.Sights)
                 {
-                    fixedSightList.Add(sight);
+                    if (sight.Name != "")
+                    {
+                        fixedSightList.Add(sight);
+                    }
                 }
+            }
+            catch
+            {
             }
             //SightList.ItemsSource = route.Sights;
             SightList.ItemsSource = fixedSightList;

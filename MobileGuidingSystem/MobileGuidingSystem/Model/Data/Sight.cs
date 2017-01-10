@@ -34,7 +34,7 @@ namespace MobileGuidingSystem.Model.Data
             {
                 var locale = ApplicationLanguages.PrimaryLanguageOverride;
 
-                return locale == "en_US"
+                return locale == "en-US"
                            ? (description_EN ?? "No translation available")
                            : (description_NL ?? description);
             }
