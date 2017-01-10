@@ -1,4 +1,5 @@
-﻿using Windows.UI;
+﻿using Windows.ApplicationModel.Resources;
+using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -34,6 +35,9 @@ namespace MobileGuidingSystem.View
         private void HamburgerButton_OnClick(object sender, RoutedEventArgs e)
         {
             HamburgerSplitview.IsPaneOpen = !HamburgerSplitview.IsPaneOpen;
+            //MapText.Text = ResourceLoader.GetForCurrentView("Strings").GetString("NAVIGATION_MAP.Text");
+            //var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
+            //MapText.Text = loader.GetString("NAVIGATION_MAP.Text");
         }
 
         //TODO add navigation to the pages
@@ -55,15 +59,8 @@ namespace MobileGuidingSystem.View
             {
                 Frame.Navigate(typeof(LanguageSelectionPage));
             }
-            else if (Settings.IsSelected)
-            {
-                Frame.Navigate(typeof(SettingsPage));
-            }
-            else if (Help.IsSelected)
-            {
-                Frame.Navigate(typeof(HelpPage));
-            }
             HamburgerSplitview.IsPaneOpen = false;
+            MenuListBox.SelectedIndex = -1;
         }
     }
 }
