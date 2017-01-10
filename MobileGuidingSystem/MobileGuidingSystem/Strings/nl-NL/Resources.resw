@@ -129,22 +129,28 @@
   <data name="LANGUAGEPAGE_LANGUAGE.Text" xml:space="preserve">
     <value>taal</value>
   </data>
-  <data name="NAVIGATIONPAGE_SETTINGS.Text" xml:space="preserve">
+  <data name="LANGUAGEPAGE_LANGUAGE_TEXT" xml:space="preserve">
+    <value>taal</value>
+  </data>
+  <data name="NAVIGATIONPAGE_SETTINGS_TEXT" xml:space="preserve">
     <value>instellingen</value>
   </data>
   <data name="NAVIGATIONPAGE_SIGHTS.FontSize" xml:space="preserve">
     <value>22</value>
   </data>
-  <data name="NAVIGATIONPAGE_SIGHTS.Text" xml:space="preserve">
+  <data name="NAVIGATIONPAGE_SIGHTS_TEXT" xml:space="preserve">
     <value>bezienswaardigheden</value>
   </data>
-  <data name="NAVIGATION_MAP.Text" xml:space="preserve">
+  <data name="NAVIGATION_MAP_TEXT" xml:space="preserve">
     <value>kaart</value>
   </data>
   <data name="ROUTEPAGE_SELECTROUTE.FontSize" xml:space="preserve">
     <value>36</value>
   </data>
   <data name="ROUTEPAGE_SELECTROUTE.Text" xml:space="preserve">
+    <value>selecteer route</value>
+  </data>
+  <data name="ROUTEPAGE_SELECTROUTE_TEXT" xml:space="preserve">
     <value>selecteer route</value>
   </data>
   <data name="SETTINGSPAGE_SETTINGS.FontSize" xml:space="preserve">
@@ -157,6 +163,9 @@
     <value>24</value>
   </data>
   <data name="SIGHTSPAGE_SIGHTS.Text" xml:space="preserve">
+    <value>bezienswaardigheden</value>
+  </data>
+  <data name="SIGHTSPAGE_SIGHTS_TEXT" xml:space="preserve">
     <value>bezienswaardigheden</value>
   </data>
 </root>

@@ -139,9 +139,13 @@ namespace MobileGuidingSystem.ViewModel
             {
                 _map.MapElements.Clear();
             }
-            drawSight(CurrentRoute.Sights);
-            DrawRoutes(CurrentRoute.Sights);
-            NextSight = CurrentRoute.Sights[0];
+            try
+            {
+                drawSight(CurrentRoute.Sights);
+                DrawRoutes(CurrentRoute.Sights);
+                redrawRoute(CurrentRoute.Sights[0], CurrentRoute.Sights[1], false);
+            }
+            catch  {  }
         }
 
         private async void redrawRoute(Geopoint p1, Geopoint p2, bool deleteprevious)

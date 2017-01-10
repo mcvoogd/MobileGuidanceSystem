@@ -35,9 +35,12 @@ namespace MobileGuidingSystem.View
         private void HamburgerButton_OnClick(object sender, RoutedEventArgs e)
         {
             HamburgerSplitview.IsPaneOpen = !HamburgerSplitview.IsPaneOpen;
-            //MapText.Text = ResourceLoader.GetForCurrentView("Strings").GetString("NAVIGATION_MAP.Text");
-            //var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
-            //MapText.Text = loader.GetString("NAVIGATION_MAP.Text");
+            //MapText.Text = ResourceLoader.GetForCurrentView("Strings").GetString("NAVIGATION_MAP_TEXT");
+            var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
+            MapText.Text = loader.GetString("NAVIGATION_MAP_TEXT");
+            RouteText.Text = loader.GetString("ROUTEPAGE_SELECTROUTE_TEXT");
+            SightsText.Text = loader.GetString("NAVIGATIONPAGE_SIGHTS_TEXT");
+            LanguageText.Text = loader.GetString("LANGUAGEPAGE_LANGUAGE_TEXT");
         }
 
         //TODO add navigation to the pages
