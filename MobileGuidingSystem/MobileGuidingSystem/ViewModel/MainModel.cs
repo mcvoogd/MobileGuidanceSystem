@@ -82,6 +82,21 @@ namespace MobileGuidingSystem.ViewModel
                                             if (icon.Title == report.Geofence.Id)
                                             {
                                                 Sight s = mapElement.ReadData();
+                                                Sight nextSight = null;
+
+                                                for (int i = CurrentRoute.Sights.IndexOf(s)+1;
+                                                    i < CurrentRoute.Sights.Count;
+                                                    i++)
+                                                {
+                                                    Sight sight = CurrentRoute.Sights[i];
+                                                    if (sight.Name != "")
+                                                    {
+                                                        nextSight = sight;
+                                                        break;
+                                                    }
+                                                }
+
+                                                redrawRoute(s, nextSight, true);
                                                 Debug.WriteLine("setting viewed to true");
                                                 s.viewed = true;
                                                 ContentDialog1 dialog = new ContentDialog1(s);
@@ -126,10 +141,28 @@ namespace MobileGuidingSystem.ViewModel
             }
             drawSight(CurrentRoute.Sights);
             DrawRoutes(CurrentRoute.Sights);
+            redrawRoute(CurrentRoute.Sights[0], CurrentRoute.Sights[1], false);
+        }
+
+        private async void redrawRoute(Sight s1, Sight s2, bool deleteprevious)
+        {
+            if(deleteprevious)
+            _map.Routes.RemoveAt(_map.Routes.Count - 1);
+
+            MapRouteFinderResult routeFinderResult = await MapRouteFinder.GetWalkingRouteAsync(s1.Position, s2.Position);
+
+            if (routeFinderResult.Status == MapRouteFinderStatus.Success)
+            {
+                MapRouteView routeView = new MapRouteView(routeFinderResult.Route);
+                routeView.RouteColor = Colors.Green;
+                _map.Routes.Add(routeView);
+
+            }
         }
 
         private void RedrawSight(MapIcon icon)
         {
+
             foreach (MapElement mapElement in _map.MapElements)
             {
                 if (mapElement.GetType() != typeof(MapIcon)) continue;

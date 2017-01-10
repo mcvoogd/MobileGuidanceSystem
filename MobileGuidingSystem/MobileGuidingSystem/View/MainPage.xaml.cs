@@ -1,8 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Windows.Devices.Geolocation;
+using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
@@ -55,6 +58,7 @@ namespace MobileGuidingSystem.View
             }
             this.Loaded += PageLoaded;
         }
+
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
